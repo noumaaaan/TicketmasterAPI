@@ -33,7 +33,7 @@
 		8CF802B32BE8B56C00EC8586 /* TMTicketLimit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF802B22BE8B56C00EC8586 /* TMTicketLimit.swift */; };
 		8CF802B62BE94AAC00EC8586 /* EventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF802B52BE94AAC00EC8586 /* EventView.swift */; };
 		8CF802B82BE94ABC00EC8586 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF802B72BE94ABC00EC8586 /* MockData.swift */; };
-		8CF802BC2BE967FB00EC8586 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF802BB2BE967FB00EC8586 /* Configuration.swift */; };
+		8CF802BE2BE968B500EC8586 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF802BD2BE968B500EC8586 /* Configuration.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,7 +83,7 @@
 		8CF802B22BE8B56C00EC8586 /* TMTicketLimit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMTicketLimit.swift; sourceTree = "<group>"; };
 		8CF802B52BE94AAC00EC8586 /* EventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventView.swift; sourceTree = "<group>"; };
 		8CF802B72BE94ABC00EC8586 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
-		8CF802BB2BE967FB00EC8586 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		8CF802BD2BE968B500EC8586 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,8 +182,8 @@
 			isa = PBXGroup;
 			children = (
 				8CF8028E2BE86F5500EC8586 /* Endpoint.swift */,
-				8CF802BB2BE967FB00EC8586 /* Configuration.swift */,
 				8CF802B72BE94ABC00EC8586 /* MockData.swift */,
+				8CF802BD2BE968B500EC8586 /* Configuration.swift */,
 				8CF802902BE8775300EC8586 /* APIService.swift */,
 			);
 			path = Networking;
@@ -375,7 +375,7 @@
 				8CF802632BE86F2600EC8586 /* TicketmasterApp.swift in Sources */,
 				8CF802932BE879AF00EC8586 /* TMEvents.swift in Sources */,
 				8CF802AB2BE8AF2D00EC8586 /* TMPromoter.swift in Sources */,
-				8CF802BC2BE967FB00EC8586 /* Configuration.swift in Sources */,
+				8CF802BE2BE968B500EC8586 /* Configuration.swift in Sources */,
 				8CF802982BE889E100EC8586 /* TMPage.swift in Sources */,
 				8CF802A52BE8AE5900EC8586 /* TMImage.swift in Sources */,
 				8CF802B32BE8B56C00EC8586 /* TMTicketLimit.swift in Sources */,
