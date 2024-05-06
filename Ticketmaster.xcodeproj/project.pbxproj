@@ -14,6 +14,26 @@
 		8CF802742BE86F2900EC8586 /* TicketmasterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF802732BE86F2900EC8586 /* TicketmasterTests.swift */; };
 		8CF8027E2BE86F2900EC8586 /* TicketmasterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF8027D2BE86F2900EC8586 /* TicketmasterUITests.swift */; };
 		8CF802802BE86F2900EC8586 /* TicketmasterUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF8027F2BE86F2900EC8586 /* TicketmasterUITestsLaunchTests.swift */; };
+		8CF8028F2BE86F5500EC8586 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF8028E2BE86F5500EC8586 /* Endpoint.swift */; };
+		8CF802912BE8775300EC8586 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF802902BE8775300EC8586 /* APIService.swift */; };
+		8CF802932BE879AF00EC8586 /* TMEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF802922BE879AF00EC8586 /* TMEvents.swift */; };
+		8CF802952BE87BA500EC8586 /* Events+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF802942BE87BA500EC8586 /* Events+ViewModel.swift */; };
+		8CF802982BE889E100EC8586 /* TMPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF802972BE889E100EC8586 /* TMPage.swift */; };
+		8CF8029A2BE88A1000EC8586 /* TMLinks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF802992BE88A1000EC8586 /* TMLinks.swift */; };
+		8CF8029E2BE89FF400EC8586 /* TMCountryCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF8029D2BE89FF400EC8586 /* TMCountryCode.swift */; };
+		8CF802A02BE8AD8B00EC8586 /* TMClassification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF8029F2BE8AD8B00EC8586 /* TMClassification.swift */; };
+		8CF802A22BE8ADE300EC8586 /* TMEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF802A12BE8ADE300EC8586 /* TMEvent.swift */; };
+		8CF802A52BE8AE5900EC8586 /* TMImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF802A42BE8AE5900EC8586 /* TMImage.swift */; };
+		8CF802A72BE8AE7100EC8586 /* TMSales.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF802A62BE8AE7100EC8586 /* TMSales.swift */; };
+		8CF802A92BE8AEA000EC8586 /* TMDates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF802A82BE8AEA000EC8586 /* TMDates.swift */; };
+		8CF802AB2BE8AF2D00EC8586 /* TMPromoter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF802AA2BE8AF2D00EC8586 /* TMPromoter.swift */; };
+		8CF802AD2BE8B54000EC8586 /* TMProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF802AC2BE8B54000EC8586 /* TMProduct.swift */; };
+		8CF802AF2BE8B55500EC8586 /* TMPriceRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF802AE2BE8B55500EC8586 /* TMPriceRange.swift */; };
+		8CF802B12BE8B56100EC8586 /* TMSeatMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF802B02BE8B56100EC8586 /* TMSeatMap.swift */; };
+		8CF802B32BE8B56C00EC8586 /* TMTicketLimit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF802B22BE8B56C00EC8586 /* TMTicketLimit.swift */; };
+		8CF802B62BE94AAC00EC8586 /* EventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF802B52BE94AAC00EC8586 /* EventView.swift */; };
+		8CF802B82BE94ABC00EC8586 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF802B72BE94ABC00EC8586 /* MockData.swift */; };
+		8CF802BA2BE9625B00EC8586 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF802B92BE9625B00EC8586 /* Configuration.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +64,26 @@
 		8CF802792BE86F2900EC8586 /* TicketmasterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TicketmasterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CF8027D2BE86F2900EC8586 /* TicketmasterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketmasterUITests.swift; sourceTree = "<group>"; };
 		8CF8027F2BE86F2900EC8586 /* TicketmasterUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketmasterUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		8CF8028E2BE86F5500EC8586 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		8CF802902BE8775300EC8586 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		8CF802922BE879AF00EC8586 /* TMEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMEvents.swift; sourceTree = "<group>"; };
+		8CF802942BE87BA500EC8586 /* Events+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Events+ViewModel.swift"; sourceTree = "<group>"; };
+		8CF802972BE889E100EC8586 /* TMPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMPage.swift; sourceTree = "<group>"; };
+		8CF802992BE88A1000EC8586 /* TMLinks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMLinks.swift; sourceTree = "<group>"; };
+		8CF8029D2BE89FF400EC8586 /* TMCountryCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMCountryCode.swift; sourceTree = "<group>"; };
+		8CF8029F2BE8AD8B00EC8586 /* TMClassification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMClassification.swift; sourceTree = "<group>"; };
+		8CF802A12BE8ADE300EC8586 /* TMEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMEvent.swift; sourceTree = "<group>"; };
+		8CF802A42BE8AE5900EC8586 /* TMImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMImage.swift; sourceTree = "<group>"; };
+		8CF802A62BE8AE7100EC8586 /* TMSales.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMSales.swift; sourceTree = "<group>"; };
+		8CF802A82BE8AEA000EC8586 /* TMDates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDates.swift; sourceTree = "<group>"; };
+		8CF802AA2BE8AF2D00EC8586 /* TMPromoter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMPromoter.swift; sourceTree = "<group>"; };
+		8CF802AC2BE8B54000EC8586 /* TMProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMProduct.swift; sourceTree = "<group>"; };
+		8CF802AE2BE8B55500EC8586 /* TMPriceRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMPriceRange.swift; sourceTree = "<group>"; };
+		8CF802B02BE8B56100EC8586 /* TMSeatMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMSeatMap.swift; sourceTree = "<group>"; };
+		8CF802B22BE8B56C00EC8586 /* TMTicketLimit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMTicketLimit.swift; sourceTree = "<group>"; };
+		8CF802B52BE94AAC00EC8586 /* EventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventView.swift; sourceTree = "<group>"; };
+		8CF802B72BE94ABC00EC8586 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
+		8CF802B92BE9625B00EC8586 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,8 +135,11 @@
 			isa = PBXGroup;
 			children = (
 				8CF802622BE86F2600EC8586 /* TicketmasterApp.swift */,
-				8CF802642BE86F2600EC8586 /* ContentView.swift */,
-				8CF802662BE86F2900EC8586 /* Assets.xcassets */,
+				8CF8029C2BE88A9400EC8586 /* Views */,
+				8CF8029B2BE88A8900EC8586 /* ViewModels */,
+				8CF802962BE889CE00EC8586 /* Models */,
+				8CF8028D2BE86F4B00EC8586 /* Networking */,
+				8CF8028C2BE86F3300EC8586 /* Assets */,
 				8CF802682BE86F2900EC8586 /* Preview Content */,
 			);
 			path = Ticketmaster;
@@ -125,6 +168,71 @@
 				8CF8027F2BE86F2900EC8586 /* TicketmasterUITestsLaunchTests.swift */,
 			);
 			path = TicketmasterUITests;
+			sourceTree = "<group>";
+		};
+		8CF8028C2BE86F3300EC8586 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				8CF802662BE86F2900EC8586 /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		8CF8028D2BE86F4B00EC8586 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				8CF8028E2BE86F5500EC8586 /* Endpoint.swift */,
+				8CF802B92BE9625B00EC8586 /* Configuration.swift */,
+				8CF802B72BE94ABC00EC8586 /* MockData.swift */,
+				8CF802902BE8775300EC8586 /* APIService.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		8CF802962BE889CE00EC8586 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8CF8029F2BE8AD8B00EC8586 /* TMClassification.swift */,
+				8CF802922BE879AF00EC8586 /* TMEvents.swift */,
+				8CF802A12BE8ADE300EC8586 /* TMEvent.swift */,
+				8CF802992BE88A1000EC8586 /* TMLinks.swift */,
+				8CF802A62BE8AE7100EC8586 /* TMSales.swift */,
+				8CF802A82BE8AEA000EC8586 /* TMDates.swift */,
+				8CF802B02BE8B56100EC8586 /* TMSeatMap.swift */,
+				8CF802AA2BE8AF2D00EC8586 /* TMPromoter.swift */,
+				8CF802B22BE8B56C00EC8586 /* TMTicketLimit.swift */,
+				8CF802AE2BE8B55500EC8586 /* TMPriceRange.swift */,
+				8CF802AC2BE8B54000EC8586 /* TMProduct.swift */,
+				8CF802A42BE8AE5900EC8586 /* TMImage.swift */,
+				8CF8029D2BE89FF400EC8586 /* TMCountryCode.swift */,
+				8CF802972BE889E100EC8586 /* TMPage.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		8CF8029B2BE88A8900EC8586 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				8CF802942BE87BA500EC8586 /* Events+ViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		8CF8029C2BE88A9400EC8586 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8CF802B42BE94A9500EC8586 /* Events  */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		8CF802B42BE94A9500EC8586 /* Events  */ = {
+			isa = PBXGroup;
+			children = (
+				8CF802642BE86F2600EC8586 /* ContentView.swift */,
+				8CF802B52BE94AAC00EC8586 /* EventView.swift */,
+			);
+			path = "Events ";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,7 +366,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				8CF802652BE86F2600EC8586 /* ContentView.swift in Sources */,
+				8CF8028F2BE86F5500EC8586 /* Endpoint.swift in Sources */,
+				8CF802A92BE8AEA000EC8586 /* TMDates.swift in Sources */,
+				8CF8029A2BE88A1000EC8586 /* TMLinks.swift in Sources */,
+				8CF802912BE8775300EC8586 /* APIService.swift in Sources */,
+				8CF802A72BE8AE7100EC8586 /* TMSales.swift in Sources */,
+				8CF802952BE87BA500EC8586 /* Events+ViewModel.swift in Sources */,
 				8CF802632BE86F2600EC8586 /* TicketmasterApp.swift in Sources */,
+				8CF802932BE879AF00EC8586 /* TMEvents.swift in Sources */,
+				8CF802AB2BE8AF2D00EC8586 /* TMPromoter.swift in Sources */,
+				8CF802982BE889E100EC8586 /* TMPage.swift in Sources */,
+				8CF802A52BE8AE5900EC8586 /* TMImage.swift in Sources */,
+				8CF802BA2BE9625B00EC8586 /* Configuration.swift in Sources */,
+				8CF802B32BE8B56C00EC8586 /* TMTicketLimit.swift in Sources */,
+				8CF802B12BE8B56100EC8586 /* TMSeatMap.swift in Sources */,
+				8CF802AD2BE8B54000EC8586 /* TMProduct.swift in Sources */,
+				8CF802A02BE8AD8B00EC8586 /* TMClassification.swift in Sources */,
+				8CF802A22BE8ADE300EC8586 /* TMEvent.swift in Sources */,
+				8CF8029E2BE89FF400EC8586 /* TMCountryCode.swift in Sources */,
+				8CF802AF2BE8B55500EC8586 /* TMPriceRange.swift in Sources */,
+				8CF802B82BE94ABC00EC8586 /* MockData.swift in Sources */,
+				8CF802B62BE94AAC00EC8586 /* EventView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -428,8 +556,9 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIStatusBarHidden = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -457,8 +586,9 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIStatusBarHidden = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
