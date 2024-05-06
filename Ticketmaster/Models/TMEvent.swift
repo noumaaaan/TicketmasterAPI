@@ -19,7 +19,7 @@ struct TMEvent: Codable, Hashable {
     let promoter: TMPromoter?
     let priceRanges: [TMPriceRange]?
     let products: [TMProduct]?
-    let seatmap: TMSeatmap
+    let seatmap: TMSeatmap?
     let ticketLimit: TMTicketLimit?
     
     enum CodingKeys: String, CodingKey {

@@ -40,6 +40,7 @@ extension Endpoint {
         
     var parameters: [URLQueryItem]? {
         var queryItems = [URLQueryItem]()
+        queryItems.append(.init(name: "countryCode", value: TMCountryCode.greatBritain.rawValue))
         queryItems.append(.init(name: "apikey", value: Configuration().APIKEY))
         return queryItems
     }
