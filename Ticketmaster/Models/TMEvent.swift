@@ -13,14 +13,14 @@ struct TMEvent: Codable, Hashable {
     let type: String
     let url: String
     let images: [TMImage]
-    let sales: TMSales
-    let dates: TMDates
+    let sales: TMSales?
+    let dates: TMDates?
     let classifications: [TMClassification]
     let promoter: TMPromoter?
-    let priceRanges: [TMPriceRange]
+    let priceRanges: [TMPriceRange]?
     let products: [TMProduct]?
     let seatmap: TMSeatmap
-    let ticketLimit: TMTicketLimit
+    let ticketLimit: TMTicketLimit?
     
     enum CodingKeys: String, CodingKey {
         case ID = "id"

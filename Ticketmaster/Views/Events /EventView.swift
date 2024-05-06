@@ -33,25 +33,17 @@ struct EventView: View {
             }
             
             HStack {
-                Label(event.dates.start.dateTime, systemImage: "calendar")
-                    .font(.caption)
-                    .foregroundStyle(.white)
                 
-                Label(event.dates.timezone, systemImage: "location.fill")
-                    .font(.caption)
-                    .foregroundStyle(.white)
-            }
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .padding(.horizontal)
-            
-            HStack {
-                Label(event.dates.start.dateTime, systemImage: "calendar")
-                    .font(.caption)
-                    .foregroundStyle(.white)
-                
-                Label(event.dates.timezone, systemImage: "location.fill")
-                    .font(.caption)
-                    .foregroundStyle(.white)
+                if let start = event.dates?.start?.dateTime {
+                    Label(start, systemImage: "calendar")
+                        .font(.caption)
+                        .foregroundStyle(.white)
+                }
+                if let timezone = event.dates?.timezone {
+                    Label(timezone, systemImage: "location.fill")
+                        .font(.caption)
+                        .foregroundStyle(.white)
+                }
             }
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(.horizontal)

@@ -8,8 +8,8 @@
 import Foundation
 
 struct TMSales: Codable, Hashable {
-    let publicSales: PublicSales
-    let presales: [PreSales]
+    let publicSales: PublicSales?
+    let presales: [PreSales]?
     
     enum CodingKeys: String, CodingKey {
         case publicSales = "public"

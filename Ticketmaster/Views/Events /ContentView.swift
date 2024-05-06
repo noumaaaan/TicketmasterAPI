@@ -15,13 +15,14 @@ struct ContentView: View {
         VStack {
             ScrollView {
                 ForEach(viewModel.events, id: \.self) { event in
-                    Text(event.name)
+                    
+                    EventView(event: event)
                 }
             }
         }
         .padding()
-        .background(Color(hue: 0.656, saturation: 0.787, brightness: 0.354))
-        .preferredColorScheme(.dark)
+//        .background(Color(hue: 0.656, saturation: 0.787, brightness: 0.354))
+//        .preferredColorScheme(.dark)
         .task {
             await viewModel.fetchEvents()
         }

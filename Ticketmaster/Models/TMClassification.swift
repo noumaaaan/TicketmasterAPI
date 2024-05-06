@@ -8,11 +8,11 @@
 import Foundation
 
 struct TMClassification: Codable, Hashable {
-    let segment: ClassificationSubType
-    let genre: ClassificationSubType
-    let subGenre: ClassificationSubType
-    let type: ClassificationSubType
-    let subType: ClassificationSubType
+    let segment: ClassificationSubType?
+    let genre: ClassificationSubType?
+    let subGenre: ClassificationSubType?
+    let type: ClassificationSubType?
+    let subType: ClassificationSubType?
     
 }
 

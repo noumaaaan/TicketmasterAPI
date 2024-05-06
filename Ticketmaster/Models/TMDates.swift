@@ -8,9 +8,9 @@
 import Foundation
 
 struct TMDates: Codable, Hashable {
-    let start: StartDate
-    let timezone: String
-    let status: DateStatus
+    let start: StartDate?
+    let timezone: String?
+    let status: DateStatus?
     let spanMultipleDays: Bool
 }
 
