@@ -11,6 +11,7 @@ import Foundation
 final class EventsViewModel: ObservableObject {
 
     @Published var events: [TMEvent] = []
+    @Published var classifications: [Classification] = []
     
     func fetchEvents() async {
         Task {
@@ -19,6 +20,18 @@ final class EventsViewModel: ObservableObject {
                 self.events = result.embedded.events
             } catch {
                 print(error)
+            }
+        }
+    }
+    
+    func fetchClassifications() async {
+        Task {
+            do {
+                let result = try await APIService().fetchClassifications()
+                self.classifications = result.embedded.classifications
+                
+            } catch {
+                
             }
         }
     }

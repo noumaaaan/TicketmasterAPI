@@ -17,6 +17,10 @@ final class APIService {
         return try await request(endpoint: .fetchEvents, responseModel: TMEvents.self)
     }
     
+    func fetchClassifications() async throws -> TMClassifications {
+        return try await request(endpoint: .fetchClassifications, responseModel: TMClassifications.self)
+    }
+    
     func request<T: Decodable>(endpoint: Endpoint, responseModel: T.Type) async throws -> T {
         var urlComponents = URLComponents()
         urlComponents.scheme = endpoint.scheme
