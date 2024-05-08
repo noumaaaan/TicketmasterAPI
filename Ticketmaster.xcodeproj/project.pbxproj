@@ -37,6 +37,8 @@
 		8CF802C22BE9A0DD00EC8586 /* TMClassifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF802C12BE9A0DD00EC8586 /* TMClassifications.swift */; };
 		8CF802C52BEAED9B00EC8586 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF802C42BEAED9B00EC8586 /* TabBarView.swift */; };
 		8CF802C72BEAF38E00EC8586 /* TabOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF802C62BEAF38E00EC8586 /* TabOption.swift */; };
+		8CF802CA2BEB014E00EC8586 /* VenueListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF802C92BEB014E00EC8586 /* VenueListView.swift */; };
+		8CF802CC2BEB019400EC8586 /* TabBar+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF802CB2BEB019400EC8586 /* TabBar+ViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +92,8 @@
 		8CF802C12BE9A0DD00EC8586 /* TMClassifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMClassifications.swift; sourceTree = "<group>"; };
 		8CF802C42BEAED9B00EC8586 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		8CF802C62BEAF38E00EC8586 /* TabOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabOption.swift; sourceTree = "<group>"; };
+		8CF802C92BEB014E00EC8586 /* VenueListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueListView.swift; sourceTree = "<group>"; };
+		8CF802CB2BEB019400EC8586 /* TabBar+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TabBar+ViewModel.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -228,6 +232,7 @@
 		8CF8029C2BE88A9400EC8586 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				8CF802C82BEB013C00EC8586 /* Venues */,
 				8CF802C32BEAED8B00EC8586 /* TabBar */,
 				8CF802B42BE94A9500EC8586 /* Events  */,
 			);
@@ -247,9 +252,18 @@
 			isa = PBXGroup;
 			children = (
 				8CF802C42BEAED9B00EC8586 /* TabBarView.swift */,
+				8CF802CB2BEB019400EC8586 /* TabBar+ViewModel.swift */,
 				8CF802C62BEAF38E00EC8586 /* TabOption.swift */,
 			);
 			path = TabBar;
+			sourceTree = "<group>";
+		};
+		8CF802C82BEB013C00EC8586 /* Venues */ = {
+			isa = PBXGroup;
+			children = (
+				8CF802C92BEB014E00EC8586 /* VenueListView.swift */,
+			);
+			path = Venues;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -406,6 +420,8 @@
 				8CF8029E2BE89FF400EC8586 /* TMCountryCode.swift in Sources */,
 				8CF802AF2BE8B55500EC8586 /* TMPriceRange.swift in Sources */,
 				8CF802B82BE94ABC00EC8586 /* MockData.swift in Sources */,
+				8CF802CC2BEB019400EC8586 /* TabBar+ViewModel.swift in Sources */,
+				8CF802CA2BEB014E00EC8586 /* VenueListView.swift in Sources */,
 				8CF802B62BE94AAC00EC8586 /* EventView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

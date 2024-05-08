@@ -8,20 +8,16 @@
 import SwiftUI
 
 struct TabBarView: View {
+    @StateObject var viewModel = TabBarViewModel()
     
-    @State var selectedTab: TabOption
-    
-    init(selectedTab: TabOption) {
-        self.selectedTab = selectedTab
+    init() {
         UITabBar.appearance().isHidden = true
     }
     
     var body: some View {
         ZStack {
-            
             VStack {
-                TabView(selection: $selectedTab) {
-                    
+                TabView(selection: $viewModel.selectedTab) {
                     ForEach(TabOption.allCases, id: \.self) { tab in
                         switch tab {
                         case .discover:
@@ -31,7 +27,7 @@ struct TabBarView: View {
                         case .search:
                             Color.yellow.ignoresSafeArea()
                         case .venues:
-                            Color.orange.ignoresSafeArea()
+                            VenueListView()
                         case .settings:
                             Color.pink.ignoresSafeArea()
                         }
@@ -43,17 +39,16 @@ struct TabBarView: View {
                 Spacer()
                 HStack {
                     ForEach(TabOption.allCases, id: \.self) { tab  in
-                        Spacer()
-                        Image(systemName: selectedTab == tab ? tab.selected : tab.image)
-                            .scaleEffect(selectedTab == tab ? 1.3 : 1)
-                            .foregroundStyle(selectedTab == tab ? tab.color : .gray)
+                        Image(systemName: viewModel.selectedTab == tab ? tab.selected : tab.image)
+                            .scaleEffect(viewModel.selectedTab == tab ? 1.3 : 1)
+                            .foregroundStyle(viewModel.selectedTab == tab ? tab.color : .gray)
                             .font(.system(size: 20))
+                            .frame(maxWidth: .infinity)
                             .onTapGesture {
                                 withAnimation(.easeInOut(duration: 0.1)) {
-                                    selectedTab = tab
+                                    viewModel.setSelected(tab: tab)
                                 }
                             }
-                        Spacer()
                     }
                 }
                 .frame(height: 60)
@@ -66,5 +61,5 @@ struct TabBarView: View {
 }
 
 #Preview {
-    TabBarView(selectedTab: .attractions)
+    TabBarView()
 }

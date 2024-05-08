@@ -11,7 +11,7 @@ import SwiftUI
 struct TicketmasterApp: App {
     var body: some Scene {
         WindowGroup {
-            TabBarView(selectedTab: .attractions)
+            TabBarView()
 //            ContentView()
         }
     }
