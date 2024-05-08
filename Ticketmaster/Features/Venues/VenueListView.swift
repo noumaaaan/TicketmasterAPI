@@ -13,25 +13,36 @@ struct VenueListView: View {
     var body: some View {
         
         NavigationStack {
-            ScrollView {
-                VStack {
-                    ForEach(viewModel.venues, id: \.self) { venue in
-                        NavigationLink {
-                            VenueDetailView(venue: venue)
-                        } label: {
-                            VenueView(venue: venue)
-                        }
+            List {
+                ForEach(viewModel.venues, id: \.self) { venue in
+                    NavigationLink {
+                        VenueDetailView(venue: venue)
+                    } label: {
+                        VenueView(venue: venue)
+                            .onAppear {
+                                if venue == viewModel.venues.last {
+                                    viewModel.getNextPage()
+                                }
+                            }
                     }
                 }
-                .navigationTitle("Venues")
-                .toolbarTitleDisplayMode(.inlineLarge)
             }
-            .onAppear {
-                Task {
-                    await viewModel.fetchVenues()
+            .listStyle(.grouped)
+            .navigationTitle("Venues")
+            .toolbarTitleDisplayMode(.inlineLarge)
+            .refreshable {
+                viewModel.refreshList()
+            }
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button {
+                        print("Pressed")
+                    } label: {
+                        Text(viewModel.countryCode.flag)
+                            .font(.largeTitle)
+                    }
                 }
             }
-            
         }
     }
 }

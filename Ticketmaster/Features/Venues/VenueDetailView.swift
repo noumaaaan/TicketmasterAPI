@@ -14,16 +14,6 @@ struct VenueDetailView: View {
     var body: some View {
         ScrollView {
             VStack {
-//                TMImageView(
-//                    url: venue.images?.first?.url,
-//                    width: 300,
-//                    height: 170,
-//                    backgroundColor: .black,
-//                    cornerRadius: 4,
-//                    aspectRatio: .fill
-//                )
-//                .padding(.top)
-                
                 mapSection
                     .padding(.top)
                 

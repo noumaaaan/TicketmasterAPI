@@ -37,9 +37,7 @@ struct VenueView: View {
         .frame(height: 70)
         .frame(maxWidth: .infinity, alignment: .leading)
         .background(.white)
-        .clipShape(RoundedRectangle(cornerRadius: 2))
-        .padding(.horizontal)
-        .shadow(radius: 5)
+        .clipShape(RoundedRectangle(cornerRadius: 4))
     }
 }
 

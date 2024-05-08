@@ -13,8 +13,8 @@ enum TestError: Error {
 
 final class APIService {
     
-    func fetchVenues() async throws -> TMVenuesContainer {
-        return try await request(endpoint: .fetchVenues, responseModel: TMVenuesContainer.self)
+    func fetchVenues(page: Int) async throws -> TMVenuesContainer {
+        return try await request(endpoint: .fetchVenues(page: page), responseModel: TMVenuesContainer.self)
     }
     
     func fetchEvents() async throws -> TMEvents {
@@ -31,7 +31,6 @@ final class APIService {
         urlComponents.host = endpoint.host
         urlComponents.path = endpoint.path
         urlComponents.queryItems = endpoint.parameters
-        
         guard let url = urlComponents.url else { throw TestError.invalid }
         
         var request = URLRequest(url: url)
@@ -39,9 +38,7 @@ final class APIService {
         
         let (data, response) = try await URLSession.shared.data(for: request)
         guard (response as? HTTPURLResponse)?.statusCode == 200 else { throw TestError.invalid }
-        
         guard let decodedResponse = try? JSONDecoder().decode(responseModel, from: data) else { throw TestError.invalid }
-        print(decodedResponse)
         return decodedResponse
     }
 }
