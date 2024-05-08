@@ -14,6 +14,8 @@ final class VenueListViewModel: ObservableObject {
     @Published var countryCode: TMCountryCode = .greatBritain
     @Published var error: Error?
     
+    @Published var isSheetPresented: Bool = false
+    
     var pageNumber: Int = 0
     var maxPages: Int = 0
     
@@ -44,5 +46,10 @@ final class VenueListViewModel: ObservableObject {
     func refreshList() {
         venues.removeAll()
         fetchVenues()
+    }
+    
+    func changeCountryCode(code: TMCountryCode) {
+        countryCode = code
+        isSheetPresented = false
     }
 }

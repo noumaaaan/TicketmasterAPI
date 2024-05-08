@@ -9,6 +9,12 @@ import SwiftUI
 
 struct VenueListView: View {
     @StateObject var viewModel = VenueListViewModel()
+    private let numberColumns = [
+        GridItem(.flexible()),
+        GridItem(.flexible()),
+        GridItem(.flexible()),
+        GridItem(.flexible())
+    ]
     
     var body: some View {
         
@@ -36,12 +42,54 @@ struct VenueListView: View {
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
-                        print("Pressed")
+                        viewModel.isSheetPresented = true
                     } label: {
                         Text(viewModel.countryCode.flag)
                             .font(.largeTitle)
                     }
                 }
+            }
+            .sheet(isPresented: $viewModel.isSheetPresented) {
+                countryCodeSelection
+                    .presentationDetents([.medium])
+            }
+        }
+    }
+}
+
+extension VenueListView {
+    var countryCodeSelection: some View {
+        VStack {
+            Text("Select Country")
+                .font(.subheadline.bold())
+                .padding(.top)
+            ScrollView {
+                LazyVGrid(columns: numberColumns) {
+                    ForEach(TMCountryCode.allCases, id: \.self) { code in
+                        
+                        Button {
+                            viewModel.changeCountryCode(code: code)
+                        } label: {
+                            VStack {
+                                Text(code.flag)
+                                    .font(.title)
+                                Text(code.label)
+                                    .font(.caption)
+                                    .foregroundStyle(.black)
+                                    .lineLimit(2)
+                            }
+                        }
+                        .frame(width: 80, height: 80)
+                        .overlay(
+                            code == viewModel.countryCode
+                            ? RoundedRectangle(cornerRadius: 3)
+                                .stroke(.blue, lineWidth: 2)
+                            : nil
+                        )
+                        .padding(.horizontal)
+                    }
+                }
+                .padding()
             }
         }
     }

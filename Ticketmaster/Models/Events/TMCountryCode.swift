@@ -8,7 +8,6 @@
 import Foundation
 
 enum TMCountryCode: String, CaseIterable {
-    case unitedStates = "US"
     case argentina = "AR"
     case australia = "AU"
     case belgium = "BE"
@@ -33,10 +32,10 @@ enum TMCountryCode: String, CaseIterable {
     case sweden = "SE"
     case switzerland = "CH"
     case uae = "ae"
+    case unitedStates = "US"
         
     var label: String {
         switch self {
-        case .unitedStates: "United States"
         case .argentina: "Argentina"
         case .australia: "Australia"
         case .belgium: "Belgium"
@@ -60,13 +59,13 @@ enum TMCountryCode: String, CaseIterable {
         case .spain: "Spain"
         case .sweden: "Sweden"
         case .switzerland: "Switzerland"
-        case .uae: "United Arab Emirates"
+        case .uae: "UAE"
+        case .unitedStates: "USA"
         }
     }
     
     var flag: String {
         switch self {
-        case .unitedStates: "🇺🇸"
         case .argentina: "🇦🇷"
         case .australia: "🇦🇺"
         case .belgium: "🇧🇪"
@@ -91,6 +90,7 @@ enum TMCountryCode: String, CaseIterable {
         case .sweden: "🇸🇪"
         case .switzerland: "🇨🇭"
         case .uae: "🇦🇪"
+        case .unitedStates: "🇺🇸"
         }
     }
 }
