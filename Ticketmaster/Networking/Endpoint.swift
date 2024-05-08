@@ -12,6 +12,9 @@ enum Endpoint {
     case fetchEvents
     case fetchEventDetails(eventID: String)
     case fetchClassifications
+    
+    case fetchVenues
+    
 }
 
 extension Endpoint {
@@ -25,19 +28,21 @@ extension Endpoint {
     
     var method: String {
         switch self {
-        case .fetchEvents, .fetchEventDetails, .fetchClassifications:
-            return "GET"
+        case .fetchEvents, .fetchEventDetails, .fetchClassifications, .fetchVenues:
+            "GET"
         }
     }
     
     var path: String {
         switch self {
         case .fetchEvents:
-            return "/discovery/v2/events"
+            "/discovery/v2/events"
         case .fetchEventDetails(let eventID):
-            return "/discovery/v2/events/\(eventID)"
+            "/discovery/v2/events/\(eventID)"
         case .fetchClassifications:
-            return "/discovery/v2/classifications"
+            "/discovery/v2/classifications"
+        case .fetchVenues:
+            "/discovery/v2/venues"
         }
     }
         
@@ -50,6 +55,9 @@ extension Endpoint {
 //        default:
 //            return nil
 //        }
+        
+        
+        queryItems.append(.init(name: "countryCode", value: TMCountryCode.greatBritain.rawValue))
         queryItems.append(.init(name: "apikey", value: Configuration().APIKEY))
         return queryItems
     }

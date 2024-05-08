@@ -12,7 +12,6 @@ struct TicketmasterApp: App {
     var body: some Scene {
         WindowGroup {
             TabBarView()
-//            ContentView()
         }
     }
 }

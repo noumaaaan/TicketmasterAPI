@@ -8,6 +8,45 @@
 import Foundation
 
 struct MockData {
+    
+    let testVenue: TMVenue = .init(
+        id: "KovZ9177-37",
+        name: "St Martin's Theatre",
+        type: "venue",
+        url: "https://www.ticketmaster.co.uk/st-martins-theatre-tickets-london/venue/434709",
+        postalCode: "WC2H 9NZ",
+        timezone: "Europe/London",
+        city: .init(
+            name: "London"
+        ),
+        country: .init(
+            name: "Great Britain"
+        ),
+        address: .init(
+            line1: "West Street",
+            line2: "Second Line address"
+        ),
+        location: .init(
+            longitude: "-0.127672",
+            latitude: "51.512848"
+        ),
+        boxOfficeInfo: .init(
+            phoneNumberDetail: "Ticketmaster UK: 0870 154 40 40 International: 00 44 161 385 3500",
+            openHoursDetail: "Monday - Saturday: 10:00 - 20:00",
+            acceptedPaymentDetail: "Ticketmaster accepts all major credit cards.",
+            willCallDetail: "Tickets left at the box office for collection may be picked up on the day, during the hour before the performance starts. Please take the credit card and Ticketmaster Booking Reference Number as proof of purchase."
+        ),
+        parkingDetail: "There is a National Car Park in St Martin's Lane, and very limited street parking so would advise using public transport.",
+        accessibleSeatingDetail: "Please contact the Box Office direct for more information.",
+        images: [
+            .init(
+                url: "https://s1.ticketm.net/uk/dbimages/2269v.",
+                width: 175,
+                height: 95
+            )
+        ]
+    )
+    
     let testEvent: TMEvent = .init(
         ID: "vv1A7ZkeKGkduOwi0",
         name: "Imagine Dragons: LOOM WORLD TOUR",

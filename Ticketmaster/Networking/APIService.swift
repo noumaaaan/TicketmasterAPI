@@ -13,6 +13,10 @@ enum TestError: Error {
 
 final class APIService {
     
+    func fetchVenues() async throws -> TMVenuesContainer {
+        return try await request(endpoint: .fetchVenues, responseModel: TMVenuesContainer.self)
+    }
+    
     func fetchEvents() async throws -> TMEvents {
         return try await request(endpoint: .fetchEvents, responseModel: TMEvents.self)
     }

@@ -8,8 +8,19 @@
 import SwiftUI
 
 struct VenueListView: View {
+    @StateObject var viewModel = VenueListViewModel()
+    
     var body: some View {
-        Text("Venues")
+        VStack {
+            ForEach(viewModel.venues, id: \.self) { venue in
+                Text(venue.name)
+            }
+        }
+        .onAppear {
+            Task {
+                await viewModel.fetchVenues()
+            }
+        }
     }
 }
 
