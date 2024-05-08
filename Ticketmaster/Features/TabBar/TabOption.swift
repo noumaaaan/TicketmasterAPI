@@ -32,15 +32,15 @@ enum TabOption: String, CaseIterable {
     var color: Color {
         switch self {
         case .discover:
-            return .red
+            return Color.tab1
         case .attractions:
-            return .indigo
+            return Color.tab2
         case .venues:
-            return .orange
+            return Color.tab3
         case .search:
-            return .blue
+            return Color.tab4
         case .settings:
-            return .green
+            return Color.tab5
         }
     }
 }

@@ -50,7 +50,6 @@ struct EventView: View {
         }
         .frame(height: 250)
         .frame(maxWidth: .infinity)
-        .background(Color.darkBlue)
         .clipShape(RoundedRectangle(cornerRadius: 12))
         .shadow(color: Color(.secondaryLabel), radius: 15)
         .padding()

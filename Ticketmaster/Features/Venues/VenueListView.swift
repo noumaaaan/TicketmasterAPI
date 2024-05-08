@@ -11,15 +11,27 @@ struct VenueListView: View {
     @StateObject var viewModel = VenueListViewModel()
     
     var body: some View {
-        VStack {
-            ForEach(viewModel.venues, id: \.self) { venue in
-                Text(venue.name)
+        
+        NavigationStack {
+            ScrollView {
+                VStack {
+                    ForEach(viewModel.venues, id: \.self) { venue in
+                        NavigationLink {
+                            VenueDetailView(venue: venue)
+                        } label: {
+                            VenueView(venue: venue)
+                        }
+                    }
+                }
+                .navigationTitle("Venues")
+                .toolbarTitleDisplayMode(.inlineLarge)
             }
-        }
-        .onAppear {
-            Task {
-                await viewModel.fetchVenues()
+            .onAppear {
+                Task {
+                    await viewModel.fetchVenues()
+                }
             }
+            
         }
     }
 }
