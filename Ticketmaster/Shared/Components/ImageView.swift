@@ -1,5 +1,5 @@
 //
-//  TMImageView.swift
+//  ImageView.swift
 //  Ticketmaster
 //
 //  Created by Noumaan Mehmood on 08/05/2024.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TMImageView: View {
+struct ImageView: View {
     var url: String?
     var width: CGFloat
     var height: CGFloat
@@ -26,14 +26,10 @@ struct TMImageView: View {
                         .scaledToFit()
                         .aspectRatio(contentMode: aspectRatio)
                 } placeholder: {
-                    Image("placeholder")
-                        .resizable()
-                        .aspectRatio(contentMode: aspectRatio)
+                    placeholderView
                 }
             } else {
-                Image("placeholder")
-                    .resizable()
-                    .aspectRatio(contentMode: aspectRatio)
+                placeholderView
             }
         }
         .frame(width: width, height: height)
@@ -42,6 +38,21 @@ struct TMImageView: View {
     }
 }
 
+extension ImageView {
+    var placeholderView: some View {
+        VStack {
+            Image(systemName: "photo")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 19, height: 19)
+                .foregroundStyle(Color.init(hex: "074173"))
+        }
+        .frame(height: height)
+        .frame(maxWidth: .infinity, alignment: .center)
+        .background(Color.init(hex: "E3F4F4"))
+    }
+}
+
 #Preview {
-    TMImageView(url: nil, width: 300, height: 200)
+    ImageView(url: nil, width: 300, height: 200)
 }

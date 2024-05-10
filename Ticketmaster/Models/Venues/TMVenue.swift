@@ -12,13 +12,13 @@ struct TMVenue: Codable, Hashable {
     let id: String
     let name: String
     let type: String
-    let url: String
-    let postalCode: String
-    let timezone: String
-    let city: LocationDetails
-    let country: LocationDetails
-    let address: Address
-    let location: Location
+    let url: String?
+    let postalCode: String?
+    let timezone: String?
+    let city: LocationDetails?
+    let country: LocationDetails?
+    let address: Address?
+    let location: Location?
     let boxOfficeInfo: BoxOfficeInfo?
     let parkingDetail: String?
     let accessibleSeatingDetail: String?
@@ -27,20 +27,20 @@ struct TMVenue: Codable, Hashable {
 
 // MARK: - LocationDetails
 struct LocationDetails: Codable, Hashable {
-    let name: String
+    let name: String?
 }
 
 
 // MARK: - Address
 struct Address: Codable, Hashable {
-    let line1: String
+    let line1: String?
     let line2: String?
 }
 
 // MARK: - Location
 struct Location: Codable, Hashable {
-    let longitude: String
-    let latitude: String
+    let longitude: String?
+    let latitude: String?
 }
 
 // MARK: - BoxOfficeInfo
@@ -53,7 +53,7 @@ struct BoxOfficeInfo: Codable, Hashable {
 
 // MARK: - Image
 struct VenueImage: Codable, Hashable {
-    let url: String
-    let width: Int
-    let height: Int
+    let url: String?
+    let width: Int?
+    let height: Int?
 }

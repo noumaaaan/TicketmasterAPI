@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8CEB8AFE2BEDC42900547E66 /* CountrySelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CEB8AFD2BEDC42900547E66 /* CountrySelectionView.swift */; };
+		8CEB8B022BEDE32D00547E66 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CEB8B012BEDE32D00547E66 /* MessageView.swift */; };
+		8CEB8B042BEDE73F00547E66 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CEB8B032BEDE73F00547E66 /* Extensions.swift */; };
 		8CF802632BE86F2600EC8586 /* TicketmasterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF802622BE86F2600EC8586 /* TicketmasterApp.swift */; };
 		8CF802652BE86F2600EC8586 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF802642BE86F2600EC8586 /* ContentView.swift */; };
 		8CF802672BE86F2900EC8586 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CF802662BE86F2900EC8586 /* Assets.xcassets */; };
@@ -43,7 +46,7 @@
 		8CF802D42BEB059200EC8586 /* TMVenue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF802D32BEB059200EC8586 /* TMVenue.swift */; };
 		8CF802D62BEB092400EC8586 /* VenueList+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF802D52BEB092400EC8586 /* VenueList+ViewModel.swift */; };
 		8CF802D82BEB0B4300EC8586 /* VenueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF802D72BEB0B4300EC8586 /* VenueView.swift */; };
-		8CF802DC2BEBD8B400EC8586 /* TMImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF802DB2BEBD8B400EC8586 /* TMImageView.swift */; };
+		8CF802DC2BEBD8B400EC8586 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF802DB2BEBD8B400EC8586 /* ImageView.swift */; };
 		8CF802DE2BEBF89400EC8586 /* VenueDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF802DD2BEBF89400EC8586 /* VenueDetailView.swift */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +68,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8CEB8AFD2BEDC42900547E66 /* CountrySelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountrySelectionView.swift; sourceTree = "<group>"; };
+		8CEB8B012BEDE32D00547E66 /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
+		8CEB8B032BEDE73F00547E66 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		8CF8025F2BE86F2600EC8586 /* Ticketmaster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ticketmaster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CF802622BE86F2600EC8586 /* TicketmasterApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketmasterApp.swift; sourceTree = "<group>"; };
 		8CF802642BE86F2600EC8586 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -104,7 +110,7 @@
 		8CF802D32BEB059200EC8586 /* TMVenue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMVenue.swift; sourceTree = "<group>"; };
 		8CF802D52BEB092400EC8586 /* VenueList+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VenueList+ViewModel.swift"; sourceTree = "<group>"; };
 		8CF802D72BEB0B4300EC8586 /* VenueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueView.swift; sourceTree = "<group>"; };
-		8CF802DB2BEBD8B400EC8586 /* TMImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMImageView.swift; sourceTree = "<group>"; };
+		8CF802DB2BEBD8B400EC8586 /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		8CF802DD2BEBF89400EC8586 /* VenueDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -311,6 +317,7 @@
 		8CF802D92BEBD89D00EC8586 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				8CEB8B032BEDE73F00547E66 /* Extensions.swift */,
 				8CF802DA2BEBD8A500EC8586 /* Components */,
 			);
 			path = Shared;
@@ -319,7 +326,9 @@
 		8CF802DA2BEBD8A500EC8586 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				8CF802DB2BEBD8B400EC8586 /* TMImageView.swift */,
+				8CF802DB2BEBD8B400EC8586 /* ImageView.swift */,
+				8CEB8B012BEDE32D00547E66 /* MessageView.swift */,
+				8CEB8AFD2BEDC42900547E66 /* CountrySelectionView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -465,13 +474,16 @@
 				8CF802932BE879AF00EC8586 /* TMEvents.swift in Sources */,
 				8CF802AB2BE8AF2D00EC8586 /* TMPromoter.swift in Sources */,
 				8CF802C72BEAF38E00EC8586 /* TabOption.swift in Sources */,
-				8CF802DC2BEBD8B400EC8586 /* TMImageView.swift in Sources */,
+				8CF802DC2BEBD8B400EC8586 /* ImageView.swift in Sources */,
 				8CF802C52BEAED9B00EC8586 /* TabBarView.swift in Sources */,
 				8CF802BE2BE968B500EC8586 /* Configuration.swift in Sources */,
+				8CEB8AFE2BEDC42900547E66 /* CountrySelectionView.swift in Sources */,
 				8CF802C22BE9A0DD00EC8586 /* TMClassifications.swift in Sources */,
 				8CF802D82BEB0B4300EC8586 /* VenueView.swift in Sources */,
 				8CF802982BE889E100EC8586 /* TMPage.swift in Sources */,
 				8CF802A52BE8AE5900EC8586 /* TMImage.swift in Sources */,
+				8CEB8B042BEDE73F00547E66 /* Extensions.swift in Sources */,
+				8CEB8B022BEDE32D00547E66 /* MessageView.swift in Sources */,
 				8CF802B32BE8B56C00EC8586 /* TMTicketLimit.swift in Sources */,
 				8CF802B12BE8B56100EC8586 /* TMSeatMap.swift in Sources */,
 				8CF802AD2BE8B54000EC8586 /* TMProduct.swift in Sources */,
@@ -647,25 +659,29 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Ticketmaster/Preview Content\"";
-				DEVELOPMENT_TEAM = D949FXATB8;
+				DEVELOPMENT_TEAM = T9X5U9D38C;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = TicketmasterAPI;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = nouman.Ticketmaster;
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nouman.ticketmasterAPI1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -677,25 +693,29 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Ticketmaster/Preview Content\"";
-				DEVELOPMENT_TEAM = D949FXATB8;
+				DEVELOPMENT_TEAM = T9X5U9D38C;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = TicketmasterAPI;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = nouman.Ticketmaster;
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nouman.ticketmasterAPI1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

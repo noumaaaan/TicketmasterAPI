@@ -12,7 +12,7 @@ struct VenueView: View {
     var body: some View {
         
         HStack {
-            TMImageView(
+            ImageView(
                 url: venue.images?.first?.url,
                 width: 130, height: 70,
                 backgroundColor: .black,
@@ -24,14 +24,16 @@ struct VenueView: View {
                 Text(venue.name)
                     .font(.subheadline.bold())
                     .foregroundStyle(.black)
-
+                    .lineLimit(2)
+                
                 Group {
-                    Text("\(venue.address.line1) \(venue.address.line2 ?? "")")
-                    Text("\(venue.city.name) \(venue.country.name)")
+                    Text("\(venue.address?.line1 ?? "") \(venue.address?.line2 ?? "")")
+                    Text("\(venue.city?.name ?? "")")
                 }
                 .font(.caption)
-                .lineLimit(1)
+                .lineLimit(2)
                 .foregroundStyle(.gray)
+                .frame(maxWidth: .infinity, alignment: .leading)
             }
         }
         .frame(height: 70)

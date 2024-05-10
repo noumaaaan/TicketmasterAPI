@@ -9,7 +9,7 @@ import Foundation
 
 // MARK: - TMLinks
 struct TMLinks: Codable, Hashable {
-    let first, link, next, last: LinkObject
+    let first, link, next, last: LinkObject?
     
     enum CodingKeys: String, CodingKey {
         case first

@@ -26,11 +26,14 @@ final class VenueListViewModel: ObservableObject {
     func fetchVenues(page: Int = 0) {
         Task {
             do {
-                let result = try await APIService().fetchVenues(page: page)
-                venues.append(contentsOf: result.embedded.venues)
+                let result = try await APIService().fetchVenues(page: page, countryCode: countryCode.rawValue)
+                if let embedded = result.embedded {
+                    venues.append(contentsOf: embedded.venues)
+                }
                 pageNumber = result.page.number
                 maxPages = result.page.totalPages
             } catch {
+                print(error)
                 self.error = error
             }
         }
@@ -44,12 +47,17 @@ final class VenueListViewModel: ObservableObject {
     }
     
     func refreshList() {
-        venues.removeAll()
+        self.venues.removeAll()
         fetchVenues()
     }
     
     func changeCountryCode(code: TMCountryCode) {
-        countryCode = code
-        isSheetPresented = false
+        if code == countryCode {
+            isSheetPresented = false
+        } else {
+            countryCode = code
+            isSheetPresented = false
+            refreshList()
+        }
     }
 }

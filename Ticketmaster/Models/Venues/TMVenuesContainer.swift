@@ -9,7 +9,7 @@ import Foundation
 
 // MARK: - TMVenues
 struct TMVenuesContainer: Codable, Hashable {
-    let embedded: TMVenues
+    let embedded: TMVenues?
     let links: TMLinks
     let page: TMPage
 

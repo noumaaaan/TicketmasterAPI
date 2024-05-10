@@ -17,7 +17,7 @@ enum Endpoint {
     
     
     
-    case fetchVenues(page: Int)
+    case fetchVenues(page: Int, countryCode: String)
     
 }
 
@@ -54,10 +54,11 @@ extension Endpoint {
         var queryItems = [URLQueryItem]()
         
         switch self {
-        case .fetchVenues(let page):
-            queryItems.append(.init(name: "countryCode", value: TMCountryCode.greatBritain.rawValue))
+        case .fetchVenues(let page, let countryCode):
+            queryItems.append(.init(name: "countryCode", value: countryCode))
             queryItems.append(.init(name: "page", value: String(page)))
             queryItems.append(.init(name: "apikey", value: Configuration().APIKEY))
+            queryItems.append(.init(name: "source", value: "ticketmaster"))
             
         default:
             return nil
