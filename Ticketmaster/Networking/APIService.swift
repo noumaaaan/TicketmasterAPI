@@ -19,8 +19,8 @@ final class APIService {
         return try await request(endpoint: .fetchVenues(page: page, countryCode: countryCode), responseModel: TMVenuesContainer.self)
     }
     
-    func fetchEvents() async throws -> TMEvents {
-        return try await request(endpoint: .fetchEvents, responseModel: TMEvents.self)
+    func fetchEvents(page: Int, countryCode: String) async throws -> TMEventsContainer {
+        return try await request(endpoint: .fetchEvents(page: page, countryCode: countryCode), responseModel: TMEventsContainer.self)
     }
     
     func fetchClassifications() async throws -> TMClassifications {

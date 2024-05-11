@@ -7,8 +7,7 @@
 
 import Foundation
 
-struct MockData {
-    
+class MockData {
     let testVenue: TMVenue = .init(
         id: "KovZ9177-37",
         name: "St Martin's Theatre",
@@ -54,13 +53,11 @@ struct MockData {
         url: "https://concerts.livenation.com/imagine-dragons-loom-world-tour-tinley-park-illinois-08-18-2024/event/04006093CD832B24",
         images: [
             .init(
-                ratio: "16_9",
                 url: "https://s1.ticketm.net/dam/a/e8c/5265b9d2-a06c-4dc8-a432-a8dd9d042e8c_SOURCE",
                 width: 2426,
                 height: 1365
             ),
             .init(
-                ratio: "3_2",
                 url: "https://s1.ticketm.net/dam/a/e8c/5265b9d2-a06c-4dc8-a432-a8dd9d042e8c_RETINA_PORTRAIT_3_2.jpg",
                 width: 640,
                 height: 427
@@ -182,6 +179,36 @@ struct MockData {
         ),
         ticketLimit: .init(
             info: "There is an overall 8 ticket limit for this event."
+        ), 
+        embedded: .init(
+            venues: [
+                .init(
+                    id: "ZFr9jZe667",
+                    name: "Target Center",
+                    type: "venue",
+                    url: nil,
+                    postalCode: "55403",
+                    timezone: "America/Chicago",
+                    city: .init(
+                        name: "Minneapolis"
+                    ),
+                    country: .init(
+                        name: "United States Of America"
+                    ),
+                    address: .init(
+                        line1: "600 First Ave. North",
+                        line2: "600 First Ave. North"
+                    ),
+                    location: .init(
+                        longitude: "-93.286102",
+                        latitude: "44.970299"
+                    ),
+                    boxOfficeInfo: nil,
+                    parkingDetail: "",
+                    accessibleSeatingDetail: "",
+                    images: []
+                )
+            ]
         )
     )
 }

@@ -30,7 +30,6 @@ struct LocationDetails: Codable, Hashable {
     let name: String?
 }
 
-
 // MARK: - Address
 struct Address: Codable, Hashable {
     let line1: String?

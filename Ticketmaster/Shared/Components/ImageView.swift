@@ -16,9 +16,7 @@ struct ImageView: View {
     var aspectRatio: ContentMode = .fill
     
     var body: some View {
-   
         VStack {
-            
             if let url = url {
                 AsyncImage(url: URL(string: url)) { image in
                     image

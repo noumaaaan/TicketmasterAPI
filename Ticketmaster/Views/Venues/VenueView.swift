@@ -9,8 +9,8 @@ import SwiftUI
 
 struct VenueView: View {
     let venue: TMVenue
+    
     var body: some View {
-        
         HStack {
             ImageView(
                 url: venue.images?.first?.url,

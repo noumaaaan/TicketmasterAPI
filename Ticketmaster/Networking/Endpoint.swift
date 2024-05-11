@@ -9,16 +9,11 @@ import Foundation
 
 enum Endpoint {
     
-    case fetchEvents
-    case fetchEventDetails(eventID: String)
-    case fetchClassifications
-    
-    
-    
-    
-    
     case fetchVenues(page: Int, countryCode: String)
+    case fetchEvents(page: Int, countryCode: String)
     
+    
+    case fetchClassifications
 }
 
 extension Endpoint {
@@ -32,7 +27,7 @@ extension Endpoint {
     
     var method: String {
         switch self {
-        case .fetchEvents, .fetchEventDetails, .fetchClassifications, .fetchVenues:
+        case .fetchEvents, .fetchClassifications, .fetchVenues:
             "GET"
         }
     }
@@ -41,8 +36,6 @@ extension Endpoint {
         switch self {
         case .fetchEvents:
             "/discovery/v2/events"
-        case .fetchEventDetails(let eventID):
-            "/discovery/v2/events/\(eventID)"
         case .fetchClassifications:
             "/discovery/v2/classifications"
         case .fetchVenues:
@@ -52,13 +45,16 @@ extension Endpoint {
         
     var parameters: [URLQueryItem]? {
         var queryItems = [URLQueryItem]()
+        queryItems.append(.init(name: "apikey", value: Configuration().APIKEY))
         
         switch self {
         case .fetchVenues(let page, let countryCode):
             queryItems.append(.init(name: "countryCode", value: countryCode))
             queryItems.append(.init(name: "page", value: String(page)))
-            queryItems.append(.init(name: "apikey", value: Configuration().APIKEY))
-            queryItems.append(.init(name: "source", value: "ticketmaster"))
+            
+        case .fetchEvents(let page, let countryCode):
+            queryItems.append(.init(name: "countryCode", value: countryCode))
+            queryItems.append(.init(name: "page", value: String(page)))
             
         default:
             return nil

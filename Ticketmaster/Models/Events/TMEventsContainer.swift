@@ -1,9 +1,16 @@
+//
+//  TMEventsContainer.swift
+//  Ticketmaster
+//
+//  Created by Noumaan Mehmood on 10/05/2024.
+//
+
 import Foundation
 
 // MARK: - TMEvents
-struct TMEvents: Codable, Hashable {
+struct TMEventsContainer: Codable, Hashable {
+    let embedded: TMEmbedded?
     let links: TMLinks
-    let embedded: TMEmbedded
     let page: TMPage
 
     enum CodingKeys: String, CodingKey {
