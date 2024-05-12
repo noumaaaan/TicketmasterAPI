@@ -7,11 +7,31 @@
 
 import Foundation
 
+enum SortingOption: String, CaseIterable {
+    case relevance = "relevance,desc"
+    case nameAsc = "name,asc"
+    case nameDesc = "name,desc"
+    case dateAsc = "date,asc"
+    case dateDesc = "date,desc"
+    
+    var label: String {
+        switch self {
+        case .relevance: "Relevance"
+        case .nameAsc: "Name ascending"
+        case .nameDesc: "Name descending"
+        case .dateAsc: "Date ascending"
+        case .dateDesc: "Date descending"
+        }
+    }
+}
+
 @MainActor
 final class EventListViewModel: ObservableObject {
 
     @Published var events: [TMEvent] = []
     @Published var countryCode: TMCountryCode = .greatBritain
+    @Published var sortOption: SortingOption = .relevance
+    
     @Published var error: Error?
     
     @Published var isSheetPresented: Bool = false
@@ -26,7 +46,7 @@ final class EventListViewModel: ObservableObject {
     func fetchEvents(page: Int = 0) {
         Task {
             do {
-                let result = try await APIService().fetchEvents(page: page, countryCode: countryCode.rawValue)
+                let result = try await APIService().fetchEvents(page: page, countryCode: countryCode.rawValue, sort: sortOption.rawValue)
                 if let embedded = result.embedded {
                     events.append(contentsOf: embedded.events)
                 }
@@ -49,6 +69,11 @@ final class EventListViewModel: ObservableObject {
     func refreshList() {
         self.events.removeAll()
         fetchEvents()
+    }
+    
+    func getSorted(option: SortingOption) {
+        self.sortOption = option
+        refreshList()
     }
     
     func changeCountryCode(code: TMCountryCode) {

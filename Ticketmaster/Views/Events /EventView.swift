@@ -14,7 +14,7 @@ struct EventView: View {
         HStack {
             ImageView(
                 url: event.images?.first?.url,
-                width: 130, height: 100,
+                width: 130, height: 75,
                 backgroundColor: .black,
                 cornerRadius: .zero,
                 aspectRatio: .fill
@@ -27,16 +27,21 @@ struct EventView: View {
                     .lineLimit(2)
                 
                 Group {
-                    if let start = event.dates?.start?.dateTime { Text(formattedDate(date: start)) }
-                    if let venue = event.embedded?.venues?.first?.name { Text(venue) }
+                    if let start = event.dates?.start?.dateTime {
+                        Text(formattedDate(date: start))
+                            .foregroundStyle(.gray)
+                    }
+                    if let venue = event.embedded?.venues?.first?.name {
+                        Text(venue)
+                            .foregroundStyle(.blue)
+                    }
                 }
                 .font(.caption)
-                .lineLimit(2)
-                .foregroundStyle(.gray)
+                .lineLimit(1)
                 .frame(maxWidth: .infinity, alignment: .leading)
             }
         }
-        .frame(height: 100)
+        .frame(height: 75)
         .frame(maxWidth: .infinity, alignment: .leading)
         .background(.white)
         .clipShape(RoundedRectangle(cornerRadius: 4))

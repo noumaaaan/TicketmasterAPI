@@ -10,7 +10,7 @@ import Foundation
 enum Endpoint {
     
     case fetchVenues(page: Int, countryCode: String)
-    case fetchEvents(page: Int, countryCode: String)
+    case fetchEvents(page: Int, countryCode: String, sortOption: String)
     
     
     case fetchClassifications
@@ -52,9 +52,10 @@ extension Endpoint {
             queryItems.append(.init(name: "countryCode", value: countryCode))
             queryItems.append(.init(name: "page", value: String(page)))
             
-        case .fetchEvents(let page, let countryCode):
+        case .fetchEvents(let page, let countryCode, let sortingOption):
             queryItems.append(.init(name: "countryCode", value: countryCode))
             queryItems.append(.init(name: "page", value: String(page)))
+            queryItems.append(.init(name: "sort", value: sortingOption))
             
         default:
             return nil
