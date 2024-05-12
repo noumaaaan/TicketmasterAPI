@@ -12,18 +12,11 @@ struct EventView: View {
     
     var body: some View {
         HStack {
-            ImageView(
-                url: event.images?.first?.url,
-                width: 130, height: 75,
-                backgroundColor: .black,
-                cornerRadius: .zero,
-                aspectRatio: .fill
-            )
+            ImageView(url: event.images?.first?.url, width: 110, height: 75)
             
             VStack(alignment: .leading) {
                 Text(event.name)
                     .font(.subheadline.bold())
-                    .foregroundStyle(.black)
                     .lineLimit(2)
                 
                 Group {
@@ -33,7 +26,7 @@ struct EventView: View {
                     }
                     if let venue = event.embedded?.venues?.first?.name {
                         Text(venue)
-                            .foregroundStyle(.blue)
+                            .foregroundStyle(.blue3)
                     }
                 }
                 .font(.caption)
@@ -43,7 +36,6 @@ struct EventView: View {
         }
         .frame(height: 75)
         .frame(maxWidth: .infinity, alignment: .leading)
-        .background(.white)
         .clipShape(RoundedRectangle(cornerRadius: 4))
     }
 }

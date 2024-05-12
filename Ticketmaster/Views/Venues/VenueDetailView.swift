@@ -13,21 +13,14 @@ struct VenueDetailView: View {
     
     var body: some View {
         ScrollView {
-            VStack {
+            VStack(alignment: .leading, spacing: 20) {
                 mapSection
-                    .padding(.top)
-                
-                VStack(alignment: .leading) {
-                    detailsSection
-                        .padding(.bottom)
-                    boxOfficeSection
-                        .padding(.bottom)
-                    parkingSeatingSection
-                        .padding(.bottom)
-                }
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .padding()
+                detailsSection
+                boxOfficeSection
+                parkingSeatingSection
             }
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding()
         }
         .navigationTitle(venue.name)
     }
@@ -37,7 +30,7 @@ extension VenueDetailView {
     var detailsSection: some View {
         VStack(alignment: .leading) {
             Text("Details")
-                .font(.title3.bold())
+                .font(.title2.bold())
             Group {
                 Text(venue.name)
                 if let timezone = venue.timezone { Text(timezone) }
@@ -49,7 +42,6 @@ extension VenueDetailView {
                 
                 urlSection
             }
-            .font(.caption)
         }
     }
     
@@ -69,14 +61,13 @@ extension VenueDetailView {
         VStack(alignment: .leading) {
             if let boxOffice = venue.boxOfficeInfo {
                 Text("Box Office")
-                    .font(.title3.bold())
+                    .font(.title2.bold())
                 Group {
                     if let phone = boxOffice.phoneNumberDetail { Text(phone) }
                     if let hours = boxOffice.openHoursDetail { Text(hours) }
                     if let payment = boxOffice.acceptedPaymentDetail { Text(payment) }
                     if let call = boxOffice.willCallDetail { Text(call) }
                 }
-                .font(.caption)
             }
         }
     }
@@ -85,12 +76,11 @@ extension VenueDetailView {
         VStack(alignment: .leading) {
             if (venue.parkingDetail ?? venue.accessibleSeatingDetail) != nil {
                 Text("More information")
-                    .font(.title3.bold())
+                    .font(.title2.bold())
                 Group {
                     if let parking = venue.parkingDetail { Text(parking) }
                     if let seating = venue.accessibleSeatingDetail { Text(seating) }
                 }
-                .font(.caption)
             }
         }
     }
@@ -98,8 +88,8 @@ extension VenueDetailView {
     var mapSection: some View {
         VStack(alignment: .leading) {
             Text("Map")
-                .font(.title3.bold())
-                .padding(.horizontal)
+                .font(.title2.bold())
+            
             if let lat = Double(venue.location?.latitude ?? ""), let long = Double(venue.location?.longitude ?? "") {
                 Map(bounds: .init(minimumDistance: 750, maximumDistance: 750)) {
                     Marker(venue.name, coordinate: CLLocationCoordinate2D(latitude: lat, longitude: long))

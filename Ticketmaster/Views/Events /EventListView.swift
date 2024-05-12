@@ -23,14 +23,7 @@ struct EventListView: View {
             .toolbarTitleDisplayMode(.inlineLarge)
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
-//                    Button {
-//                        viewModel.isSheetPresented = true
-//                    } label: {
-//                        Image("sort")
-//                            .resizable()
-//                            .frame(width: 35, height: 35)
-//                    }
-                    menuItem
+                    sortingMenu
                 }
             }
             .toolbar {
@@ -55,8 +48,7 @@ struct EventListView: View {
 }
 
 extension EventListView {
-    
-    var menuItem: some View {
+    var sortingMenu: some View {
         Menu {
             ForEach(SortingOption.allCases, id: \.self) { sort in
                 Button {
@@ -66,7 +58,7 @@ extension EventListView {
                         Text(sort.label)
                         Spacer()
                         if sort == viewModel.sortOption {
-                            Image(systemName: "checkmark.rectangle")
+                            Image(systemName: "checkmark")
                         }
                     }
                 }
@@ -82,7 +74,7 @@ extension EventListView {
         List {
             ForEach(viewModel.events, id: \.self) { event in
                 NavigationLink {
-                    EventDetailView()
+                    EventDetailView(event: event)
                 } label: {
                     EventView(event: event)
                         .onAppear {

@@ -33,15 +33,15 @@ struct CountrySelectionView: View {
                                     .font(.title)
                                 Text(code.label)
                                     .font(.caption)
-                                    .foregroundStyle(.black)
+                                    .foregroundStyle(.white)
                                     .lineLimit(2)
                             }
                         }
                         .frame(width: 80, height: 80)
                         .overlay(
                             code == selectedCountry
-                            ? RoundedRectangle(cornerRadius: 3)
-                                .stroke(.blue, lineWidth: 2)
+                            ? RoundedRectangle(cornerRadius: 5)
+                                .stroke(.blue3, lineWidth: 2)
                             : nil
                         )
                         .padding(.horizontal)
@@ -50,6 +50,7 @@ struct CountrySelectionView: View {
                 .padding()
             }
         }
+        .background(.thinMaterial)
     }
 }
 

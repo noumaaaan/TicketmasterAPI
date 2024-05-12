@@ -12,18 +12,11 @@ struct VenueView: View {
     
     var body: some View {
         HStack {
-            ImageView(
-                url: venue.images?.first?.url,
-                width: 130, height: 70,
-                backgroundColor: .black,
-                cornerRadius: .zero,
-                aspectRatio: .fill
-            )
+            ImageView(url: venue.images?.first?.url, width: 130, height: 70)
             
             VStack(alignment: .leading) {
                 Text(venue.name)
                     .font(.subheadline.bold())
-                    .foregroundStyle(.black)
                     .lineLimit(2)
                 
                 Group {
@@ -38,7 +31,6 @@ struct VenueView: View {
         }
         .frame(height: 70)
         .frame(maxWidth: .infinity, alignment: .leading)
-        .background(.white)
         .clipShape(RoundedRectangle(cornerRadius: 4))
     }
 }

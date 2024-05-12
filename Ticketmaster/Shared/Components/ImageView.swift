@@ -47,7 +47,7 @@ extension ImageView {
         }
         .frame(height: height)
         .frame(maxWidth: .infinity, alignment: .center)
-        .background(Color.init(hex: "E3F4F4"))
+        .background(.blue1)
     }
 }
 
