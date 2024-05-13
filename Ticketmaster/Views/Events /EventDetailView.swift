@@ -17,10 +17,11 @@ struct EventDetailView: View {
                     .frame(maxWidth: .infinity, alignment: .center)
                 
                 detailsSection
+                venueInformation
+                attractionInformation
                 datesInformation
                 priceInformation
                 salesInformation
-                venueInformation
                 promoterInformation
                 productsInformation
                 seatInformation
@@ -191,6 +192,23 @@ extension EventDetailView {
                         VenueDetailView(venue: venue)
                     } label: {
                         VenueView(venue: venue)
+                    }
+                }
+            }
+        }
+    }
+    
+    var attractionInformation: some View {
+        Group {
+            if let attraction = event.embedded?.attractions?.first {
+                VStack(alignment: .leading) {
+                    Text("Attraction")
+                        .font(.title2.bold())
+                    
+                    NavigationLink {
+                        AttractionDetailView(attraction: attraction)
+                    } label: {
+                        AttractionView(attraction: attraction)
                     }
                 }
             }

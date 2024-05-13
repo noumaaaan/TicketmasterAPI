@@ -11,27 +11,26 @@ struct AttractionView: View {
     let attraction: TMAttraction
     var body: some View {
         
-        VStack {
-            ImageView(
-                url: attraction.images?.first?.url,
-                width: 190,
-                height: 150,
-                cornerRadius: .zero,
-                aspectRatio: .fill
-            )
+        HStack {
+            ImageView(url: attraction.images?.first?.url, width: 130, height: 70)
             
-            Text(attraction.name ?? "")
-                .fixedSize(horizontal: false, vertical: true)
-                .lineLimit(2)
-                .font(.subheadline.bold())
-                .foregroundStyle(.white)
-            
-            Spacer()
+            VStack(alignment: .leading) {
+                Text(attraction.name ?? "")
+                    .font(.headline.bold())
+                    .lineLimit(2)
+                
+                if let aliases = attraction.aliases {
+                    Text(aliases.joined(separator: ", "))
+                        .font(.caption)
+                        .lineLimit(2)
+                        .foregroundStyle(.gray)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                }
+            }
         }
-        .padding()
-        .frame(width: 200, height: 230)
-        .background(.thinMaterial)
-        .clipShape(RoundedRectangle(cornerRadius: 5))
+        .frame(height: 70)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .clipShape(RoundedRectangle(cornerRadius: 4))
     }
 }
 

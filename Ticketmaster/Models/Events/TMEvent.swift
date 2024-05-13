@@ -116,4 +116,5 @@ struct TMTicketLimit: Codable, Hashable {
 // MARK: - TMEmbeddedEvent
 struct TMEmbeddedEvent: Codable, Hashable {
     let venues: [TMVenue]?
+    let attractions: [TMAttraction]?
 }

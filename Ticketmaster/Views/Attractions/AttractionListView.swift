@@ -9,10 +9,6 @@ import SwiftUI
 
 struct AttractionListView: View {
     @StateObject var viewModel = AttractionListViewModel()
-    let numberColumns = [
-        GridItem(.flexible()),
-        GridItem(.flexible())
-    ]
     
     var body: some View {
         NavigationStack {
@@ -42,22 +38,21 @@ extension AttractionListView {
     }
     
     var contentView: some View {
-        ScrollView {
-            LazyVGrid(columns: numberColumns) {
-                ForEach(viewModel.attractions, id: \.self) { attraction in
-                    NavigationLink {
-                        AttractionDetailView(attraction: attraction)
-                    } label: {
-                        AttractionView(attraction: attraction)
-                            .onAppear {
-                                if attraction == viewModel.attractions.last {
-                                    viewModel.getNextPage()
-                                }
+        List {
+            ForEach(viewModel.attractions, id: \.self) { attraction in
+                NavigationLink {
+                    AttractionDetailView(attraction: attraction)
+                } label: {
+                    AttractionView(attraction: attraction)
+                        .onAppear {
+                            if attraction == viewModel.attractions.last {
+                                viewModel.getNextPage()
                             }
-                    }
+                        }
                 }
             }
         }
+        .listStyle(.grouped)
     }
 }
 

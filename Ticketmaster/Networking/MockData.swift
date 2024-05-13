@@ -206,6 +206,18 @@ class MockData {
                     accessibleSeatingDetail: "",
                     images: []
                 )
+            ], 
+            attractions: [
+                .init(
+                    ID: "K8vZ9171Jo7",
+                    name: "P!NK",
+                    type: "attraction",
+                    url: "https://www.ticketmaster.ca/pnk-tickets/artist/718655",
+                    images: [],
+                    classifications: [],
+                    externalLinks: nil,
+                    aliases: []
+                )
             ]
         )
     )
