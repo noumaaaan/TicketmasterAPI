@@ -13,7 +13,7 @@ struct DiscoverListView: View {
     var body: some View {
         NavigationStack {
             VStack(spacing: .zero) {
-                if viewModel.classifications.isEmpty {
+                if viewModel.sections.isEmpty {
                     MessageView(message: "No classifications found.")
                 } else {
                     contentView
@@ -28,7 +28,7 @@ struct DiscoverListView: View {
 extension DiscoverListView {
     var contentView: some View {
         List {
-            ForEach(viewModel.classifications, id: \.self) { section in
+            ForEach(viewModel.sections, id: \.self) { section in
                 DisclosureGroup(section.segment?.name ?? "") {
                     ForEach(section.segment?.embedded?.genres ?? [], id: \.self) { genre in
                         NavigationLink {

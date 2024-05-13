@@ -9,9 +9,9 @@ import Foundation
 
 enum Endpoint {
     
-    case fetchVenues(page: Int, countryCode: String, sortOption: String)
-    case fetchEvents(page: Int, countryCode: String, sortOption: String)
-    case fetchAttractions(page: Int, sortOption: String)
+    case fetchVenues(page: Int, countryCode: String, sortOption: String, genreID: String? = nil)
+    case fetchEvents(page: Int, countryCode: String, sortOption: String, genreID: String? = nil)
+    case fetchAttractions(page: Int, sortOption: String, genreID: String? = nil)
     case fetchClassifications
 }
 
@@ -49,19 +49,22 @@ extension Endpoint {
         queryItems.append(.init(name: "apikey", value: Configuration().APIKEY))
         
         switch self {
-        case .fetchVenues(let page, let countryCode, let sortingOption):
+        case .fetchVenues(let page, let countryCode, let sortingOption, let genreID):
             queryItems.append(.init(name: "countryCode", value: countryCode))
             queryItems.append(.init(name: "sort", value: sortingOption))
             queryItems.append(.init(name: "page", value: String(page)))
+            if let genreID = genreID { queryItems.append(.init(name: "genreId", value: genreID)) }
             
-        case .fetchEvents(let page, let countryCode, let sortingOption):
+        case .fetchEvents(let page, let countryCode, let sortingOption, let genreID):
             queryItems.append(.init(name: "page", value: String(page)))
             queryItems.append(.init(name: "sort", value: sortingOption))
             queryItems.append(.init(name: "countryCode", value: countryCode))
+            if let genreID = genreID { queryItems.append(.init(name: "genreId", value: genreID)) }
             
-        case .fetchAttractions(let page, let sortingOption):
+        case .fetchAttractions(let page, let sortingOption, let genreID):
             queryItems.append(.init(name: "page", value: String(page)))
             queryItems.append(.init(name: "sort", value: sortingOption))
+            if let genreID = genreID { queryItems.append(.init(name: "genreId", value: genreID)) }
             
         default: break
         }

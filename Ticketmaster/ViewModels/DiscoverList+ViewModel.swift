@@ -10,7 +10,7 @@ import Foundation
 @MainActor
 final class DiscoverListViewModel: ObservableObject {
 
-    @Published var classifications: [TMSection] = []
+    @Published var sections: [TMSection] = []
     @Published var error: Error?
     
     var pageNumber: Int = 0
@@ -25,7 +25,7 @@ final class DiscoverListViewModel: ObservableObject {
             do {
                 let result = try await APIService().fetchClassifications()
                 if let embedded = result.embedded {
-                    classifications.append(contentsOf: embedded.classifications)
+                    sections.append(contentsOf: embedded.classifications.filter { $0.segment != nil })
                 }
                 pageNumber = result.page.number
                 maxPages = result.page.totalPages
@@ -44,7 +44,7 @@ final class DiscoverListViewModel: ObservableObject {
     }
     
     func refreshList() {
-        self.classifications.removeAll()
+        self.sections.removeAll()
         fetchClassifications()
     }
 }
