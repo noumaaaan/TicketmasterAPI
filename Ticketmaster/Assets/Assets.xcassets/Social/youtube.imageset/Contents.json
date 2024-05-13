@@ -1,0 +1,15 @@
+{
+  "images" : [
+    {
+      "filename" : "youtube.256x180.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  },
+  "properties" : {
+    "preserves-vector-representation" : true
+  }
+}

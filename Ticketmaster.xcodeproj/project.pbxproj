@@ -27,6 +27,7 @@
 		8CEB8B292BF188BF00547E66 /* TMClassification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CEB8B282BF188BF00547E66 /* TMClassification.swift */; };
 		8CEB8B2C2BF195DF00547E66 /* VenueSortMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CEB8B2B2BF195DF00547E66 /* VenueSortMenu.swift */; };
 		8CEB8B2E2BF195E800547E66 /* AttractionSortMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CEB8B2D2BF195E800547E66 /* AttractionSortMenu.swift */; };
+		8CEB8B302BF19E1E00547E66 /* TMSocialMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CEB8B2F2BF19E1E00547E66 /* TMSocialMedia.swift */; };
 		8CF802632BE86F2600EC8586 /* TicketmasterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF802622BE86F2600EC8586 /* TicketmasterApp.swift */; };
 		8CF802652BE86F2600EC8586 /* EventListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF802642BE86F2600EC8586 /* EventListView.swift */; };
 		8CF802672BE86F2900EC8586 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CF802662BE86F2900EC8586 /* Assets.xcassets */; };
@@ -95,6 +96,7 @@
 		8CEB8B282BF188BF00547E66 /* TMClassification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMClassification.swift; sourceTree = "<group>"; };
 		8CEB8B2B2BF195DF00547E66 /* VenueSortMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueSortMenu.swift; sourceTree = "<group>"; };
 		8CEB8B2D2BF195E800547E66 /* AttractionSortMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttractionSortMenu.swift; sourceTree = "<group>"; };
+		8CEB8B2F2BF19E1E00547E66 /* TMSocialMedia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMSocialMedia.swift; sourceTree = "<group>"; };
 		8CF8025F2BE86F2600EC8586 /* Ticketmaster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ticketmaster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CF802622BE86F2600EC8586 /* TicketmasterApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketmasterApp.swift; sourceTree = "<group>"; };
 		8CF802642BE86F2600EC8586 /* EventListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListView.swift; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				8CEB8B112BF17CD300547E66 /* TMSortingOption.swift */,
+				8CEB8B2F2BF19E1E00547E66 /* TMSocialMedia.swift */,
 				8CF8029D2BE89FF400EC8586 /* TMCountryCode.swift */,
 			);
 			path = Enums;
@@ -530,6 +533,7 @@
 				8CEB8B072BEDEDE400547E66 /* EventDetailView.swift in Sources */,
 				8CF8028F2BE86F5500EC8586 /* Endpoint.swift in Sources */,
 				8CF8029A2BE88A1000EC8586 /* TMLinks.swift in Sources */,
+				8CEB8B302BF19E1E00547E66 /* TMSocialMedia.swift in Sources */,
 				8CF802912BE8775300EC8586 /* APIService.swift in Sources */,
 				8CEB8B0A2BEDF05F00547E66 /* TMEventsContainer.swift in Sources */,
 				8CEB8B142BF17E4600547E66 /* EventSortMenu.swift in Sources */,

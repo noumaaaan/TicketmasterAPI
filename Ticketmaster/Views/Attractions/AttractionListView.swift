@@ -46,7 +46,7 @@ extension AttractionListView {
             LazyVGrid(columns: numberColumns) {
                 ForEach(viewModel.attractions, id: \.self) { attraction in
                     NavigationLink {
-                        AttractionDetailView()
+                        AttractionDetailView(attraction: attraction)
                     } label: {
                         AttractionView(attraction: attraction)
                             .onAppear {

@@ -266,8 +266,6 @@ class MockData {
                 .init(url: "https://www.instagram.com/pink/")
             ]
         ),
-        aliases: [
-            ""
-        ]
+        aliases: [ "p!nk", "pink" ]
     )
 }
