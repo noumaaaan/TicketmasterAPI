@@ -9,17 +9,17 @@ import Foundation
 import SwiftUI
 
 enum TabOption: String, CaseIterable {
-    case discover
     case events
     case attractions
+    case discover
     case venues
     case settings
     
     var image: String {
         switch self {
-        case .discover: "globe.europe.africa"
         case .events: "note"
         case .attractions: "person.3"
+        case .discover: "globe.europe.africa"
         case .venues: "building.columns"
         case .settings: "gearshape"
         }
@@ -34,16 +34,16 @@ enum TabOption: String, CaseIterable {
     
     var color: Color {
         switch self {
+        case .events:
+            return Color.init(hex: "49FF00")
+        case .attractions:
+            return Color.init(hex: "2FA4FF")
         case .discover:
             return Color.init(hex: "FF204E")
-        case .events:
-            return Color.init(hex: "FFE400")
-        case .attractions:
-            return Color.init(hex: "F72798")
         case .venues:
-            return Color.init(hex: "49FF00")
+            return Color.init(hex: "FFE400")
         case .settings:
-            return Color.init(hex: "2FA4FF")
+            return Color.init(hex: "F72798")
         }
     }
 }

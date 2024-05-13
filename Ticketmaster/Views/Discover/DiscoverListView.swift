@@ -14,7 +14,7 @@ struct DiscoverListView: View {
         NavigationStack {
             VStack(spacing: .zero) {
                 if viewModel.sections.isEmpty {
-                    MessageView(message: "No classifications found.")
+                    MessageView(message: "No discoveries.")
                 } else {
                     contentView
                 }
