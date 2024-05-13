@@ -28,7 +28,7 @@ final class EventListViewModel: ObservableObject {
     func fetchEvents(page: Int = 0) {
         Task {
             do {
-                let result = try await APIService().fetchEvents(page: page, countryCode: countryCode.rawValue, sort: sortOption.rawValue)
+                let result = try await APIService().fetchEvents(page: page, countryCode: countryCode.rawValue, sort: sortOption.rawValue, genreID: nil)
                 if let embedded = result.embedded {
                     events.append(contentsOf: embedded.events)
                 }

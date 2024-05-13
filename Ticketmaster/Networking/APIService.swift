@@ -15,16 +15,16 @@ enum TestError: Error {
 
 final class APIService {
     
-    func fetchAttractions(page: Int, sort: String) async throws -> TMAttractionsContainer {
-        return try await request(endpoint: .fetchAttractions(page: page, sortOption: sort), responseModel: TMAttractionsContainer.self)
+    func fetchAttractions(page: Int, sort: String, genreID: String?) async throws -> TMAttractionsContainer {
+        return try await request(endpoint: .fetchAttractions(page: page, sortOption: sort, genreID: genreID), responseModel: TMAttractionsContainer.self)
     }
     
-    func fetchVenues(page: Int, countryCode: String, sort: String) async throws -> TMVenuesContainer {
-        return try await request(endpoint: .fetchVenues(page: page, countryCode: countryCode, sortOption: sort), responseModel: TMVenuesContainer.self)
+    func fetchVenues(page: Int, countryCode: String, sort: String, genreID: String?) async throws -> TMVenuesContainer {
+        return try await request(endpoint: .fetchVenues(page: page, countryCode: countryCode, sortOption: sort, genreID: genreID), responseModel: TMVenuesContainer.self)
     }
     
-    func fetchEvents(page: Int, countryCode: String, sort: String) async throws -> TMEventsContainer {
-        return try await request(endpoint: .fetchEvents(page: page, countryCode: countryCode, sortOption: sort), responseModel: TMEventsContainer.self)
+    func fetchEvents(page: Int, countryCode: String, sort: String, genreID: String?) async throws -> TMEventsContainer {
+        return try await request(endpoint: .fetchEvents(page: page, countryCode: countryCode, sortOption: sort, genreID: genreID), responseModel: TMEventsContainer.self)
     }
     
     func fetchClassifications() async throws -> TMSectionsContainer {

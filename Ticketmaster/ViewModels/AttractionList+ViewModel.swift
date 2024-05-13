@@ -24,7 +24,7 @@ final class AttractionListViewModel: ObservableObject {
     func fetchAttractions() {
         Task {
             do {
-                let result = try await APIService().fetchAttractions(page: pageNumber, sort: sortOption.rawValue)
+                let result = try await APIService().fetchAttractions(page: pageNumber, sort: sortOption.rawValue, genreID: nil)
                 if let embedded = result.embedded {
                     attractions.append(contentsOf: embedded.attractions)
                 }

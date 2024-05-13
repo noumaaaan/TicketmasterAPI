@@ -27,7 +27,7 @@ final class VenueListViewModel: ObservableObject {
     func fetchVenues(page: Int = 0) {
         Task {
             do {
-                let result = try await APIService().fetchVenues(page: page, countryCode: countryCode.rawValue, sort: sortOption.rawValue)
+                let result = try await APIService().fetchVenues(page: page, countryCode: countryCode.rawValue, sort: sortOption.rawValue, genreID: nil)
                 if let embedded = result.embedded {
                     venues.append(contentsOf: embedded.venues)
                 }

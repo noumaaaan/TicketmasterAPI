@@ -9,9 +9,9 @@ import Foundation
 
 enum Endpoint {
     
-    case fetchVenues(page: Int, countryCode: String, sortOption: String, genreID: String? = nil)
-    case fetchEvents(page: Int, countryCode: String, sortOption: String, genreID: String? = nil)
-    case fetchAttractions(page: Int, sortOption: String, genreID: String? = nil)
+    case fetchVenues(page: Int, countryCode: String, sortOption: String, genreID: String?)
+    case fetchEvents(page: Int, countryCode: String, sortOption: String, genreID: String?)
+    case fetchAttractions(page: Int, sortOption: String, genreID: String?)
     case fetchClassifications
 }
 

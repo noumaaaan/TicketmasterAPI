@@ -32,7 +32,7 @@ extension DiscoverListView {
                 DisclosureGroup(section.segment?.name ?? "") {
                     ForEach(section.segment?.embedded?.genres ?? [], id: \.self) { genre in
                         NavigationLink {
-                            Text("")
+                            DiscoverResultsView(genreID: genre.ID)
                         } label: {
                             Text(genre.name ?? "")
                         }
