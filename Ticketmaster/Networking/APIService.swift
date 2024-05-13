@@ -23,8 +23,8 @@ final class APIService {
         return try await request(endpoint: .fetchVenues(page: page, countryCode: countryCode, sortOption: sort, genreID: genreID), responseModel: TMVenuesContainer.self)
     }
     
-    func fetchEvents(page: Int, countryCode: String, sort: String, genreID: String?) async throws -> TMEventsContainer {
-        return try await request(endpoint: .fetchEvents(page: page, countryCode: countryCode, sortOption: sort, genreID: genreID), responseModel: TMEventsContainer.self)
+    func fetchEvents(page: Int, countryCode: String, sort: String, segmentID: String?, genreID: String?) async throws -> TMEventsContainer {
+        return try await request(endpoint: .fetchEvents(page: page, countryCode: countryCode, sortOption: sort, segmentID: segmentID, genreID: genreID), responseModel: TMEventsContainer.self)
     }
     
     func fetchClassifications() async throws -> TMSectionsContainer {

@@ -13,14 +13,32 @@ final class DiscoverResultsViewModel: ObservableObject {
     @Published var events: [TMEvent] = []
     @Published var error: Error?
     
+    @Published var selectedGenreID: String?
+    @Published var isSheetPresented: Bool = false
+    
     var pageNumber: Int = 0
     var maxPages: Int = 0
     
-    func fetchGenreEvents(genreID: String) {
+    func updateGenre(genreID: String?, segmentID: String?) {
+        if selectedGenreID == genreID {
+            selectedGenreID = nil
+        } else {
+            selectedGenreID = genreID
+        }
+        isSheetPresented = false
+        
+        if selectedGenreID != nil {
+            fetchEvents(segmentID: nil, genreID: selectedGenreID)
+        } else {
+            fetchEvents(segmentID: segmentID, genreID: nil)
+        }
+    }
+    
+    func fetchEvents(segmentID: String?, genreID: String?) {
         Task {
             do {
                 events.removeAll()
-                let result = try await APIService().fetchEvents(page: 0, countryCode: "gb", sort: "relevance,desc", genreID: genreID)
+                let result = try await APIService().fetchEvents(page: pageNumber, countryCode: "gb", sort: "relevance,desc", segmentID: segmentID, genreID: genreID)
                 if let embedded = result.embedded {
                     events.append(contentsOf: embedded.events)
                 }

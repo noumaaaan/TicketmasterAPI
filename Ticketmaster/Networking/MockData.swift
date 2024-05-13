@@ -280,4 +280,23 @@ class MockData {
         ),
         aliases: [ "p!nk", "pink" ]
     )
+    
+    let testSection: TMSection = .init(
+        segment: .init(
+            ID: "KZFzniwnSyZfZ7v7n1",
+            name: "Miscellaneous",
+            embedded: .init(
+                genres: [
+                    .init(
+                        ID: "KnvZfZ7vAAa",
+                        name: "Casino/Gaming"
+                    ),
+                    .init(
+                        ID: "KnvZfZ7vAAt",
+                        name: "Holiday"
+                    )
+                ]
+            )
+        )
+    )
 }

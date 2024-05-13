@@ -8,19 +8,35 @@
 import SwiftUI
 
 struct DiscoverListView: View {
-    @StateObject var viewModel = DiscoverListViewModel()
+    let section: TMSection
+    @StateObject var viewModel = DiscoverResultsViewModel()
     
     var body: some View {
-        NavigationStack {
-            VStack(spacing: .zero) {
-                if viewModel.sections.isEmpty {
-                    MessageView(message: "No discoveries.")
-                } else {
-                    contentView
+        VStack(spacing: .zero) {
+            if section.segment == nil {
+                MessageView(message: "No events found.")
+            } else {
+                contentView
+            }
+        }
+        .navigationTitle(section.segment?.name ?? "")
+        .toolbarTitleDisplayMode(.inlineLarge)
+        .toolbar {
+            ToolbarItem(placement: .topBarTrailing) {
+                Button {
+                    viewModel.isSheetPresented = true
+                } label: {
+                    Image("filter")
+                        .resizable()
+                        .frame(width: 35, height: 35)
                 }
             }
-            .navigationTitle("Discover")
-            .toolbarTitleDisplayMode(.inlineLarge)
+        }
+        .sheet(isPresented: $viewModel.isSheetPresented) {
+            GenreListView(section: section, selectedGenreID: viewModel.selectedGenreID) { genre in
+                viewModel.updateGenre(genreID: genre?.ID, segmentID: section.segment?.ID)
+            }
+                .presentationDetents([.medium])
         }
     }
 }
@@ -28,22 +44,21 @@ struct DiscoverListView: View {
 extension DiscoverListView {
     var contentView: some View {
         List {
-            ForEach(viewModel.sections, id: \.self) { section in
-                DisclosureGroup(section.segment?.name ?? "") {
-                    ForEach(section.segment?.embedded?.genres ?? [], id: \.self) { genre in
-                        NavigationLink {
-                            DiscoverResultsView(genreID: genre.ID)
-                        } label: {
-                            Text(genre.name ?? "")
-                        }
-                    }
+            ForEach(viewModel.events, id: \.self) { event in
+                NavigationLink {
+                    EventDetailView(event: event)
+                } label: {
+                    EventView(event: event)
                 }
             }
         }
         .listStyle(.grouped)
+        .task {
+            viewModel.fetchEvents(segmentID: section.segment?.ID, genreID: nil)
+        }
     }
 }
 
 #Preview {
-    DiscoverListView()
+    DiscoverListView(section: MockData().testSection)
 }

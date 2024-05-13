@@ -17,7 +17,7 @@ struct TabBarView: View {
                     ForEach(TabOption.allCases, id: \.self) { tab in
                         switch tab {
                         case .discover:
-                            DiscoverListView()
+                            DiscoverView()
                         case .attractions:
                             AttractionListView()
                         case .events:

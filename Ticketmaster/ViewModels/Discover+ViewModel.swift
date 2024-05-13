@@ -1,5 +1,5 @@
 //
-//  DiscoverList+ViewModel.swift
+//  Discover+ViewModel.swift
 //  Ticketmaster
 //
 //  Created by Noumaan Mehmood on 13/05/2024.
@@ -8,7 +8,7 @@
 import Foundation
 
 @MainActor
-final class DiscoverListViewModel: ObservableObject {
+final class DiscoverViewModel: ObservableObject {
 
     @Published var sections: [TMSection] = []
     @Published var error: Error?
