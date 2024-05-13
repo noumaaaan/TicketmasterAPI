@@ -7,30 +7,12 @@
 
 import Foundation
 
-enum SortingOption: String, CaseIterable {
-    case relevance = "relevance,desc"
-    case nameAsc = "name,asc"
-    case nameDesc = "name,desc"
-    case dateAsc = "date,asc"
-    case dateDesc = "date,desc"
-    
-    var label: String {
-        switch self {
-        case .relevance: "Relevance"
-        case .nameAsc: "Name ascending"
-        case .nameDesc: "Name descending"
-        case .dateAsc: "Date ascending"
-        case .dateDesc: "Date descending"
-        }
-    }
-}
-
 @MainActor
 final class EventListViewModel: ObservableObject {
 
     @Published var events: [TMEvent] = []
     @Published var countryCode: TMCountryCode = .greatBritain
-    @Published var sortOption: SortingOption = .relevance
+    @Published var sortOption: TMEventSortingOption = .relevance
     
     @Published var error: Error?
     
@@ -71,7 +53,7 @@ final class EventListViewModel: ObservableObject {
         fetchEvents()
     }
     
-    func getSorted(option: SortingOption) {
+    func getSorted(option: TMEventSortingOption) {
         self.sortOption = option
         refreshList()
     }

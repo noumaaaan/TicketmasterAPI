@@ -15,7 +15,7 @@ struct EventView: View {
             ImageView(url: event.images?.first?.url, width: 110, height: 75)
             
             VStack(alignment: .leading) {
-                Text(event.name)
+                Text(event.name ?? "")
                     .font(.subheadline.bold())
                     .lineLimit(2)
                 

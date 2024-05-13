@@ -9,7 +9,7 @@ import Foundation
 
 // MARK: - TMEvents
 struct TMEventsContainer: Codable, Hashable {
-    let embedded: TMEmbedded?
+    let embedded: TMEvents?
     let links: TMLinks
     let page: TMPage
 
@@ -21,6 +21,6 @@ struct TMEventsContainer: Codable, Hashable {
 }
 
 // MARK: - TMEmbedded
-struct TMEmbedded: Codable, Hashable {
+struct TMEvents: Codable, Hashable {
     let events: [TMEvent]
 }

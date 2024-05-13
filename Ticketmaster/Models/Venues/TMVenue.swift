@@ -10,7 +10,7 @@ import Foundation
 // MARK: - TMVenue
 struct TMVenue: Codable, Hashable {
     let id: String
-    let name: String
+    let name: String?
     let type: String
     let url: String?
     let postalCode: String?

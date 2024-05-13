@@ -15,7 +15,7 @@ struct VenueView: View {
             ImageView(url: venue.images?.first?.url, width: 130, height: 70)
             
             VStack(alignment: .leading) {
-                Text(venue.name)
+                Text(venue.name ?? "")
                     .font(.subheadline.bold())
                     .lineLimit(2)
                 

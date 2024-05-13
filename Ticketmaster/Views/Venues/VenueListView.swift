@@ -23,6 +23,11 @@ struct VenueListView: View {
             .toolbarTitleDisplayMode(.inlineLarge)
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
+                    sortingMenu
+                }
+            }
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
                     Button {
                         viewModel.isSheetPresented = true
                     } label: {
@@ -42,6 +47,12 @@ struct VenueListView: View {
 }
 
 extension VenueListView {
+    var sortingMenu: some View {
+        VenueSortMenu(selected: viewModel.sortOption) { sort in
+            viewModel.getSorted(option: sort)
+        }
+    }
+    
     var contentView: some View {
         List {
             ForEach(viewModel.venues, id: \.self) { venue in

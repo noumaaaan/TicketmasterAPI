@@ -49,24 +49,8 @@ struct EventListView: View {
 
 extension EventListView {
     var sortingMenu: some View {
-        Menu {
-            ForEach(SortingOption.allCases, id: \.self) { sort in
-                Button {
-                    viewModel.getSorted(option: sort)
-                } label: {
-                    HStack {
-                        Text(sort.label)
-                        Spacer()
-                        if sort == viewModel.sortOption {
-                            Image(systemName: "checkmark")
-                        }
-                    }
-                }
-            }
-         } label: {
-             Image("sort")
-                 .resizable()
-                 .frame(width: 35, height: 35)
+        EventSortMenu(selected: viewModel.sortOption) { sort in
+            viewModel.getSorted(option: sort)
         }
     }
     

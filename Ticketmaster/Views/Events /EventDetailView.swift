@@ -29,7 +29,7 @@ struct EventDetailView: View {
             }
             .padding()
         }
-        .navigationTitle(event.name)
+        .navigationTitle(event.name ?? "")
     }
 }
 
@@ -38,7 +38,7 @@ extension EventDetailView {
         VStack(alignment: .leading) {
             Text(event.type.capitalized)
                 .font(.title2.bold())
-            Text(event.name)
+            Text(event.name ?? "")
             if let url = event.url, let actual = URL(string: url) {
                 Button {
                     UIApplication.shared.open(actual)
@@ -85,9 +85,9 @@ extension EventDetailView {
                         .font(.title2.bold())
                     
                     HStack {
-                        if let segment = classification.segment { RoundedTextView(text: segment.name )}
-                        if let genre = classification.genre { RoundedTextView(text: genre.name )}
-                        if let subGenre = classification.subGenre { RoundedTextView(text: subGenre.name )}
+                        if let segment = classification.segment?.name { RoundedTextView(text: segment )}
+                        if let genre = classification.genre?.name { RoundedTextView(text: genre )}
+                        if let subGenre = classification.subGenre?.name { RoundedTextView(text: subGenre )}
                     }
                     .frame(maxWidth: .infinity, alignment: .center)
                 }

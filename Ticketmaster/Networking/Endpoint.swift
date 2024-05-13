@@ -9,9 +9,9 @@ import Foundation
 
 enum Endpoint {
     
-    case fetchVenues(page: Int, countryCode: String)
+    case fetchVenues(page: Int, countryCode: String, sortOption: String)
     case fetchEvents(page: Int, countryCode: String, sortOption: String)
-    
+    case fetchAttractions(page: Int, sortOption: String)
     
     case fetchClassifications
 }
@@ -27,7 +27,7 @@ extension Endpoint {
     
     var method: String {
         switch self {
-        case .fetchEvents, .fetchClassifications, .fetchVenues:
+        case .fetchEvents, .fetchClassifications, .fetchVenues, .fetchAttractions:
             "GET"
         }
     }
@@ -40,6 +40,8 @@ extension Endpoint {
             "/discovery/v2/classifications"
         case .fetchVenues:
             "/discovery/v2/venues"
+        case .fetchAttractions:
+            "/discovery/v2/attractions"
         }
     }
         
@@ -48,12 +50,17 @@ extension Endpoint {
         queryItems.append(.init(name: "apikey", value: Configuration().APIKEY))
         
         switch self {
-        case .fetchVenues(let page, let countryCode):
+        case .fetchVenues(let page, let countryCode, let sortingOption):
             queryItems.append(.init(name: "countryCode", value: countryCode))
+            queryItems.append(.init(name: "sort", value: sortingOption))
             queryItems.append(.init(name: "page", value: String(page)))
             
         case .fetchEvents(let page, let countryCode, let sortingOption):
+            queryItems.append(.init(name: "page", value: String(page)))
+            queryItems.append(.init(name: "sort", value: sortingOption))
             queryItems.append(.init(name: "countryCode", value: countryCode))
+            
+        case .fetchAttractions(let page, let sortingOption):
             queryItems.append(.init(name: "page", value: String(page)))
             queryItems.append(.init(name: "sort", value: sortingOption))
             

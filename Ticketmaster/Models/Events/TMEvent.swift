@@ -10,7 +10,7 @@ import Foundation
 // MARK: - TMEvent
 struct TMEvent: Codable, Hashable {
     let ID: String
-    let name: String
+    let name: String?
     let type: String
     let url: String?
     let images: [TMImage]?
@@ -42,13 +42,6 @@ struct TMEvent: Codable, Hashable {
     }
 }
 
-// MARK: - TMImage
-struct TMImage: Codable, Hashable {
-    let url: String?
-    let width: Int?
-    let height: Int?
-}
-
 // MARK: - TMSales
 struct TMSales: Codable, Hashable {
     let publicSales: PublicSales?
@@ -62,8 +55,6 @@ struct TMSales: Codable, Hashable {
 
 struct PublicSales: Codable, Hashable {
     let startDateTime: String?
-    let startTBD: Bool?
-    let startTBA: Bool?
     let endDateTime: String?
 }
 
@@ -89,19 +80,6 @@ struct StartDate: Codable, Hashable {
 
 struct DateStatus: Codable, Hashable {
     let code: String?
-}
-
-// MARK: - TMClassification
-struct TMClassification: Codable, Hashable {
-    let segment: ClassificationSubType?
-    let genre: ClassificationSubType?
-    let subGenre: ClassificationSubType?
-    let type: ClassificationSubType?
-    let subType: ClassificationSubType?
-}
-
-struct ClassificationSubType: Codable, Hashable {
-    let name: String
 }
 
 // MARK: - TMPromoter

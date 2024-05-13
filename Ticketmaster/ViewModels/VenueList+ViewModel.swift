@@ -12,6 +12,7 @@ final class VenueListViewModel: ObservableObject {
     
     @Published var venues: [TMVenue] = []
     @Published var countryCode: TMCountryCode = .greatBritain
+    @Published var sortOption: TMVenueSortingOption = .relevance
     @Published var error: Error?
     
     @Published var isSheetPresented: Bool = false
@@ -26,7 +27,7 @@ final class VenueListViewModel: ObservableObject {
     func fetchVenues(page: Int = 0) {
         Task {
             do {
-                let result = try await APIService().fetchVenues(page: page, countryCode: countryCode.rawValue)
+                let result = try await APIService().fetchVenues(page: page, countryCode: countryCode.rawValue, sort: sortOption.rawValue)
                 if let embedded = result.embedded {
                     venues.append(contentsOf: embedded.venues)
                 }
@@ -59,5 +60,10 @@ final class VenueListViewModel: ObservableObject {
             isSheetPresented = false
             refreshList()
         }
+    }
+    
+    func getSorted(option: TMVenueSortingOption) {
+        self.sortOption = option
+        refreshList()
     }
 }

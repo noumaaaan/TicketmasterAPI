@@ -15,8 +15,12 @@ enum TestError: Error {
 
 final class APIService {
     
-    func fetchVenues(page: Int, countryCode: String) async throws -> TMVenuesContainer {
-        return try await request(endpoint: .fetchVenues(page: page, countryCode: countryCode), responseModel: TMVenuesContainer.self)
+    func fetchAttractions(page: Int, sort: String) async throws -> TMAttractionsContainer {
+        return try await request(endpoint: .fetchAttractions(page: page, sortOption: sort), responseModel: TMAttractionsContainer.self)
+    }
+    
+    func fetchVenues(page: Int, countryCode: String, sort: String) async throws -> TMVenuesContainer {
+        return try await request(endpoint: .fetchVenues(page: page, countryCode: countryCode, sortOption: sort), responseModel: TMVenuesContainer.self)
     }
     
     func fetchEvents(page: Int, countryCode: String, sort: String) async throws -> TMEventsContainer {
@@ -52,21 +56,42 @@ final class APIService {
         guard (response as? HTTPURLResponse)?.statusCode == 200 else { throw TestError.invalidResponse }
         
         
+//        do {
+//            let decodedResponse = try JSONDecoder().decode(responseModel, from: data)
+//            return decodedResponse
+        
+//        } catch DecodingError.keyNotFound(let key, let context) {
+//            Swift.print("could not find key \(key) in JSON: \(context.debugDescription)")
+//        } catch DecodingError.valueNotFound(let type, let context) {
+//            Swift.print("could not find type \(type) in JSON: \(context.debugDescription)")
+//        } catch DecodingError.typeMismatch(let type, let context) {
+//            Swift.print("type mismatch for type \(type) in JSON: \(context.debugDescription)")
+//        } catch DecodingError.dataCorrupted(let context) {
+//            Swift.print("data found to be corrupted in JSON: \(context.debugDescription)")
+//        } catch let error as NSError {
+//            NSLog("Error in read(from:ofType:) domain= \(error.domain), description= \(error.localizedDescription)")
+//        }
+//
+//
         do {
             let decodedResponse = try JSONDecoder().decode(responseModel, from: data)
             return decodedResponse
-        
-        } catch DecodingError.keyNotFound(let key, let context) {
-            Swift.print("could not find key \(key) in JSON: \(context.debugDescription)")
-        } catch DecodingError.valueNotFound(let type, let context) {
-            Swift.print("could not find type \(type) in JSON: \(context.debugDescription)")
-        } catch DecodingError.typeMismatch(let type, let context) {
-            Swift.print("type mismatch for type \(type) in JSON: \(context.debugDescription)")
         } catch DecodingError.dataCorrupted(let context) {
-            Swift.print("data found to be corrupted in JSON: \(context.debugDescription)")
-        } catch let error as NSError {
-            NSLog("Error in read(from:ofType:) domain= \(error.domain), description= \(error.localizedDescription)")
+            print(context)
+        } catch DecodingError.keyNotFound(let key, let context) {
+            print("Key '\(key)' not found:", context.debugDescription)
+            print("codingPath:", context.codingPath)
+        } catch DecodingError.valueNotFound(let value, let context) {
+            print("Value '\(value)' not found:", context.debugDescription)
+            print("codingPath:", context.codingPath)
+        } catch DecodingError.typeMismatch(let type, let context) {
+            print("Type '\(type)' mismatch:", context.debugDescription)
+            print("codingPath:", context.codingPath)
+        } catch {
+            print("error: ", error)
         }
+        
+        
         
         return [] as! T
     }

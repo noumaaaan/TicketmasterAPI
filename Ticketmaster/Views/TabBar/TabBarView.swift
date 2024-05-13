@@ -19,7 +19,7 @@ struct TabBarView: View {
                         case .discover:
                             EventListView()
                         case .attractions:
-                            Color.mint.ignoresSafeArea()
+                            AttractionListView()
                         case .search:
                             Color.yellow.ignoresSafeArea()
                         case .venues:

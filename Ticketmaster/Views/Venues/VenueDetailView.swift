@@ -22,7 +22,7 @@ struct VenueDetailView: View {
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding()
         }
-        .navigationTitle(venue.name)
+        .navigationTitle(venue.name ?? "")
     }
 }
 
@@ -32,7 +32,7 @@ extension VenueDetailView {
             Text("Details")
                 .font(.title2.bold())
             Group {
-                Text(venue.name)
+                Text(venue.name ?? "")
                 if let timezone = venue.timezone { Text(timezone) }
                 if let line1 = venue.address?.line1 { Text(line1) }
                 if let line2 = venue.address?.line2 { Text(line2) }
@@ -51,7 +51,7 @@ extension VenueDetailView {
                 Button {
                     UIApplication.shared.open(actual)
                 } label: {
-                    Text("\(venue.name) Ticketmaster site")
+                    Text("\(venue.name ?? "") Ticketmaster site")
                 }
             }
         }
@@ -92,7 +92,7 @@ extension VenueDetailView {
             
             if let lat = Double(venue.location?.latitude ?? ""), let long = Double(venue.location?.longitude ?? "") {
                 Map(bounds: .init(minimumDistance: 750, maximumDistance: 750)) {
-                    Marker(venue.name, coordinate: CLLocationCoordinate2D(latitude: lat, longitude: long))
+                    Marker(venue.name ?? "", coordinate: CLLocationCoordinate2D(latitude: lat, longitude: long))
                 }
                 .frame(height: 200)
                 .frame(maxWidth: .infinity, alignment: .center)

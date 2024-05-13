@@ -66,8 +66,6 @@ class MockData {
         sales: .init(
             publicSales: .init(
                 startDateTime: "2024-04-26T15:00:00Z",
-                startTBD: false,
-                startTBA: false,
                 endDateTime: "2024-08-19T02:00:00Z"
             ),
             presales: [
@@ -210,5 +208,66 @@ class MockData {
                 )
             ]
         )
+    )
+    
+    let testAttraction: TMAttraction = .init(
+        ID: "K8vZ9171Jo7",
+        name: "P!NK",
+        type: "attraction",
+        url: "https://www.ticketmaster.ca/pnk-tickets/artist/718655",
+        images: [
+            .init(
+                url: "https://s1.ticketm.net/dam/a/8cc/0850a9c7-f269-4506-87f5-0acb3e2e08cc_CUSTOM.jpg",
+                width: 305,
+                height: 225
+            ),
+            .init(
+                url: "https://s1.ticketm.net/dam/a/8cc/0850a9c7-f269-4506-87f5-0acb3e2e08cc_RETINA_PORTRAIT_16_9.jpg",
+                width: 640,
+                height: 360
+            )
+        ],
+        classifications: [
+            .init(
+                segment: .init(
+                    name: "Music"
+                ),
+                genre: .init(
+                    name: "Rock"
+                ),
+                subGenre: .init(
+                    name: "Pop"
+                ),
+                type: .init(
+                    name: "Individual"
+                ),
+                subType: .init(
+                    name: "Musician"
+                ))
+        ],
+        externalLinks: .init(
+            youtube: [
+                .init(url: "https://www.youtube.com/user/PinkVideoVault"),
+                .init(url: "https://www.youtube.com/user/PinkVEVO")
+            ],
+            twitter: [
+                .init(url: "https://twitter.com/Pink")
+            ],
+            wiki: [
+                .init(url: "https://en.wikipedia.org/wiki/Pink_(singer)")
+            ],
+            facebook: [
+                .init(url: "https://www.facebook.com/pink")
+            ],
+            spotify: [
+                .init(url: "https://open.spotify.com/artist/1KCSPY1glIKqW2TotWuXOR")
+            ],
+            instagram: [
+                .init(url: "https://www.instagram.com/pink/")
+            ]
+        ),
+        aliases: [
+            ""
+        ]
     )
 }
