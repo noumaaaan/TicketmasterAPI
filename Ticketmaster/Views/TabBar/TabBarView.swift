@@ -17,11 +17,11 @@ struct TabBarView: View {
                     ForEach(TabOption.allCases, id: \.self) { tab in
                         switch tab {
                         case .discover:
-                            EventListView()
+                            DiscoverListView()
                         case .attractions:
                             AttractionListView()
-                        case .search:
-                            Color.yellow.ignoresSafeArea()
+                        case .events:
+                            EventListView()
                         case .venues:
                             VenueListView()
                         case .settings:
@@ -36,7 +36,7 @@ struct TabBarView: View {
                 HStack {
                     ForEach(TabOption.allCases, id: \.self) { tab  in
                         Image(systemName: viewModel.selectedTab == tab ? tab.selected : tab.image)
-                            .scaleEffect(viewModel.selectedTab == tab ? 1.5 : 1)
+                            .scaleEffect(viewModel.selectedTab == tab ? 1.55 : 1)
                             .foregroundStyle(viewModel.selectedTab == tab ? tab.color : .gray)
                             .font(.system(size: 21))
                             .frame(maxWidth: .infinity)

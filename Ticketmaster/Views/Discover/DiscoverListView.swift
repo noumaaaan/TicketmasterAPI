@@ -1,0 +1,49 @@
+//
+//  DiscoverListView.swift
+//  Ticketmaster
+//
+//  Created by Noumaan Mehmood on 13/05/2024.
+//
+
+import SwiftUI
+
+struct DiscoverListView: View {
+    @StateObject var viewModel = DiscoverListViewModel()
+    
+    var body: some View {
+        NavigationStack {
+            VStack(spacing: .zero) {
+                if viewModel.classifications.isEmpty {
+                    MessageView(message: "No classifications found.")
+                } else {
+                    contentView
+                }
+            }
+            .navigationTitle("Discover")
+            .toolbarTitleDisplayMode(.inlineLarge)
+        }
+    }
+}
+
+extension DiscoverListView {
+    var contentView: some View {
+        List {
+            ForEach(viewModel.classifications, id: \.self) { section in
+                DisclosureGroup(section.segment?.name ?? "") {
+                    ForEach(section.segment?.embedded?.genres ?? [], id: \.self) { genre in
+                        NavigationLink {
+                            Text("")
+                        } label: {
+                            Text(genre.name ?? "")
+                        }
+                    }
+                }
+            }
+        }
+        .listStyle(.grouped)
+    }
+}
+
+#Preview {
+    DiscoverListView()
+}

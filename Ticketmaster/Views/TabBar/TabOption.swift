@@ -10,37 +10,40 @@ import SwiftUI
 
 enum TabOption: String, CaseIterable {
     case discover
+    case events
     case attractions
     case venues
-    case search
     case settings
     
     var image: String {
         switch self {
         case .discover: "globe.europe.africa"
+        case .events: "note"
         case .attractions: "person.3"
         case .venues: "building.columns"
-        case .search: "magnifyingglass.circle"
         case .settings: "gearshape"
         }
     }
     
     var selected: String {
-        image + ".fill"
+        switch self {
+        case .events: "note.text"
+        default: image + ".fill"
+        }
     }
     
     var color: Color {
         switch self {
         case .discover:
-            return Color.tab1
+            return Color.init(hex: "FF204E")
+        case .events:
+            return Color.init(hex: "FFE400")
         case .attractions:
-            return Color.tab2
+            return Color.init(hex: "F72798")
         case .venues:
-            return Color.tab3
-        case .search:
-            return Color.tab4
+            return Color.init(hex: "49FF00")
         case .settings:
-            return Color.tab5
+            return Color.init(hex: "2FA4FF")
         }
     }
 }

@@ -12,7 +12,6 @@ enum Endpoint {
     case fetchVenues(page: Int, countryCode: String, sortOption: String)
     case fetchEvents(page: Int, countryCode: String, sortOption: String)
     case fetchAttractions(page: Int, sortOption: String)
-    
     case fetchClassifications
 }
 
@@ -64,8 +63,7 @@ extension Endpoint {
             queryItems.append(.init(name: "page", value: String(page)))
             queryItems.append(.init(name: "sort", value: sortingOption))
             
-        default:
-            return nil
+        default: break
         }
         
         return queryItems

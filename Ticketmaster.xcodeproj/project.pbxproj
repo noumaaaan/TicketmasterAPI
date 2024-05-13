@@ -28,6 +28,10 @@
 		8CEB8B2C2BF195DF00547E66 /* VenueSortMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CEB8B2B2BF195DF00547E66 /* VenueSortMenu.swift */; };
 		8CEB8B2E2BF195E800547E66 /* AttractionSortMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CEB8B2D2BF195E800547E66 /* AttractionSortMenu.swift */; };
 		8CEB8B302BF19E1E00547E66 /* TMSocialMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CEB8B2F2BF19E1E00547E66 /* TMSocialMedia.swift */; };
+		8CEB8B332BF1AD2600547E66 /* DiscoverListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CEB8B322BF1AD2600547E66 /* DiscoverListView.swift */; };
+		8CEB8B352BF1B22400547E66 /* DiscoverList+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CEB8B342BF1B22400547E66 /* DiscoverList+ViewModel.swift */; };
+		8CEB8B372BF1B88200547E66 /* TMSectionsContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CEB8B362BF1B88200547E66 /* TMSectionsContainer.swift */; };
+		8CEB8B392BF1B88E00547E66 /* TMSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CEB8B382BF1B88E00547E66 /* TMSection.swift */; };
 		8CF802632BE86F2600EC8586 /* TicketmasterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF802622BE86F2600EC8586 /* TicketmasterApp.swift */; };
 		8CF802652BE86F2600EC8586 /* EventListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF802642BE86F2600EC8586 /* EventListView.swift */; };
 		8CF802672BE86F2900EC8586 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CF802662BE86F2900EC8586 /* Assets.xcassets */; };
@@ -45,7 +49,6 @@
 		8CF802B62BE94AAC00EC8586 /* EventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF802B52BE94AAC00EC8586 /* EventView.swift */; };
 		8CF802B82BE94ABC00EC8586 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF802B72BE94ABC00EC8586 /* MockData.swift */; };
 		8CF802BE2BE968B500EC8586 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF802BD2BE968B500EC8586 /* Configuration.swift */; };
-		8CF802C22BE9A0DD00EC8586 /* TMClassifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF802C12BE9A0DD00EC8586 /* TMClassifications.swift */; };
 		8CF802C52BEAED9B00EC8586 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF802C42BEAED9B00EC8586 /* TabBarView.swift */; };
 		8CF802C72BEAF38E00EC8586 /* TabOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF802C62BEAF38E00EC8586 /* TabOption.swift */; };
 		8CF802CA2BEB014E00EC8586 /* VenueListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF802C92BEB014E00EC8586 /* VenueListView.swift */; };
@@ -97,6 +100,10 @@
 		8CEB8B2B2BF195DF00547E66 /* VenueSortMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueSortMenu.swift; sourceTree = "<group>"; };
 		8CEB8B2D2BF195E800547E66 /* AttractionSortMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttractionSortMenu.swift; sourceTree = "<group>"; };
 		8CEB8B2F2BF19E1E00547E66 /* TMSocialMedia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMSocialMedia.swift; sourceTree = "<group>"; };
+		8CEB8B322BF1AD2600547E66 /* DiscoverListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverListView.swift; sourceTree = "<group>"; };
+		8CEB8B342BF1B22400547E66 /* DiscoverList+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DiscoverList+ViewModel.swift"; sourceTree = "<group>"; };
+		8CEB8B362BF1B88200547E66 /* TMSectionsContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMSectionsContainer.swift; sourceTree = "<group>"; };
+		8CEB8B382BF1B88E00547E66 /* TMSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMSection.swift; sourceTree = "<group>"; };
 		8CF8025F2BE86F2600EC8586 /* Ticketmaster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ticketmaster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CF802622BE86F2600EC8586 /* TicketmasterApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketmasterApp.swift; sourceTree = "<group>"; };
 		8CF802642BE86F2600EC8586 /* EventListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListView.swift; sourceTree = "<group>"; };
@@ -117,7 +124,6 @@
 		8CF802B52BE94AAC00EC8586 /* EventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventView.swift; sourceTree = "<group>"; };
 		8CF802B72BE94ABC00EC8586 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 		8CF802BD2BE968B500EC8586 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
-		8CF802C12BE9A0DD00EC8586 /* TMClassifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMClassifications.swift; sourceTree = "<group>"; };
 		8CF802C42BEAED9B00EC8586 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		8CF802C62BEAF38E00EC8586 /* TabOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabOption.swift; sourceTree = "<group>"; };
 		8CF802C92BEB014E00EC8586 /* VenueListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueListView.swift; sourceTree = "<group>"; };
@@ -162,6 +168,7 @@
 				8CF802CB2BEB019400EC8586 /* TabBar+ViewModel.swift */,
 				8CF802942BE87BA500EC8586 /* EventList+ViewModel.swift */,
 				8CEB8B1C2BF1852700547E66 /* AttractionList+ViewModel.swift */,
+				8CEB8B342BF1B22400547E66 /* DiscoverList+ViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -212,6 +219,14 @@
 				8CEB8B2B2BF195DF00547E66 /* VenueSortMenu.swift */,
 			);
 			path = Sorting;
+			sourceTree = "<group>";
+		};
+		8CEB8B312BF1AC4C00547E66 /* Discover */ = {
+			isa = PBXGroup;
+			children = (
+				8CEB8B322BF1AD2600547E66 /* DiscoverListView.swift */,
+			);
+			path = Discover;
 			sourceTree = "<group>";
 		};
 		8CF802562BE86F2600EC8586 = {
@@ -308,6 +323,7 @@
 		8CF8029C2BE88A9400EC8586 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8CEB8B312BF1AC4C00547E66 /* Discover */,
 				8CEB8B2A2BF194FE00547E66 /* Sorting */,
 				8CEB8B152BF1841400547E66 /* Attractions */,
 				8CF802C32BEAED8B00EC8586 /* TabBar */,
@@ -349,7 +365,8 @@
 		8CF802CE2BEB043900EC8586 /* Classification */ = {
 			isa = PBXGroup;
 			children = (
-				8CF802C12BE9A0DD00EC8586 /* TMClassifications.swift */,
+				8CEB8B362BF1B88200547E66 /* TMSectionsContainer.swift */,
+				8CEB8B382BF1B88E00547E66 /* TMSection.swift */,
 			);
 			path = Classification;
 			sourceTree = "<group>";
@@ -538,6 +555,7 @@
 				8CEB8B0A2BEDF05F00547E66 /* TMEventsContainer.swift in Sources */,
 				8CEB8B142BF17E4600547E66 /* EventSortMenu.swift in Sources */,
 				8CF802952BE87BA500EC8586 /* EventList+ViewModel.swift in Sources */,
+				8CEB8B372BF1B88200547E66 /* TMSectionsContainer.swift in Sources */,
 				8CF802632BE86F2600EC8586 /* TicketmasterApp.swift in Sources */,
 				8CEB8B2E2BF195E800547E66 /* AttractionSortMenu.swift in Sources */,
 				8CEB8B1B2BF1843200547E66 /* AttractionDetailView.swift in Sources */,
@@ -546,23 +564,25 @@
 				8CF802DC2BEBD8B400EC8586 /* ImageView.swift in Sources */,
 				8CF802C52BEAED9B00EC8586 /* TabBarView.swift in Sources */,
 				8CF802BE2BE968B500EC8586 /* Configuration.swift in Sources */,
+				8CEB8B352BF1B22400547E66 /* DiscoverList+ViewModel.swift in Sources */,
 				8CEB8B0E2BEF6F8B00547E66 /* Helpers.swift in Sources */,
 				8CEB8B292BF188BF00547E66 /* TMClassification.swift in Sources */,
 				8CEB8AFE2BEDC42900547E66 /* CountrySelectionView.swift in Sources */,
 				8CEB8B2C2BF195DF00547E66 /* VenueSortMenu.swift in Sources */,
-				8CF802C22BE9A0DD00EC8586 /* TMClassifications.swift in Sources */,
 				8CF802D82BEB0B4300EC8586 /* VenueView.swift in Sources */,
 				8CF802982BE889E100EC8586 /* TMPage.swift in Sources */,
 				8CEB8B042BEDE73F00547E66 /* Color+Extension.swift in Sources */,
 				8CEB8B022BEDE32D00547E66 /* MessageView.swift in Sources */,
 				8CEB8B102BF08C5100547E66 /* RoundedTextView.swift in Sources */,
 				8CEB8B252BF1889600547E66 /* TMExternalLinks.swift in Sources */,
+				8CEB8B392BF1B88E00547E66 /* TMSection.swift in Sources */,
 				8CF802D12BEB04F000EC8586 /* TMVenuesContainer.swift in Sources */,
 				8CF802A22BE8ADE300EC8586 /* TMEvent.swift in Sources */,
 				8CF8029E2BE89FF400EC8586 /* TMCountryCode.swift in Sources */,
 				8CF802B82BE94ABC00EC8586 /* MockData.swift in Sources */,
 				8CEB8B172BF1842300547E66 /* AttractionListView.swift in Sources */,
 				8CF802D42BEB059200EC8586 /* TMVenue.swift in Sources */,
+				8CEB8B332BF1AD2600547E66 /* DiscoverListView.swift in Sources */,
 				8CF802D62BEB092400EC8586 /* VenueList+ViewModel.swift in Sources */,
 				8CF802CC2BEB019400EC8586 /* TabBar+ViewModel.swift in Sources */,
 				8CF802DE2BEBF89400EC8586 /* VenueDetailView.swift in Sources */,
