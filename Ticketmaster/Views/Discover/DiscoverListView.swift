@@ -54,9 +54,9 @@ extension DiscoverListView {
             }
         }
         .listStyle(.grouped)
-        .task {
-            viewModel.fetchEvents(segmentID: section.segment?.ID, genreID: nil)
-        }
+//        .task {
+//            viewModel.fetchEvents(segmentID: section.segment?.ID, genreID: nil)
+//        }
     }
 }
 

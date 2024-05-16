@@ -8,7 +8,6 @@
 import Foundation
 
 final class Save {
-    
     func retrieveCountrySetting() -> TMCountryCode {
         let defaults = UserDefaults.standard
         let result = defaults.string(forKey: "country") ?? ""

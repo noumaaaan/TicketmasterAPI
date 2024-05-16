@@ -13,11 +13,7 @@ struct DiscoverView: View {
     var body: some View {
         NavigationStack {
             VStack(spacing: .zero) {
-                if viewModel.sections.isEmpty {
-                    MessageView(message: "No discoveries.")
-                } else {
-                    contentView
-                }
+                contentView
             }
             .navigationTitle("Discover")
             .toolbarTitleDisplayMode(.inlineLarge)
@@ -27,12 +23,33 @@ struct DiscoverView: View {
 
 extension DiscoverView {
     var contentView: some View {
+        Group {
+            switch viewModel.loadingState {
+            case .uninitialized:
+                EmptyView()
+            case .loaded:
+                loadedView
+            case .empty:
+                MessageView(message: "Nothing to discover.")
+            case .error:
+                MessageView(message: "Error.")
+            }
+        }
+    }
+    
+    var loadedView: some View {
         List {
-            ForEach(viewModel.sections, id: \.self) { section in
-                NavigationLink {
-                    DiscoverListView(section: section)
-                } label: {
-                    Text(section.segment?.name ?? "")
+            Section("\(viewModel.totalResults) results") {
+                ForEach(viewModel.sections, id: \.self) { section in
+                    
+                    NavigationLink {
+                        DiscoverListView(section: section)
+                            .onAppear {
+                                viewModel.transferSegment(section: section)
+                            }
+                    } label: {
+                        Text(section.segment?.name ?? "")
+                    }
                 }
             }
         }

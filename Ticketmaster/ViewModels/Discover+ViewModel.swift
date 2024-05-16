@@ -11,6 +11,10 @@ import Foundation
 final class DiscoverViewModel: ObservableObject {
 
     @Published var sections: [TMSection] = []
+    @Published var loadingState: LoadingState = .uninitialized
+    @Published var totalResults: Int = 0
+    
+    @Published var selectedSegmentID: String?
     @Published var error: Error?
     
     var pageNumber: Int = 0
@@ -18,6 +22,11 @@ final class DiscoverViewModel: ObservableObject {
     
     init() {
         fetchClassifications()
+    }
+    
+    func transferSegment(section: TMSection) {
+        self.selectedSegmentID = section.segment?.ID
+        print(selectedSegmentID)
     }
     
     func fetchClassifications() {
@@ -29,9 +38,12 @@ final class DiscoverViewModel: ObservableObject {
                 }
                 pageNumber = result.page.number
                 maxPages = result.page.totalPages
+                totalResults = sections.count
+                loadingState = sections.count > 0 ? .loaded : .empty
+                
             } catch {
-                print(error)
                 self.error = error
+                self.loadingState = .error
             }
         }
     }
@@ -45,6 +57,7 @@ final class DiscoverViewModel: ObservableObject {
     
     func refreshList() {
         self.sections.removeAll()
+        self.pageNumber = 0
         fetchClassifications()
     }
 }
