@@ -11,12 +11,13 @@ import Foundation
 final class EventListViewModel: ObservableObject {
 
     @Published var events: [TMEvent] = []
-    @Published var countryCode: TMCountryCode = .greatBritain
+    @Published var countryCode: TMCountryCode = Save().retrieveCountrySetting()
     @Published var sortOption: TMEventSortingOption = .relevance
+    @Published var isSheetPresented: Bool = false
+    @Published var loadingState: LoadingState = .uninitialized
+    @Published var totalResults: Int = 0
     
     @Published var error: Error?
-    
-    @Published var isSheetPresented: Bool = false
     
     var pageNumber: Int = 0
     var maxPages: Int = 0
@@ -28,15 +29,23 @@ final class EventListViewModel: ObservableObject {
     func fetchEvents(page: Int = 0) {
         Task {
             do {
-                let result = try await APIService().fetchEvents(page: page, countryCode: countryCode.rawValue, sort: sortOption.rawValue, segmentID: nil, genreID: nil)
+                let result = try await APIService().fetchEvents(
+                    page: page,
+                    countryCode: countryCode.rawValue,
+                    sort: sortOption.rawValue,
+                    segmentID: nil,
+                    genreID: nil)
                 if let embedded = result.embedded {
                     events.append(contentsOf: embedded.events)
                 }
                 pageNumber = result.page.number
                 maxPages = result.page.totalPages
+                totalResults = result.page.totalElements
+                loadingState = events.count > 0 ? .loaded : .empty
+                
             } catch {
-                print(error)
                 self.error = error
+                self.loadingState = .error
             }
         }
     }
@@ -64,6 +73,7 @@ final class EventListViewModel: ObservableObject {
         } else {
             countryCode = code
             isSheetPresented = false
+            Save().saveCountrySetting(country: code)
             refreshList()
         }
     }

@@ -13,11 +13,7 @@ struct EventListView: View {
     var body: some View {
         NavigationStack {
             VStack(spacing: .zero) {
-                if viewModel.events.isEmpty {
-                    MessageView(message: "No events found.")
-                } else {
-                    contentView
-                }
+                contentView
             }
             .navigationTitle("Events")
             .toolbarTitleDisplayMode(.inlineLarge)
@@ -25,8 +21,6 @@ struct EventListView: View {
                 ToolbarItem(placement: .topBarTrailing) {
                     sortingMenu
                 }
-            }
-            .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
                         viewModel.isSheetPresented = true
@@ -36,7 +30,6 @@ struct EventListView: View {
                     }
                 }
             }
-            
             .sheet(isPresented: $viewModel.isSheetPresented) {
                 CountrySelectionView(selectedCountry: viewModel.countryCode) { code in
                     viewModel.changeCountryCode(code: code)
@@ -55,21 +48,40 @@ extension EventListView {
     }
     
     var contentView: some View {
-        List {
-            ForEach(viewModel.events, id: \.self) { event in
-                NavigationLink {
-                    EventDetailView(event: event)
-                } label: {
-                    EventView(event: event)
-                        .onAppear {
-                            if event == viewModel.events.last {
-                                viewModel.getNextPage()
-                            }
-                        }
-                }
+        Group {
+            switch viewModel.loadingState {
+            case .uninitialized:
+                EmptyView()
+            case .loaded:
+                loadedView
+            case .empty:
+                MessageView(message: "No events found.")
+            case .error:
+                MessageView(message: "Error.")
             }
         }
-        .listStyle(.grouped)
+    }
+    
+    var loadedView: some View {
+        VStack(spacing: .zero) {
+            List {
+                Section("\(viewModel.totalResults) results") {
+                    ForEach(viewModel.events, id: \.self) { event in
+                        NavigationLink {
+                            EventDetailView(event: event)
+                        } label: {
+                            EventView(event: event)
+                                .onAppear {
+                                    if event == viewModel.events.last {
+                                        viewModel.getNextPage()
+                                    }
+                                }
+                        }
+                    }
+                }
+            }
+            .listStyle(.grouped)
+        }
     }
 }
 

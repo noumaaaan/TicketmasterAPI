@@ -13,39 +13,41 @@ struct GenreListView: View {
     let action: (TMGenre?) -> Void
     
     var body: some View {
-        VStack(spacing: .zero) {
-            if section.segment == nil {
-                MessageView(message: "No genres found.")
-            } else {
-                contentView
-            }
-        }
-        .navigationTitle(section.segment?.name ?? "")
-        .toolbarTitleDisplayMode(.inlineLarge)
-    }
-}
-
-extension GenreListView {
-    var contentView: some View {
-        List {
-            if let genres = section.segment?.embedded?.genres {
-                ForEach(genres, id: \.self) { genre in
-                    Button {
-                        action(genre)
-                    } label: {
-                        HStack {
-                            Text(genre.name ?? "")
-                                .foregroundStyle(.white)
-                            Spacer()
-                            if genre.ID == selectedGenreID {
-                                Image(systemName: "checkmark")
+        
+        VStack {
+            Text("Filter")
+                .font(.subheadline.bold())
+                .padding(.top)
+            
+            ScrollViewReader { proxy in
+                ScrollView {
+                    if let genres = section.segment?.embedded?.genres {
+                        ForEach(genres, id: \.self) { genre in
+                            Button {
+                                action(genre)
+                            } label: {
+                                HStack {
+                                    Text(genre.name ?? "")
+                                        .foregroundStyle(genre.ID == selectedGenreID ? .blue : .white)
+                                    Spacer()
+                                    if genre.ID == selectedGenreID {
+                                        Image(systemName: "checkmark")
+                                    }
+                                }
+                            }
+                            .frame(height: 10)
+                            .padding()
+                            .onAppear() {
+                                withAnimation {
+                                    proxy.scrollTo(genre.ID == selectedGenreID)
+                                }
                             }
                         }
                     }
                 }
             }
         }
-        .listStyle(.grouped)
+        .background(.thinMaterial)
     }
 }
 

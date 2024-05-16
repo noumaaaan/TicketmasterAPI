@@ -21,7 +21,7 @@ struct CountrySelectionView: View {
         VStack {
             Text("Select Country")
                 .font(.subheadline.bold())
-                .padding(.top)
+                .padding()
             ScrollViewReader { proxy in
                 ScrollView {
                     LazyVGrid(columns: numberColumns) {
@@ -37,11 +37,6 @@ struct CountrySelectionView: View {
                                         .foregroundStyle(.white)
                                         .lineLimit(2)
                                 }
-                                .onAppear {
-                                    withAnimation {
-                                        proxy.scrollTo(code)
-                                    }
-                                }
                             }
                             .frame(width: 80, height: 80)
                             .overlay(
@@ -54,6 +49,11 @@ struct CountrySelectionView: View {
                         }
                     }
                     .padding()
+                    .onAppear {
+                        withAnimation {
+                            proxy.scrollTo(selectedCountry, anchor:.top)
+                        }
+                    }
                 }
             }
         }
