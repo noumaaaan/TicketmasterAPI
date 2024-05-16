@@ -36,6 +36,19 @@ struct EventListView: View {
                 }
                 .presentationDetents([.medium])
             }
+            .searchable(text: $viewModel.searchTerm, placement: .navigationBarDrawer(displayMode: .always))
+            .onSubmit(of: .search) {
+                withAnimation(.easeInOut) {
+                    viewModel.refreshList()
+                }
+            }
+            .onChange(of: viewModel.searchTerm) {
+                if viewModel.searchTerm.isEmpty {
+                    withAnimation(.easeInOut) {
+                        viewModel.refreshList()
+                    }
+                }
+            }
         }
     }
 }
@@ -55,7 +68,7 @@ extension EventListView {
             case .loaded:
                 loadedView
             case .empty:
-                MessageView(message: "No events found.")
+                MessageView(message: "No events found in \(viewModel.countryCode.label).")
             case .error:
                 MessageView(message: "Error.")
             }

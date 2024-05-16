@@ -17,10 +17,11 @@ final class APIService {
     
     func fetchEvents(
         page: Int,
-        countryCode: String,
+        countryCode: String?,
         sort: String = TMEventSortingOption.relevance.rawValue,
         segmentID: String?,
-        genreID: String?
+        genreID: String?,
+        search: String?
     ) async throws -> TMEventsContainer {
         return try await request(
             endpoint: .fetchEvents(
@@ -28,7 +29,9 @@ final class APIService {
                 countryCode: countryCode,
                 sortOption: sort,
                 segmentID: segmentID,
-                genreID: genreID),
+                genreID: genreID,
+                search: search
+            ),
             responseModel: TMEventsContainer.self
         )
     }

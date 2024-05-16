@@ -38,7 +38,7 @@ final class DiscoverResultsViewModel: ObservableObject {
         Task {
             do {
                 events.removeAll()
-                let result = try await APIService().fetchEvents(page: pageNumber, countryCode: "gb", sort: "relevance,desc", segmentID: segmentID, genreID: genreID)
+                let result = try await APIService().fetchEvents(page: pageNumber, countryCode: "gb", sort: "relevance,desc", segmentID: segmentID, genreID: genreID, search: nil)
                 if let embedded = result.embedded {
                     events.append(contentsOf: embedded.events)
                 }

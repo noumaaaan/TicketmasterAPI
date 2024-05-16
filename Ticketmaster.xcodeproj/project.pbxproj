@@ -36,8 +36,8 @@
 		8CEB8B3F2BF1F40700547E66 /* GenreListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CEB8B3E2BF1F40700547E66 /* GenreListView.swift */; };
 		8CEB8B412BF1F71300547E66 /* DiscoverListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CEB8B402BF1F71300547E66 /* DiscoverListView.swift */; };
 		8CEB8B432BF5D16700547E66 /* Save.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CEB8B422BF5D16700547E66 /* Save.swift */; };
-		8CEB8B462BF5D29600547E66 /* PreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CEB8B452BF5D29600547E66 /* PreferencesView.swift */; };
 		8CEB8B482BF5E02400547E66 /* LoadingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CEB8B472BF5E02400547E66 /* LoadingState.swift */; };
+		8CEB8B4A2BF5F5D900547E66 /* FavoriteListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CEB8B492BF5F5D900547E66 /* FavoriteListView.swift */; };
 		8CF802632BE86F2600EC8586 /* TicketmasterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF802622BE86F2600EC8586 /* TicketmasterApp.swift */; };
 		8CF802652BE86F2600EC8586 /* EventListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF802642BE86F2600EC8586 /* EventListView.swift */; };
 		8CF802672BE86F2900EC8586 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CF802662BE86F2900EC8586 /* Assets.xcassets */; };
@@ -114,8 +114,8 @@
 		8CEB8B3E2BF1F40700547E66 /* GenreListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreListView.swift; sourceTree = "<group>"; };
 		8CEB8B402BF1F71300547E66 /* DiscoverListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverListView.swift; sourceTree = "<group>"; };
 		8CEB8B422BF5D16700547E66 /* Save.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Save.swift; sourceTree = "<group>"; };
-		8CEB8B452BF5D29600547E66 /* PreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesView.swift; sourceTree = "<group>"; };
 		8CEB8B472BF5E02400547E66 /* LoadingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingState.swift; sourceTree = "<group>"; };
+		8CEB8B492BF5F5D900547E66 /* FavoriteListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListView.swift; sourceTree = "<group>"; };
 		8CF8025F2BE86F2600EC8586 /* Ticketmaster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ticketmaster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CF802622BE86F2600EC8586 /* TicketmasterApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketmasterApp.swift; sourceTree = "<group>"; };
 		8CF802642BE86F2600EC8586 /* EventListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListView.swift; sourceTree = "<group>"; };
@@ -244,12 +244,12 @@
 			path = Discover;
 			sourceTree = "<group>";
 		};
-		8CEB8B442BF5D28C00547E66 /* Preferences */ = {
+		8CEB8B442BF5D28C00547E66 /* Favorite */ = {
 			isa = PBXGroup;
 			children = (
-				8CEB8B452BF5D29600547E66 /* PreferencesView.swift */,
+				8CEB8B492BF5F5D900547E66 /* FavoriteListView.swift */,
 			);
-			path = Preferences;
+			path = Favorite;
 			sourceTree = "<group>";
 		};
 		8CF802562BE86F2600EC8586 = {
@@ -348,7 +348,7 @@
 		8CF8029C2BE88A9400EC8586 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				8CEB8B442BF5D28C00547E66 /* Preferences */,
+				8CEB8B442BF5D28C00547E66 /* Favorite */,
 				8CEB8B312BF1AC4C00547E66 /* Discover */,
 				8CEB8B2A2BF194FE00547E66 /* Sorting */,
 				8CEB8B152BF1841400547E66 /* Attractions */,
@@ -600,11 +600,11 @@
 				8CEB8AFE2BEDC42900547E66 /* CountrySelectionView.swift in Sources */,
 				8CEB8B2C2BF195DF00547E66 /* VenueSortMenu.swift in Sources */,
 				8CF802D82BEB0B4300EC8586 /* VenueView.swift in Sources */,
-				8CEB8B462BF5D29600547E66 /* PreferencesView.swift in Sources */,
 				8CF802982BE889E100EC8586 /* TMPage.swift in Sources */,
 				8CEB8B042BEDE73F00547E66 /* Color+Extension.swift in Sources */,
 				8CEB8B022BEDE32D00547E66 /* MessageView.swift in Sources */,
 				8CEB8B102BF08C5100547E66 /* RoundedTextView.swift in Sources */,
+				8CEB8B4A2BF5F5D900547E66 /* FavoriteListView.swift in Sources */,
 				8CEB8B252BF1889600547E66 /* TMExternalLinks.swift in Sources */,
 				8CEB8B392BF1B88E00547E66 /* TMSection.swift in Sources */,
 				8CF802D12BEB04F000EC8586 /* TMVenuesContainer.swift in Sources */,

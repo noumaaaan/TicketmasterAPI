@@ -8,6 +8,7 @@
 import Foundation
 
 enum TMCountryCode: String, CaseIterable {
+    case worlwide = ""
     case argentina = "AR"
     case australia = "AU"
     case belgium = "BE"
@@ -29,9 +30,12 @@ enum TMCountryCode: String, CaseIterable {
     case netherlands = "NL"
     case portugal = "PT"
     case russia = "RU"
+    case saudiArabia = "SA"
+    case southAfrica = "ZA"
     case spain = "ES"
     case sweden = "SE"
     case switzerland = "CH"
+    case thailand = "TH"
     case turkey = "TR"
     case uae = "ae"
     case unitedKingdom = "GB"
@@ -39,6 +43,7 @@ enum TMCountryCode: String, CaseIterable {
         
     var label: String {
         switch self {
+        case .worlwide: "Worlwide"
         case .argentina: "Argentina"
         case .australia: "Australia"
         case .belgium: "Belgium"
@@ -60,9 +65,12 @@ enum TMCountryCode: String, CaseIterable {
         case .netherlands: "Netherlands"
         case .portugal: "Portugal"
         case .russia: "Russia"
+        case .saudiArabia: "Saudi Arabia"
+        case .southAfrica: "South Africa"
         case .spain: "Spain"
         case .sweden: "Sweden"
         case .switzerland: "Switzerland"
+        case .thailand: "Thailand"
         case .turkey: "Turkey"
         case .uae: "UAE"
         case .unitedKingdom: "United Kingdom"
@@ -72,6 +80,7 @@ enum TMCountryCode: String, CaseIterable {
     
     var flag: String {
         switch self {
+        case .worlwide: "🌍"
         case .argentina: "🇦🇷"
         case .australia: "🇦🇺"
         case .belgium: "🇧🇪"
@@ -93,9 +102,12 @@ enum TMCountryCode: String, CaseIterable {
         case .netherlands: "🇳🇱"
         case .portugal: "🇵🇹"
         case .russia: "🇷🇺"
+        case .saudiArabia: "🇸🇦"
+        case .southAfrica: "🇿🇦"
         case .spain: "🇪🇸"
         case .sweden: "🇸🇪"
         case .switzerland: "🇨🇭"
+        case .thailand: "🇹🇭"
         case .turkey: "🇹🇷"
         case .uae: "🇦🇪"
         case .unitedKingdom: "🇬🇧"

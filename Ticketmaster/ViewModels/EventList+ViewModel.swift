@@ -16,6 +16,7 @@ final class EventListViewModel: ObservableObject {
     @Published var isSheetPresented: Bool = false
     @Published var loadingState: LoadingState = .uninitialized
     @Published var totalResults: Int = 0
+    @Published var searchTerm: String = ""
     
     @Published var error: Error?
     
@@ -26,15 +27,17 @@ final class EventListViewModel: ObservableObject {
         fetchEvents()
     }
     
-    func fetchEvents(page: Int = 0) {
+    func fetchEvents() {
         Task {
             do {
                 let result = try await APIService().fetchEvents(
-                    page: page,
-                    countryCode: countryCode.rawValue,
+                    page: pageNumber,
+                    countryCode: countryCode == .worlwide ? nil : countryCode.rawValue,
                     sort: sortOption.rawValue,
                     segmentID: nil,
-                    genreID: nil)
+                    genreID: nil, 
+                    search: searchTerm.isEmpty ? nil : searchTerm
+                )
                 if let embedded = result.embedded {
                     events.append(contentsOf: embedded.events)
                 }
@@ -53,12 +56,13 @@ final class EventListViewModel: ObservableObject {
     func getNextPage() {
         if pageNumber <= maxPages {
             pageNumber += 1
-            fetchEvents(page: pageNumber)
+            fetchEvents()
         }
     }
     
     func refreshList() {
         self.events.removeAll()
+        self.pageNumber = 0
         fetchEvents()
     }
     
