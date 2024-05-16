@@ -1,1 +1,8 @@
 /Ticketmaster/Networking/Configuration.swift
+/.DS_Store
+xcuserdata/
+*.hmap
+*.ipa
+*.xcworkspace
+*.xcuserstate 
+!default.xcworkspace
