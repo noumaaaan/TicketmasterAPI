@@ -22,32 +22,39 @@ struct CountrySelectionView: View {
             Text("Select Country")
                 .font(.subheadline.bold())
                 .padding(.top)
-            ScrollView {
-                LazyVGrid(columns: numberColumns) {
-                    ForEach(TMCountryCode.allCases, id: \.self) { code in
-                        Button {
-                            action(code)
-                        } label: {
-                            VStack {
-                                Text(code.flag)
-                                    .font(.title)
-                                Text(code.label)
-                                    .font(.caption)
-                                    .foregroundStyle(.white)
-                                    .lineLimit(2)
+            ScrollViewReader { proxy in
+                ScrollView {
+                    LazyVGrid(columns: numberColumns) {
+                        ForEach(TMCountryCode.allCases, id: \.self) { code in
+                            Button {
+                                action(code)
+                            } label: {
+                                VStack {
+                                    Text(code.flag)
+                                        .font(.title)
+                                    Text(code.label)
+                                        .font(.caption)
+                                        .foregroundStyle(.white)
+                                        .lineLimit(2)
+                                }
+                                .onAppear {
+                                    withAnimation {
+                                        proxy.scrollTo(code)
+                                    }
+                                }
                             }
+                            .frame(width: 80, height: 80)
+                            .overlay(
+                                code == selectedCountry
+                                ? RoundedRectangle(cornerRadius: 5)
+                                    .stroke(.blue3, lineWidth: 2)
+                                : nil
+                            )
+                            .padding(.horizontal)
                         }
-                        .frame(width: 80, height: 80)
-                        .overlay(
-                            code == selectedCountry
-                            ? RoundedRectangle(cornerRadius: 5)
-                                .stroke(.blue3, lineWidth: 2)
-                            : nil
-                        )
-                        .padding(.horizontal)
                     }
+                    .padding()
                 }
-                .padding()
             }
         }
         .background(.thinMaterial)

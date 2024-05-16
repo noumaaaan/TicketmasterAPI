@@ -11,7 +11,7 @@ import Foundation
 final class VenueListViewModel: ObservableObject {
     
     @Published var venues: [TMVenue] = []
-    @Published var countryCode: TMCountryCode = .greatBritain
+    @Published var countryCode: TMCountryCode = Save().retrieveCountrySetting()
     @Published var sortOption: TMVenueSortingOption = .relevance
     @Published var error: Error?
     
@@ -59,6 +59,7 @@ final class VenueListViewModel: ObservableObject {
             countryCode = code
             isSheetPresented = false
             refreshList()
+            Save().saveCountrySetting(country: code)
         }
     }
     
