@@ -39,6 +39,7 @@
 		8CEB8B482BF5E02400547E66 /* LoadingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CEB8B472BF5E02400547E66 /* LoadingState.swift */; };
 		8CEB8B4A2BF5F5D900547E66 /* FavoriteListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CEB8B492BF5F5D900547E66 /* FavoriteListView.swift */; };
 		8CEB8B4C2BF602E400547E66 /* CustomPopover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CEB8B4B2BF602E400547E66 /* CustomPopover.swift */; };
+		8CEB8B512BF650AE00547E66 /* APOD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CEB8B502BF650AE00547E66 /* APOD.swift */; };
 		8CF802632BE86F2600EC8586 /* TicketmasterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF802622BE86F2600EC8586 /* TicketmasterApp.swift */; };
 		8CF802652BE86F2600EC8586 /* EventListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF802642BE86F2600EC8586 /* EventListView.swift */; };
 		8CF802672BE86F2900EC8586 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CF802662BE86F2900EC8586 /* Assets.xcassets */; };
@@ -118,6 +119,7 @@
 		8CEB8B472BF5E02400547E66 /* LoadingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingState.swift; sourceTree = "<group>"; };
 		8CEB8B492BF5F5D900547E66 /* FavoriteListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListView.swift; sourceTree = "<group>"; };
 		8CEB8B4B2BF602E400547E66 /* CustomPopover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPopover.swift; sourceTree = "<group>"; };
+		8CEB8B502BF650AE00547E66 /* APOD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APOD.swift; sourceTree = "<group>"; };
 		8CF8025F2BE86F2600EC8586 /* Ticketmaster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ticketmaster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CF802622BE86F2600EC8586 /* TicketmasterApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketmasterApp.swift; sourceTree = "<group>"; };
 		8CF802642BE86F2600EC8586 /* EventListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListView.swift; sourceTree = "<group>"; };
@@ -254,6 +256,14 @@
 			path = Favorite;
 			sourceTree = "<group>";
 		};
+		8CEB8B4F2BF650A000547E66 /* NASA */ = {
+			isa = PBXGroup;
+			children = (
+				8CEB8B502BF650AE00547E66 /* APOD.swift */,
+			);
+			path = NASA;
+			sourceTree = "<group>";
+		};
 		8CF802562BE86F2600EC8586 = {
 			isa = PBXGroup;
 			children = (
@@ -338,6 +348,7 @@
 		8CF802962BE889CE00EC8586 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				8CEB8B4F2BF650A000547E66 /* NASA */,
 				8CEB8B1F2BF1869E00547E66 /* Attractions */,
 				8CEB8B082BEDF04B00547E66 /* Events */,
 				8CF802D22BEB050000EC8586 /* Common */,
@@ -425,8 +436,6 @@
 			children = (
 				8CEB8B1E2BF1853900547E66 /* Enums */,
 				8CEB8B032BEDE73F00547E66 /* Color+Extension.swift */,
-				8CEB8B0F2BF08C5100547E66 /* RoundedTextView.swift */,
-				8CEB8B4B2BF602E400547E66 /* CustomPopover.swift */,
 				8CEB8B0D2BEF6F8B00547E66 /* Helpers.swift */,
 				8CF802DA2BEBD8A500EC8586 /* Components */,
 			);
@@ -437,6 +446,8 @@
 			isa = PBXGroup;
 			children = (
 				8CF802DB2BEBD8B400EC8586 /* ImageView.swift */,
+				8CEB8B0F2BF08C5100547E66 /* RoundedTextView.swift */,
+				8CEB8B4B2BF602E400547E66 /* CustomPopover.swift */,
 				8CEB8B012BEDE32D00547E66 /* MessageView.swift */,
 				8CEB8AFD2BEDC42900547E66 /* CountrySelectionView.swift */,
 			);
@@ -621,6 +632,7 @@
 				8CF802D62BEB092400EC8586 /* VenueList+ViewModel.swift in Sources */,
 				8CF802CC2BEB019400EC8586 /* TabBar+ViewModel.swift in Sources */,
 				8CF802DE2BEBF89400EC8586 /* VenueDetailView.swift in Sources */,
+				8CEB8B512BF650AE00547E66 /* APOD.swift in Sources */,
 				8CF802CA2BEB014E00EC8586 /* VenueListView.swift in Sources */,
 				8CEB8B3D2BF1C1E600547E66 /* DiscoverResults+ViewModel.swift in Sources */,
 				8CEB8B272BF188A500547E66 /* TMImage.swift in Sources */,

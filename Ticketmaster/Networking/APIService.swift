@@ -14,7 +14,6 @@ enum TestError: Error {
 }
 
 final class APIService {
-    
     func fetchEvents(
         page: Int,
         countryCode: String?,
@@ -53,12 +52,31 @@ final class APIService {
         )
     }
     
-    func fetchVenues(page: Int, countryCode: String, sort: String, genreID: String?) async throws -> TMVenuesContainer {
-        return try await request(endpoint: .fetchVenues(page: page, countryCode: countryCode, sortOption: sort, genreID: genreID), responseModel: TMVenuesContainer.self)
+    func fetchVenues(
+        page: Int,
+        countryCode: String,
+        sort: String,
+        genreID: String?,
+        search: String?
+    ) async throws -> TMVenuesContainer {
+        return try await request(
+            endpoint: .fetchVenues(
+                page: page,
+                countryCode: countryCode,
+                sortOption: sort,
+                genreID: genreID,
+                search: search
+            ),
+            responseModel: TMVenuesContainer.self
+        )
     }
     
-    func fetchClassifications() async throws -> TMSectionsContainer {
-        return try await request(endpoint: .fetchClassifications, responseModel: TMSectionsContainer.self)
+    func fetchClassifications(
+    ) async throws -> TMSectionsContainer {
+        return try await request(
+            endpoint: .fetchClassifications,
+            responseModel: TMSectionsContainer.self
+        )
     }
     
     func request<T: Decodable>(endpoint: Endpoint, responseModel: T.Type) async throws -> T {

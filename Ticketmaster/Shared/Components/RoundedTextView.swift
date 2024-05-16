@@ -13,7 +13,7 @@ struct RoundedTextView: View {
     
     var body: some View {
         Text(text)
-            .font(.subheadline.bold())
+            .font(.caption.bold())
             .padding()
             .background(color)
             .clipShape(Capsule(style: .continuous))
