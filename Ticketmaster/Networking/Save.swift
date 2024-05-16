@@ -12,7 +12,7 @@ final class Save {
     func retrieveCountrySetting() -> TMCountryCode {
         let defaults = UserDefaults.standard
         let result = defaults.string(forKey: "country") ?? ""
-        return TMCountryCode(rawValue: result) ?? .greatBritain
+        return TMCountryCode(rawValue: result) ?? .unitedKingdom
     }
     
     func saveCountrySetting(country: TMCountryCode) {

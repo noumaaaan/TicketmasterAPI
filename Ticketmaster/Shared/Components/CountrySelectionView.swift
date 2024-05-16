@@ -42,7 +42,7 @@ struct CountrySelectionView: View {
                             .overlay(
                                 code == selectedCountry
                                 ? RoundedRectangle(cornerRadius: 5)
-                                    .stroke(.blue3, lineWidth: 2)
+                                    .stroke(.blue3, lineWidth: 2.5)
                                 : nil
                             )
                             .padding(.horizontal)
@@ -51,7 +51,7 @@ struct CountrySelectionView: View {
                     .padding()
                     .onAppear {
                         withAnimation {
-                            proxy.scrollTo(selectedCountry, anchor:.top)
+                            proxy.scrollTo(selectedCountry, anchor: .center)
                         }
                     }
                 }
