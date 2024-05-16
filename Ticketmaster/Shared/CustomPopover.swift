@@ -22,6 +22,8 @@ struct CustomPopover: View {
             
             Text(message)
                 .font(.subheadline)
+                .multilineTextAlignment(.center)
+                .frame(maxWidth: .infinity, alignment: .center)
             
             Button {
                 primaryAction()

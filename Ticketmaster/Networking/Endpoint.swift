@@ -9,7 +9,7 @@ import Foundation
 
 enum Endpoint {
     case fetchEvents(page: Int, countryCode: String?, sortOption: String, segmentID: String?, genreID: String?, search: String?)
-    case fetchAttractions(page: Int, sortOption: String?, genreID: String?)
+    case fetchAttractions(page: Int, sortOption: String?, genreID: String?, search: String?)
     case fetchClassifications
     case fetchVenues(page: Int, countryCode: String, sortOption: String, genreID: String?)
 }
@@ -63,10 +63,11 @@ extension Endpoint {
             if let genreID = genreID { queryItems.append(.init(name: "genreId", value: genreID)) }
             if let search = search { queryItems.append(.init(name: "keyword", value: search)) }
             
-        case .fetchAttractions(let page, let sortingOption, let genreID):
+        case .fetchAttractions(let page, let sortingOption, let genreID, let search):
             queryItems.append(.init(name: "page", value: String(page)))
             queryItems.append(.init(name: "sort", value: sortingOption))
             if let genreID = genreID { queryItems.append(.init(name: "genreId", value: genreID)) }
+            if let search = search { queryItems.append(.init(name: "keyword", value: search)) }
             
         default: break
         }

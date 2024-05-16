@@ -13,11 +13,7 @@ struct AttractionListView: View {
     var body: some View {
         NavigationStack {
             VStack(spacing: .zero) {
-                if viewModel.attractions.isEmpty {
-                    MessageView(message: "No attractions found.")
-                } else {
-                    contentView
-                }
+                contentView
             }
             .navigationTitle("Attractions")
             .toolbarTitleDisplayMode(.inlineLarge)
@@ -26,33 +22,63 @@ struct AttractionListView: View {
                     sortingMenu
                 }
             }
+            .searchable(text: $viewModel.searchTerm)
+            .onSubmit(of: .search) {
+                withAnimation(.easeInOut) {
+                    viewModel.refreshList()
+                }
+            }
+            .onChange(of: viewModel.searchTerm) {
+                if viewModel.searchTerm.isEmpty {
+                    withAnimation(.easeInOut) {
+                        viewModel.refreshList()
+                    }
+                }
+            }
         }
     }
 }
 
 extension AttractionListView {
-    var sortingMenu: some View {
-        AttractionSortMenu(selected: viewModel.sortOption) { sort in
-            viewModel.getSorted(option: sort)
+    var contentView: some View {
+        Group {
+            switch viewModel.loadingState {
+            case .uninitialized:
+                EmptyView()
+            case .loaded:
+                loadedView
+            case .empty:
+                MessageView(message: "No attractions found.")
+            case .error:
+                MessageView(message: "Error.")
+            }
         }
     }
     
-    var contentView: some View {
+    var loadedView: some View {
         List {
-            ForEach(viewModel.attractions, id: \.self) { attraction in
-                NavigationLink {
-                    AttractionDetailView(attraction: attraction)
-                } label: {
-                    AttractionView(attraction: attraction)
-                        .onAppear {
-                            if attraction == viewModel.attractions.last {
-                                viewModel.getNextPage()
+            Section("\(viewModel.totalResults) results") {
+                ForEach(viewModel.attractions, id: \.self) { attraction in
+                    NavigationLink {
+                        AttractionDetailView(attraction: attraction)
+                    } label: {
+                        AttractionView(attraction: attraction)
+                            .onAppear {
+                                if attraction == viewModel.attractions.last {
+                                    viewModel.getNextPage()
+                                }
                             }
-                        }
+                    }
                 }
             }
         }
         .listStyle(.grouped)
+    }
+    
+    var sortingMenu: some View {
+        AttractionSortMenu(selected: viewModel.sortOption) { sort in
+            viewModel.getSorted(option: sort)
+        }
     }
 }
 

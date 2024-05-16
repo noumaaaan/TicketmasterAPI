@@ -9,7 +9,6 @@ import SwiftUI
 
 struct EventListView: View {
     @StateObject var viewModel = EventListViewModel()
-    @State var presentAlert: Bool = false
     
     var body: some View {
         NavigationStack {
@@ -38,7 +37,7 @@ struct EventListView: View {
                     }
                     .presentationDetents([.medium])
                 }
-                .searchable(text: $viewModel.searchTerm, placement: .navigationBarDrawer(displayMode: .always))
+                .searchable(text: $viewModel.searchTerm)
                 .onSubmit(of: .search) {
                     withAnimation(.easeInOut) {
                         viewModel.refreshList()
@@ -53,35 +52,14 @@ struct EventListView: View {
                 }
                 
                 if viewModel.isAlertPresented {
-                    CustomPopover(
-                        title: "No events found",
-                        message: "No events found matching \"\(viewModel.searchTerm)\" in \(viewModel.countryCode.label). Would you like to search worlwide?",
-                        buttonTitle: "Search worldwide"
-                    ) {
-                        viewModel.searchWorldwide()
-                    } dismissAction: {
-                        viewModel.isAlertPresented.toggle()
-                    }
-                    .presentationCompactAdaptation(.popover)
-                    .frame(height: 400)
-                    .transition(
-                        .opacity.combined(with: .scale)
-                        .animation(.bouncy(duration: 0.25, extraBounce: 0.2))
-                    )
+                    popoverView
                 }
-                
             }
         }
     }
 }
 
 extension EventListView {
-    var sortingMenu: some View {
-        EventSortMenu(selected: viewModel.sortOption) { sort in
-            viewModel.getSorted(option: sort)
-        }
-    }
-    
     var contentView: some View {
         Group {
             switch viewModel.loadingState {
@@ -94,6 +72,12 @@ extension EventListView {
             case .error:
                 MessageView(message: "Error.")
             }
+        }
+    }
+    
+    var sortingMenu: some View {
+        EventSortMenu(selected: viewModel.sortOption) { sort in
+            viewModel.getSorted(option: sort)
         }
     }
     
@@ -117,6 +101,22 @@ extension EventListView {
             }
             .listStyle(.grouped)
         }
+    }
+    
+    var popoverView: some View {
+        CustomPopover(
+            title: "No events found",
+            message: "No events found matching \"\(viewModel.searchTerm)\" in \(viewModel.countryCode.label). Would you like to search worlwide?",
+            buttonTitle: "Search worldwide"
+        ) {
+            viewModel.searchWorldwide()
+        } dismissAction: {
+            viewModel.isAlertPresented.toggle()
+        }
+        .transition(
+            .opacity.combined(with: .scale)
+            .animation(.bouncy(duration: 0.2, extraBounce: 0.3))
+        )
     }
 }
 

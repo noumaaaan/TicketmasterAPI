@@ -36,8 +36,21 @@ final class APIService {
         )
     }
     
-    func fetchAttractions(page: Int, sort: String, genreID: String?) async throws -> TMAttractionsContainer {
-        return try await request(endpoint: .fetchAttractions(page: page, sortOption: sort, genreID: genreID), responseModel: TMAttractionsContainer.self)
+    func fetchAttractions(
+        page: Int,
+        sort: String,
+        genreID: String?,
+        search: String?
+    ) async throws -> TMAttractionsContainer {
+        return try await request(
+            endpoint: .fetchAttractions(
+                page: page,
+                sortOption: sort,
+                genreID: genreID,
+                search: search
+            ),
+            responseModel: TMAttractionsContainer.self
+        )
     }
     
     func fetchVenues(page: Int, countryCode: String, sort: String, genreID: String?) async throws -> TMVenuesContainer {

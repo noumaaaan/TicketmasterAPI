@@ -11,8 +11,12 @@ import Foundation
 final class AttractionListViewModel: ObservableObject {
 
     @Published var attractions: [TMAttraction] = []
-    @Published var error: Error?
     @Published var sortOption: TMAttractionSortingOption = .relevance
+    @Published var loadingState: LoadingState = .uninitialized
+    @Published var totalResults: Int = 0
+    @Published var searchTerm: String = ""
+    
+    @Published var error: Error?
     
     var pageNumber: Int = 0
     var maxPages: Int = 0
@@ -24,15 +28,23 @@ final class AttractionListViewModel: ObservableObject {
     func fetchAttractions() {
         Task {
             do {
-                let result = try await APIService().fetchAttractions(page: pageNumber, sort: sortOption.rawValue, genreID: nil)
+                let result = try await APIService().fetchAttractions(
+                    page: pageNumber,
+                    sort: sortOption.rawValue,
+                    genreID: nil,
+                    search: searchTerm.isEmpty ? nil : searchTerm
+                )
                 if let embedded = result.embedded {
                     attractions.append(contentsOf: embedded.attractions)
                 }
                 pageNumber = result.page.number
                 maxPages = result.page.totalPages
+                totalResults = result.page.totalElements
+                loadingState = attractions.count > 0 ? .loaded : .empty
+                
             } catch {
-                print(error)
                 self.error = error
+                self.loadingState = .error
             }
         }
     }
@@ -46,6 +58,7 @@ final class AttractionListViewModel: ObservableObject {
     
     func refreshList() {
         self.attractions.removeAll()
+        self.pageNumber = 0
         fetchAttractions()
     }
     
