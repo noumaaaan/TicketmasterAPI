@@ -29,6 +29,7 @@ struct DiscoverListView: View {
                     Image("filter")
                         .resizable()
                         .frame(width: 35, height: 35)
+                        .foregroundStyle((viewModel.selectedGenreID != nil) ? .red : .accent)
                 }
             }
         }
