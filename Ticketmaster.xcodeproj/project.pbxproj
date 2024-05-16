@@ -38,6 +38,7 @@
 		8CEB8B432BF5D16700547E66 /* Save.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CEB8B422BF5D16700547E66 /* Save.swift */; };
 		8CEB8B482BF5E02400547E66 /* LoadingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CEB8B472BF5E02400547E66 /* LoadingState.swift */; };
 		8CEB8B4A2BF5F5D900547E66 /* FavoriteListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CEB8B492BF5F5D900547E66 /* FavoriteListView.swift */; };
+		8CEB8B4C2BF602E400547E66 /* CustomPopover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CEB8B4B2BF602E400547E66 /* CustomPopover.swift */; };
 		8CF802632BE86F2600EC8586 /* TicketmasterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF802622BE86F2600EC8586 /* TicketmasterApp.swift */; };
 		8CF802652BE86F2600EC8586 /* EventListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF802642BE86F2600EC8586 /* EventListView.swift */; };
 		8CF802672BE86F2900EC8586 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CF802662BE86F2900EC8586 /* Assets.xcassets */; };
@@ -116,6 +117,7 @@
 		8CEB8B422BF5D16700547E66 /* Save.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Save.swift; sourceTree = "<group>"; };
 		8CEB8B472BF5E02400547E66 /* LoadingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingState.swift; sourceTree = "<group>"; };
 		8CEB8B492BF5F5D900547E66 /* FavoriteListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListView.swift; sourceTree = "<group>"; };
+		8CEB8B4B2BF602E400547E66 /* CustomPopover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPopover.swift; sourceTree = "<group>"; };
 		8CF8025F2BE86F2600EC8586 /* Ticketmaster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ticketmaster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CF802622BE86F2600EC8586 /* TicketmasterApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketmasterApp.swift; sourceTree = "<group>"; };
 		8CF802642BE86F2600EC8586 /* EventListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListView.swift; sourceTree = "<group>"; };
@@ -424,6 +426,7 @@
 				8CEB8B1E2BF1853900547E66 /* Enums */,
 				8CEB8B032BEDE73F00547E66 /* Color+Extension.swift */,
 				8CEB8B0F2BF08C5100547E66 /* RoundedTextView.swift */,
+				8CEB8B4B2BF602E400547E66 /* CustomPopover.swift */,
 				8CEB8B0D2BEF6F8B00547E66 /* Helpers.swift */,
 				8CF802DA2BEBD8A500EC8586 /* Components */,
 			);
@@ -600,6 +603,7 @@
 				8CEB8AFE2BEDC42900547E66 /* CountrySelectionView.swift in Sources */,
 				8CEB8B2C2BF195DF00547E66 /* VenueSortMenu.swift in Sources */,
 				8CF802D82BEB0B4300EC8586 /* VenueView.swift in Sources */,
+				8CEB8B4C2BF602E400547E66 /* CustomPopover.swift in Sources */,
 				8CF802982BE889E100EC8586 /* TMPage.swift in Sources */,
 				8CEB8B042BEDE73F00547E66 /* Color+Extension.swift in Sources */,
 				8CEB8B022BEDE32D00547E66 /* MessageView.swift in Sources */,
@@ -795,8 +799,10 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDarkContent;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -829,8 +835,10 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDarkContent;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

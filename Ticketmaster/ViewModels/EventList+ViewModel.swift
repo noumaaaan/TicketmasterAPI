@@ -20,6 +20,8 @@ final class EventListViewModel: ObservableObject {
     
     @Published var error: Error?
     
+    @Published var isAlertPresented: Bool = false
+    
     var pageNumber: Int = 0
     var maxPages: Int = 0
     
@@ -45,6 +47,10 @@ final class EventListViewModel: ObservableObject {
                 maxPages = result.page.totalPages
                 totalResults = result.page.totalElements
                 loadingState = events.count > 0 ? .loaded : .empty
+                
+                if self.totalResults == 0 && countryCode != .worlwide && !searchTerm.isEmpty {
+                    isAlertPresented = true
+                }
                 
             } catch {
                 self.error = error
@@ -80,5 +86,11 @@ final class EventListViewModel: ObservableObject {
             Save().saveCountrySetting(country: code)
             refreshList()
         }
+    }
+    
+    func searchWorldwide() {
+        isAlertPresented = false
+        countryCode = .worlwide
+        refreshList()
     }
 }

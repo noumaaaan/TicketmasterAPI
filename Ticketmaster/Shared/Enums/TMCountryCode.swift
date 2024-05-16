@@ -74,7 +74,7 @@ enum TMCountryCode: String, CaseIterable {
         case .turkey: "Turkey"
         case .uae: "UAE"
         case .unitedKingdom: "United Kingdom"
-        case .unitedStates: "USA"
+        case .unitedStates: "United States"
         }
     }
     

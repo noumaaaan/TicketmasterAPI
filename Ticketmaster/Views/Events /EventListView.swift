@@ -9,45 +9,67 @@ import SwiftUI
 
 struct EventListView: View {
     @StateObject var viewModel = EventListViewModel()
+    @State var presentAlert: Bool = false
     
     var body: some View {
         NavigationStack {
-            VStack(spacing: .zero) {
-                contentView
-            }
-            .navigationTitle("Events")
-            .toolbarTitleDisplayMode(.inlineLarge)
-            .toolbar {
-                ToolbarItem(placement: .topBarTrailing) {
-                    sortingMenu
+            ZStack {
+                VStack(spacing: .zero) {
+                    contentView
                 }
-                ToolbarItem(placement: .topBarTrailing) {
-                    Button {
-                        viewModel.isSheetPresented = true
-                    } label: {
-                        Text(viewModel.countryCode.flag)
-                            .font(.largeTitle)
+                .navigationTitle("Events")
+                .toolbarTitleDisplayMode(.inlineLarge)
+                .toolbar {
+                    ToolbarItem(placement: .topBarTrailing) {
+                        sortingMenu
+                    }
+                    ToolbarItem(placement: .topBarTrailing) {
+                        Button {
+                            viewModel.isSheetPresented = true
+                        } label: {
+                            Text(viewModel.countryCode.flag)
+                                .font(.largeTitle)
+                        }
                     }
                 }
-            }
-            .sheet(isPresented: $viewModel.isSheetPresented) {
-                CountrySelectionView(selectedCountry: viewModel.countryCode) { code in
-                    viewModel.changeCountryCode(code: code)
+                .sheet(isPresented: $viewModel.isSheetPresented) {
+                    CountrySelectionView(selectedCountry: viewModel.countryCode) { code in
+                        viewModel.changeCountryCode(code: code)
+                    }
+                    .presentationDetents([.medium])
                 }
-                .presentationDetents([.medium])
-            }
-            .searchable(text: $viewModel.searchTerm, placement: .navigationBarDrawer(displayMode: .always))
-            .onSubmit(of: .search) {
-                withAnimation(.easeInOut) {
-                    viewModel.refreshList()
-                }
-            }
-            .onChange(of: viewModel.searchTerm) {
-                if viewModel.searchTerm.isEmpty {
+                .searchable(text: $viewModel.searchTerm, placement: .navigationBarDrawer(displayMode: .always))
+                .onSubmit(of: .search) {
                     withAnimation(.easeInOut) {
                         viewModel.refreshList()
                     }
                 }
+                .onChange(of: viewModel.searchTerm) {
+                    if viewModel.searchTerm.isEmpty {
+                        withAnimation(.easeInOut) {
+                            viewModel.refreshList()
+                        }
+                    }
+                }
+                
+                if viewModel.isAlertPresented {
+                    CustomPopover(
+                        title: "No events found",
+                        message: "No events found matching \"\(viewModel.searchTerm)\" in \(viewModel.countryCode.label). Would you like to search worlwide?",
+                        buttonTitle: "Search worldwide"
+                    ) {
+                        viewModel.searchWorldwide()
+                    } dismissAction: {
+                        viewModel.isAlertPresented.toggle()
+                    }
+                    .presentationCompactAdaptation(.popover)
+                    .frame(height: 400)
+                    .transition(
+                        .opacity.combined(with: .scale)
+                        .animation(.bouncy(duration: 0.25, extraBounce: 0.2))
+                    )
+                }
+                
             }
         }
     }
@@ -78,7 +100,7 @@ extension EventListView {
     var loadedView: some View {
         VStack(spacing: .zero) {
             List {
-                Section("\(viewModel.totalResults) results") {
+                Section("\(viewModel.totalResults) results - \(viewModel.countryCode.label)") {
                     ForEach(viewModel.events, id: \.self) { event in
                         NavigationLink {
                             EventDetailView(event: event)
