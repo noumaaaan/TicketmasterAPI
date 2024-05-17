@@ -24,7 +24,7 @@ struct DiscoverView: View {
 extension DiscoverView {
     var contentView: some View {
         Group {
-            switch viewModel.loadingState {
+            switch viewModel.classLoadingState {
             case .uninitialized:
                 EmptyView()
             case .loaded:
@@ -39,16 +39,14 @@ extension DiscoverView {
     
     var loadedView: some View {
         List {
-            Section("\(viewModel.totalResults) results") {
+            Section("\(viewModel.classTotalResults) results") {
                 ForEach(viewModel.sections, id: \.self) { section in
-                    
                     NavigationLink {
-                        DiscoverListView(section: section)
-                            .onAppear {
-                                viewModel.transferSegment(section: section)
-                            }
+                        DiscoverListView(viewModel: viewModel, section: section)
+                            .onAppear { viewModel.selectSegment(section: section) }
                     } label: {
                         Text(section.segment?.name ?? "")
+                            .foregroundStyle(.white)
                     }
                 }
             }

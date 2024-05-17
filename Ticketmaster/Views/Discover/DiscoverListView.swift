@@ -8,58 +8,77 @@
 import SwiftUI
 
 struct DiscoverListView: View {
+    @StateObject var viewModel: DiscoverViewModel
     let section: TMSection
-    @StateObject var viewModel = DiscoverResultsViewModel()
     
     var body: some View {
         VStack(spacing: .zero) {
-            if section.segment == nil {
-                MessageView(message: "No events found.")
-            } else {
-                contentView
-            }
+            contentView
         }
         .navigationTitle(section.segment?.name ?? "")
         .toolbarTitleDisplayMode(.inlineLarge)
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
+                sortingMenu
+            }
+            ToolbarItem(placement: .topBarTrailing) {
                 Button {
-                    viewModel.isSheetPresented = true
+                    viewModel.eventIsSheetPresented = true
                 } label: {
-                    Image("filter")
-                        .resizable()
-                        .frame(width: 35, height: 35)
-                        .foregroundStyle((viewModel.selectedGenreID != nil) ? .red : .accent)
+                    Text(viewModel.eventCountryCode.flag)
+                        .font(.largeTitle)
                 }
             }
         }
-        .sheet(isPresented: $viewModel.isSheetPresented) {
-            GenreListView(section: section, selectedGenreID: viewModel.selectedGenreID) { genre in
-                viewModel.updateGenre(genreID: genre?.ID, segmentID: section.segment?.ID)
+        .sheet(isPresented: $viewModel.eventIsSheetPresented) {
+            CountrySelectionView(selectedCountry: viewModel.eventCountryCode) { code in
+                viewModel.changeCountryCode(code: code)
             }
-                .presentationDetents([.medium])
+            .presentationDetents([.medium])
         }
     }
 }
 
 extension DiscoverListView {
     var contentView: some View {
-        List {
-            ForEach(viewModel.events, id: \.self) { event in
-                NavigationLink {
-                    EventDetailView(event: event)
-                } label: {
-                    EventView(event: event)
-                }
+        Group {
+            switch viewModel.eventLoadingState {
+            case .uninitialized:
+                EmptyView()
+            case .loaded:
+                loadedView
+            case .empty:
+                MessageView(message: "No events found in \(viewModel.eventCountryCode.label).")
+            case .error:
+                MessageView(message: "Error.")
             }
         }
-        .listStyle(.grouped)
-//        .task {
-//            viewModel.fetchEvents(segmentID: section.segment?.ID, genreID: nil)
-//        }
+    }
+    
+    var sortingMenu: some View {
+        EventSortMenu(selected: viewModel.eventSortOption) { sort in
+            viewModel.getSorted(option: sort)
+        }
+    }
+    
+    var loadedView: some View {
+        VStack(spacing: .zero) {
+            List {
+                Section("results") {
+                    ForEach(viewModel.events, id: \.self) { event in
+                        NavigationLink {
+                            EventDetailView(event: event)
+                        } label: {
+                            EventView(event: event)
+                        }
+                    }
+                }
+            }
+            .listStyle(.grouped)
+        }
     }
 }
 
 #Preview {
-    DiscoverListView(section: MockData().testSection)
+    DiscoverListView(viewModel: DiscoverViewModel(), section: MockData().testSection)
 }

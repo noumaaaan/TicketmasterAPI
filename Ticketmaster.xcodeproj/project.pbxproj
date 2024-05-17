@@ -243,7 +243,6 @@
 			children = (
 				8CEB8B322BF1AD2600547E66 /* DiscoverView.swift */,
 				8CEB8B402BF1F71300547E66 /* DiscoverListView.swift */,
-				8CEB8B3E2BF1F40700547E66 /* GenreListView.swift */,
 			);
 			path = Discover;
 			sourceTree = "<group>";
@@ -448,6 +447,7 @@
 				8CF802DB2BEBD8B400EC8586 /* ImageView.swift */,
 				8CEB8B0F2BF08C5100547E66 /* RoundedTextView.swift */,
 				8CEB8B4B2BF602E400547E66 /* CustomPopover.swift */,
+				8CEB8B3E2BF1F40700547E66 /* GenreListView.swift */,
 				8CEB8B012BEDE32D00547E66 /* MessageView.swift */,
 				8CEB8AFD2BEDC42900547E66 /* CountrySelectionView.swift */,
 			);

@@ -18,16 +18,7 @@ final class DiscoverResultsViewModel: ObservableObject {
     
     var pageNumber: Int = 0
     var maxPages: Int = 0
-    
-    init() {
-        initialiser()
-    }
-    
-    func initialiser() {
-        let segementID = DiscoverViewModel().selectedSegmentID
-        fetchEvents(segmentID: segementID, genreID: nil)
-    }
-    
+        
     
     func updateGenre(genreID: String?, segmentID: String?) {
         if selectedGenreID == genreID {
