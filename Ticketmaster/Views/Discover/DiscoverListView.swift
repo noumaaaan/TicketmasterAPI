@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct DiscoverListView: View {
-    @StateObject var viewModel: DiscoverViewModel
     let section: TMSection
+    @StateObject var viewModel = DiscoverResultsViewModel()
     
     var body: some View {
         VStack(spacing: .zero) {
@@ -23,18 +23,22 @@ struct DiscoverListView: View {
             }
             ToolbarItem(placement: .topBarTrailing) {
                 Button {
-                    viewModel.eventIsSheetPresented = true
+                    viewModel.isSheetPresented = true
                 } label: {
-                    Text(viewModel.eventCountryCode.flag)
+                    Text(viewModel.countryCode.flag)
                         .font(.largeTitle)
                 }
             }
         }
-        .sheet(isPresented: $viewModel.eventIsSheetPresented) {
-            CountrySelectionView(selectedCountry: viewModel.eventCountryCode) { code in
+        .sheet(isPresented: $viewModel.isSheetPresented) {
+            CountrySelectionView(selectedCountry: viewModel.countryCode) { code in
                 viewModel.changeCountryCode(code: code)
             }
             .presentationDetents([.medium])
+        }
+        .task {
+            // viewModel.setSelectedSection(section: section)
+            viewModel.setSelected(section: section)
         }
     }
 }
@@ -42,13 +46,13 @@ struct DiscoverListView: View {
 extension DiscoverListView {
     var contentView: some View {
         Group {
-            switch viewModel.eventLoadingState {
+            switch viewModel.loadingState {
             case .uninitialized:
                 EmptyView()
             case .loaded:
                 loadedView
             case .empty:
-                MessageView(message: "No events found in \(viewModel.eventCountryCode.label).")
+                MessageView(message: "No events found in \(viewModel.countryCode.label).")
             case .error:
                 MessageView(message: "Error.")
             }
@@ -56,7 +60,7 @@ extension DiscoverListView {
     }
     
     var sortingMenu: some View {
-        EventSortMenu(selected: viewModel.eventSortOption) { sort in
+        EventSortMenu(selected: viewModel.sortOption) { sort in
             viewModel.getSorted(option: sort)
         }
     }
@@ -80,5 +84,5 @@ extension DiscoverListView {
 }
 
 #Preview {
-    DiscoverListView(viewModel: DiscoverViewModel(), section: MockData().testSection)
+    DiscoverListView(section: MockData().testSection)
 }
