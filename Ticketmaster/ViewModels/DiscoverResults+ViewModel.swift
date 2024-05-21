@@ -17,40 +17,21 @@ final class DiscoverResultsViewModel: ObservableObject {
     @Published var loadingState: LoadingState = .uninitialized
     @Published var totalResults: Int = 0
     
-    @Published var selectedSegmentID: String?
+//    @Published var selectedSegmentID: String?
+    @Published var selectedSection: TMSection?
+    @Published var selectedGenre: TMGenre?
     
     @Published var error: Error?
     
     var pageNumber: Int = 0
     var maxPages: Int = 0
     
-    func setSelectedSection(section: TMSection) {
-        // Check ID is not nil
-        if let segmentID = selectedSegmentID {
-            // Check if its the same
-            if segmentID == section.segment?.ID {
-            } else {
-                // if its not, set new id and fetch
-                selectedSegmentID = section.segment?.ID
-                fetchEvents()
-            }
-        } else {
-            
-            selectedSegmentID = section.segment?.ID
-            fetchEvents()
-        }
-    }
-    
     func setSelected(section: TMSection) {
-        let proposed = section.segment?.ID
-        
-        if proposed != selectedSegmentID {
-            selectedSegmentID = proposed
+        if section.segment?.ID != selectedSection?.segment?.ID {
+            selectedSection = section
             fetchEvents()
         }
     }
-    
-    
     
     func fetchEvents() {
         Task {
@@ -59,7 +40,7 @@ final class DiscoverResultsViewModel: ObservableObject {
                     page: pageNumber,
                     countryCode: countryCode == .worlwide ? nil : countryCode.rawValue,
                     sort: sortOption.rawValue,
-                    segmentID: selectedSegmentID,
+                    segmentID: selectedSection?.segment?.ID,
                     genreID: nil,
                     search: nil
                 )
@@ -81,14 +62,14 @@ final class DiscoverResultsViewModel: ObservableObject {
     func getNextPage() {
         if pageNumber <= maxPages {
             pageNumber += 1
-//            fetchEvents()
+            fetchEvents()
         }
     }
     
     func refreshList() {
         self.events.removeAll()
         self.pageNumber = 0
-//        fetchEvents()
+        fetchEvents()
     }
     
     func getSorted(option: TMEventSortingOption) {

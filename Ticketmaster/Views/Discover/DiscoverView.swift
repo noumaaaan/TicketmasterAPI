@@ -28,7 +28,8 @@ extension DiscoverView {
             case .uninitialized:
                 EmptyView()
             case .loaded:
-                loadedView
+//                loadedView
+                alternateLoading
             case .empty:
                 MessageView(message: "Nothing to discover.")
             case .error:
@@ -51,6 +52,27 @@ extension DiscoverView {
             }
         }
         .listStyle(.grouped)
+    }
+    
+    var alternateLoading: some View {
+        ScrollView {
+            LazyVStack(alignment: .leading, pinnedViews: .sectionHeaders) {
+                ForEach(viewModel.sections, id: \.self) { section in
+                    Section {
+                        ForEach(section.segment?.embedded?.genres ?? [], id: \.self) { genre in
+                            NavigationLink {
+                                
+                            } label: {
+                                GenreView(genre: genre)
+                            }
+                        }
+                    } header: {
+                        SectionHeaderView(section: section)
+                    }
+                }
+            }
+            .padding(.vertical)
+        }
     }
 }
 

@@ -299,4 +299,9 @@ class MockData {
             )
         )
     )
+    
+    let testGenre: TMGenre = .init(
+        ID: "KnvZfZ7vAAa",
+        name: "Casino/Gaming"
+    )
 }

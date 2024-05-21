@@ -16,6 +16,8 @@ struct EventListView: View {
                 VStack(spacing: .zero) {
                     contentView
                 }
+                .background(.red)
+                .toolbarBackground(.red, for: .navigationBar)
                 .navigationTitle("Events")
                 .toolbarTitleDisplayMode(.inlineLarge)
                 .toolbar {
@@ -96,10 +98,26 @@ extension EventListView {
                                     }
                                 }
                         }
+                        .listRowBackground(
+                            LinearGradient(
+                                gradient: Gradient(
+                                    colors: [
+                                        .init(hex: "FF204E"),
+                                        .init(hex: "A0153E"),
+                                        .init(hex: "5D0E41"),
+                                        .init(hex: "00224D")
+                                    ]
+                                ),
+                                startPoint: .leading,
+                                endPoint: .trailing
+                            )
+                        )
                     }
                 }
             }
+            .scrollContentBackground(.hidden)
             .listStyle(.grouped)
+//            .background(.red)
         }
     }
     

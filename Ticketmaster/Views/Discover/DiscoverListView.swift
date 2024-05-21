@@ -19,25 +19,20 @@ struct DiscoverListView: View {
         .toolbarTitleDisplayMode(.inlineLarge)
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
-                sortingMenu
-            }
-            ToolbarItem(placement: .topBarTrailing) {
                 Button {
                     viewModel.isSheetPresented = true
                 } label: {
-                    Text(viewModel.countryCode.flag)
-                        .font(.largeTitle)
+                    Image("filter")
+                        .resizable()
+                        .frame(width: 35, height: 35)
                 }
             }
         }
         .sheet(isPresented: $viewModel.isSheetPresented) {
-            CountrySelectionView(selectedCountry: viewModel.countryCode) { code in
-                viewModel.changeCountryCode(code: code)
-            }
-            .presentationDetents([.medium])
+            DiscoverFilterView(viewModel: viewModel, selectedCountry: viewModel.countryCode)
+//            DiscoverFilterView(viewModel: viewModel)
         }
         .task {
-            // viewModel.setSelectedSection(section: section)
             viewModel.setSelected(section: section)
         }
     }
@@ -59,28 +54,27 @@ extension DiscoverListView {
         }
     }
     
-    var sortingMenu: some View {
-        EventSortMenu(selected: viewModel.sortOption) { sort in
-            viewModel.getSorted(option: sort)
-        }
-    }
-    
     var loadedView: some View {
         VStack(spacing: .zero) {
             List {
-                Section("results") {
+                Section("\(viewModel.totalResults) results") {
                     ForEach(viewModel.events, id: \.self) { event in
                         NavigationLink {
                             EventDetailView(event: event)
                         } label: {
                             EventView(event: event)
+                                .onAppear {
+                                    if event == viewModel.events.last {
+                                        viewModel.getNextPage()
+                                    }
+                                }
                         }
                     }
                 }
             }
             .listStyle(.grouped)
         }
-    }
+    }    
 }
 
 #Preview {
