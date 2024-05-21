@@ -28,8 +28,7 @@ extension DiscoverView {
             case .uninitialized:
                 EmptyView()
             case .loaded:
-//                loadedView
-                alternateLoading
+                loadedView
             case .empty:
                 MessageView(message: "Nothing to discover.")
             case .error:
@@ -38,30 +37,30 @@ extension DiscoverView {
         }
     }
     
-    var loadedView: some View {
-        List {
-            Section("\(viewModel.totalResults) results") {
-                ForEach(viewModel.sections, id: \.self) { section in
-                    NavigationLink {
-                        DiscoverListView(section: section)
-                    } label: {
-                        Text(section.segment?.name ?? "")
-                            .foregroundStyle(.white)
-                    }
-                }
-            }
-        }
-        .listStyle(.grouped)
-    }
+//    var loadedView: some View {
+//        List {
+//            Section("\(viewModel.totalResults) results") {
+//                ForEach(viewModel.sections, id: \.self) { section in
+//                    NavigationLink {
+//                        DiscoverListView(section: section)
+//                    } label: {
+//                        Text(section.segment?.name ?? "")
+//                            .foregroundStyle(.white)
+//                    }
+//                }
+//            }
+//        }
+//        .listStyle(.grouped)
+//    }
     
-    var alternateLoading: some View {
+    var loadedView: some View {
         ScrollView {
             LazyVStack(alignment: .leading, pinnedViews: .sectionHeaders) {
                 ForEach(viewModel.sections, id: \.self) { section in
                     Section {
                         ForEach(section.segment?.embedded?.genres ?? [], id: \.self) { genre in
                             NavigationLink {
-                                
+                                DiscoverListView(genre: genre)
                             } label: {
                                 GenreView(genre: genre)
                             }

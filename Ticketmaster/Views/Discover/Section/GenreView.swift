@@ -11,21 +11,24 @@ struct GenreView: View {
     let genre: TMGenre
     
     var body: some View {
-        HStack {
-            VStack(alignment: .leading) {
+        VStack(alignment: .leading) {
+            HStack {
                 Text(genre.name ?? "")
-                    .font(.headline.bold())
+                    .font(.subheadline)
                     .lineLimit(1)
                     .foregroundStyle(.white)
                 
-                Text(genre.ID)
-                    .font(.caption2)
+                Spacer()
+                
+                Image(systemName: "chevron.right")
+                    .font(.subheadline)
                     .foregroundStyle(.gray)
-                    .frame(maxWidth: .infinity, alignment: .leading)
             }
+            Divider()
+                .foregroundStyle(.gray)
         }
         .padding(.horizontal)
-        .frame(height: 37)
+        .frame(height: 35)
         .frame(maxWidth: .infinity, alignment: .leading)
         .clipShape(RoundedRectangle(cornerRadius: 4))
     }

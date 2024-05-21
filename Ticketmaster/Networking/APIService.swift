@@ -18,7 +18,6 @@ final class APIService {
         page: Int,
         countryCode: String?,
         sort: String = TMEventSortingOption.relevance.rawValue,
-        segmentID: String?,
         genreID: String?,
         search: String?
     ) async throws -> TMEventsContainer {
@@ -27,7 +26,6 @@ final class APIService {
                 page: page,
                 countryCode: countryCode,
                 sortOption: sort,
-                segmentID: segmentID,
                 genreID: genreID,
                 search: search
             ),

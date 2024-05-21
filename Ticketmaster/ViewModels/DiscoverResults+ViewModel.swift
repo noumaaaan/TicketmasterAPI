@@ -17,8 +17,6 @@ final class DiscoverResultsViewModel: ObservableObject {
     @Published var loadingState: LoadingState = .uninitialized
     @Published var totalResults: Int = 0
     
-//    @Published var selectedSegmentID: String?
-    @Published var selectedSection: TMSection?
     @Published var selectedGenre: TMGenre?
     
     @Published var error: Error?
@@ -26,9 +24,9 @@ final class DiscoverResultsViewModel: ObservableObject {
     var pageNumber: Int = 0
     var maxPages: Int = 0
     
-    func setSelected(section: TMSection) {
-        if section.segment?.ID != selectedSection?.segment?.ID {
-            selectedSection = section
+    func setSelected(genre: TMGenre) {
+        if genre != selectedGenre {
+            selectedGenre = genre
             fetchEvents()
         }
     }
@@ -40,8 +38,7 @@ final class DiscoverResultsViewModel: ObservableObject {
                     page: pageNumber,
                     countryCode: countryCode == .worlwide ? nil : countryCode.rawValue,
                     sort: sortOption.rawValue,
-                    segmentID: selectedSection?.segment?.ID,
-                    genreID: nil,
+                    genreID: selectedGenre?.ID,
                     search: nil
                 )
                 if let embedded = result.embedded {

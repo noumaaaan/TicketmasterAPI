@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct DiscoverListView: View {
-    let section: TMSection
+    let genre: TMGenre
     @StateObject var viewModel = DiscoverResultsViewModel()
     
     var body: some View {
         VStack(spacing: .zero) {
             contentView
         }
-        .navigationTitle(section.segment?.name ?? "")
+        .navigationTitle(genre.name ?? "")
         .toolbarTitleDisplayMode(.inlineLarge)
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
@@ -33,7 +33,7 @@ struct DiscoverListView: View {
 //            DiscoverFilterView(viewModel: viewModel)
         }
         .task {
-            viewModel.setSelected(section: section)
+            viewModel.setSelected(genre: genre)
         }
     }
 }
@@ -78,5 +78,5 @@ extension DiscoverListView {
 }
 
 #Preview {
-    DiscoverListView(section: MockData().testSection)
+    DiscoverListView(genre: MockData().testGenre)
 }

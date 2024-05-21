@@ -33,14 +33,14 @@ struct DiscoverFilterView: View {
             )
             .padding(.bottom)
             
-            GenreDropdownView(
-                sectionTitle: "Genre",
-                placeholder: "Select genre",
-                canDeselect: true,
-                section: viewModel.selectedSection,
-                selectedGenre: $selectedGenre
-            )
-            .padding(.bottom)
+//            GenreDropdownView(
+//                sectionTitle: "Genre",
+//                placeholder: "Select genre",
+//                canDeselect: true,
+//                section: viewModel.selectedSection,
+//                selectedGenre: $selectedGenre
+//            )
+//            .padding(.bottom)
             
 //            DropdownView(
 //                sectionTitle: "Sort",

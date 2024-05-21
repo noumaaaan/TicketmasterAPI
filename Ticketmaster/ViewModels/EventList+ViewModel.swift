@@ -36,7 +36,6 @@ final class EventListViewModel: ObservableObject {
                     page: pageNumber,
                     countryCode: countryCode == .worlwide ? nil : countryCode.rawValue,
                     sort: sortOption.rawValue,
-                    segmentID: nil,
                     genreID: nil, 
                     search: searchTerm.isEmpty ? nil : searchTerm
                 )
