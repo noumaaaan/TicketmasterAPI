@@ -15,7 +15,6 @@ struct EventDetailView: View {
             VStack(alignment: .leading, spacing: 20) {
                 ImageView(url: event.images?.first?.url, width: 300, height: 200)
                     .frame(maxWidth: .infinity, alignment: .center)
-                
                 detailsSection
                 venueInformation
                 attractionInformation
@@ -31,6 +30,19 @@ struct EventDetailView: View {
             .padding()
         }
         .navigationTitle(event.name ?? "")
+        .background(
+            LinearGradient(
+                gradient: Gradient(colors: GlobalConstants.Colors.redToBlue),
+                startPoint: .leading,
+                endPoint: .trailing
+            )
+        )
+        .toolbarBackground(
+            LinearGradient(
+                gradient: Gradient(colors: GlobalConstants.Colors.redToBlue),
+                startPoint: .leading,
+                endPoint: .trailing)
+        )
     }
 }
 
@@ -45,6 +57,7 @@ extension EventDetailView {
                     UIApplication.shared.open(actual)
                 } label: {
                     Text("Find tickets")
+                        .foregroundStyle(.yellow)
                 }
             }
         }
@@ -160,6 +173,7 @@ extension EventDetailView {
                             UIApplication.shared.open(actual)
                         } label: {
                             Text(url)
+                                .foregroundStyle(.yellow)
                                 .truncationMode(.tail)
                                 .lineLimit(1)
                         }
@@ -214,8 +228,6 @@ extension EventDetailView {
             }
         }
     }
-    
-    /// TODO: Embedded attracion.
 }
 
 #Preview {

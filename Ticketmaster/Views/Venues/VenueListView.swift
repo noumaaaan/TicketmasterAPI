@@ -16,6 +16,19 @@ struct VenueListView: View {
                 VStack(spacing: .zero) {
                     contentView
                 }
+                .background(
+                    LinearGradient(
+                        gradient: Gradient(colors: GlobalConstants.Colors.darkishBlue),
+                        startPoint: .leading,
+                        endPoint: .trailing
+                    )
+                )
+                .toolbarBackground(
+                    LinearGradient(
+                        gradient: Gradient(colors: GlobalConstants.Colors.darkishBlue),
+                        startPoint: .leading,
+                        endPoint: .trailing)
+                )
                 .navigationTitle("Venues")
                 .toolbarTitleDisplayMode(.inlineLarge)
                 .toolbar {
@@ -95,10 +108,20 @@ extension VenueListView {
                                 }
                             }
                     }
+                    .listRowBackground(backgroundGradient)
                 }
             }
+            .foregroundStyle(.yellow)
         }
+        .scrollContentBackground(.hidden)
         .listStyle(.grouped)
+    }
+    
+    var backgroundGradient: some View {
+        LinearGradient(
+            gradient: Gradient(colors: GlobalConstants.Colors.darkishBlue),
+            startPoint: .leading,
+            endPoint: .trailing)
     }
     
     var popoverView: some View {

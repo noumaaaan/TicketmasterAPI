@@ -16,6 +16,7 @@ struct AttractionView: View {
             
             VStack(alignment: .leading) {
                 Text(attraction.name ?? "")
+                    .foregroundStyle(.white)
                     .font(.headline.bold())
                     .lineLimit(2)
                 
@@ -23,7 +24,7 @@ struct AttractionView: View {
                     Text(aliases.joined(separator: ", "))
                         .font(.caption)
                         .lineLimit(2)
-                        .foregroundStyle(.gray)
+                        .foregroundStyle(.yellow)
                         .frame(maxWidth: .infinity, alignment: .leading)
                 }
             }

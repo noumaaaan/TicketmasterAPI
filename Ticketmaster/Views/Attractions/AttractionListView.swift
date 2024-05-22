@@ -15,6 +15,19 @@ struct AttractionListView: View {
             VStack(spacing: .zero) {
                 contentView
             }
+            .background(
+                LinearGradient(
+                    gradient: Gradient(colors: GlobalConstants.Colors.purpleToBlue),
+                    startPoint: .leading,
+                    endPoint: .trailing
+                )
+            )
+            .toolbarBackground(
+                LinearGradient(
+                    gradient: Gradient(colors: GlobalConstants.Colors.purpleToBlue),
+                    startPoint: .leading,
+                    endPoint: .trailing)
+            )
             .navigationTitle("Attractions")
             .toolbarTitleDisplayMode(.inlineLarge)
             .toolbar {
@@ -69,10 +82,20 @@ extension AttractionListView {
                                 }
                             }
                     }
+                    .listRowBackground(backgroundGradient)
                 }
             }
+            .foregroundStyle(.yellow)
         }
+        .scrollContentBackground(.hidden)
         .listStyle(.grouped)
+    }
+    
+    var backgroundGradient: some View {
+        LinearGradient(
+            gradient: Gradient(colors: GlobalConstants.Colors.purpleToBlue),
+            startPoint: .leading,
+            endPoint: .trailing)
     }
     
     var sortingMenu: some View {
