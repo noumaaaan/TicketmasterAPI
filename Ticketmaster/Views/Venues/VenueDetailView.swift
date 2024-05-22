@@ -23,6 +23,19 @@ struct VenueDetailView: View {
             .padding()
         }
         .navigationTitle(venue.name ?? "")
+        .background(
+            LinearGradient(
+                gradient: Gradient(colors: GlobalConstants.Colors.darkishBlue),
+                startPoint: .leading,
+                endPoint: .trailing
+            )
+        )
+        .toolbarBackground(
+            LinearGradient(
+                gradient: Gradient(colors: GlobalConstants.Colors.darkishBlue),
+                startPoint: .leading,
+                endPoint: .trailing)
+        )
     }
 }
 

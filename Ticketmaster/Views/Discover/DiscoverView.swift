@@ -17,6 +17,19 @@ struct DiscoverView: View {
             }
             .navigationTitle("Discover")
             .toolbarTitleDisplayMode(.inlineLarge)
+            .background(
+                LinearGradient(
+                    gradient: Gradient(colors: GlobalConstants.Colors.redToBlue),
+                    startPoint: .leading,
+                    endPoint: .trailing
+                )
+            )
+            .toolbarBackground(
+                LinearGradient(
+                    gradient: Gradient(colors: GlobalConstants.Colors.redToBlue),
+                    startPoint: .leading,
+                    endPoint: .trailing)
+            )
         }
     }
 }

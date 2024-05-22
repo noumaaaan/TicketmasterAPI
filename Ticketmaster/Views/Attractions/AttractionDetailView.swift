@@ -23,6 +23,19 @@ struct AttractionDetailView: View {
             .padding()
         }
         .navigationTitle(attraction.name ?? "")
+        .background(
+            LinearGradient(
+                gradient: Gradient(colors: GlobalConstants.Colors.purpleToBlue),
+                startPoint: .leading,
+                endPoint: .trailing
+            )
+        )
+        .toolbarBackground(
+            LinearGradient(
+                gradient: Gradient(colors: GlobalConstants.Colors.purpleToBlue),
+                startPoint: .leading,
+                endPoint: .trailing)
+        )
     }
 }
 

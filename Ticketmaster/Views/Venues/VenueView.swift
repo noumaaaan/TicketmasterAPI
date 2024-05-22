@@ -16,6 +16,7 @@ struct VenueView: View {
             
             VStack(alignment: .leading) {
                 Text(venue.name ?? "")
+                    .foregroundStyle(.white)
                     .font(.subheadline.bold())
                     .lineLimit(2)
                 
@@ -25,7 +26,7 @@ struct VenueView: View {
                 }
                 .font(.caption)
                 .lineLimit(2)
-                .foregroundStyle(.gray)
+                .foregroundStyle(.yellow)
                 .frame(maxWidth: .infinity, alignment: .leading)
             }
         }
