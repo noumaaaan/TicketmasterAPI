@@ -50,6 +50,7 @@
 		8CEB8B642BFD216900547E66 /* GlobalConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CEB8B632BFD216900547E66 /* GlobalConstants.swift */; };
 		8CEB8B662BFE865D00547E66 /* PaddedDisclosureGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CEB8B652BFE865D00547E66 /* PaddedDisclosureGroup.swift */; };
 		8CEB8B682BFE898E00547E66 /* APODView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CEB8B672BFE898E00547E66 /* APODView.swift */; };
+		8CEB8B6A2BFEA7BE00547E66 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CEB8B692BFEA7BE00547E66 /* LaunchScreen.storyboard */; };
 		8CF802632BE86F2600EC8586 /* TicketmasterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF802622BE86F2600EC8586 /* TicketmasterApp.swift */; };
 		8CF802652BE86F2600EC8586 /* EventListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF802642BE86F2600EC8586 /* EventListView.swift */; };
 		8CF802672BE86F2900EC8586 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CF802662BE86F2900EC8586 /* Assets.xcassets */; };
@@ -139,6 +140,7 @@
 		8CEB8B632BFD216900547E66 /* GlobalConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalConstants.swift; sourceTree = "<group>"; };
 		8CEB8B652BFE865D00547E66 /* PaddedDisclosureGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddedDisclosureGroup.swift; sourceTree = "<group>"; };
 		8CEB8B672BFE898E00547E66 /* APODView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APODView.swift; sourceTree = "<group>"; };
+		8CEB8B692BFEA7BE00547E66 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8CF8025F2BE86F2600EC8586 /* Ticketmaster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ticketmaster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CF802622BE86F2600EC8586 /* TicketmasterApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketmasterApp.swift; sourceTree = "<group>"; };
 		8CF802642BE86F2600EC8586 /* EventListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListView.swift; sourceTree = "<group>"; };
@@ -328,6 +330,7 @@
 			isa = PBXGroup;
 			children = (
 				8CF802622BE86F2600EC8586 /* TicketmasterApp.swift */,
+				8CEB8B692BFEA7BE00547E66 /* LaunchScreen.storyboard */,
 				8CEB8B052BEDEDAA00547E66 /* ViewModels */,
 				8CF802D92BEBD89D00EC8586 /* Shared */,
 				8CF8029C2BE88A9400EC8586 /* Views */,
@@ -601,6 +604,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8CEB8B6A2BFEA7BE00547E66 /* LaunchScreen.storyboard in Resources */,
 				8CF8026A2BE86F2900EC8586 /* Preview Assets.xcassets in Resources */,
 				8CF802672BE86F2900EC8586 /* Assets.xcassets in Resources */,
 			);
@@ -863,6 +867,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
 				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDarkContent;
@@ -899,6 +904,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
 				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDarkContent;
