@@ -17,6 +17,19 @@ struct DiscoverListView: View {
         }
         .navigationTitle(genre.name ?? "")
         .toolbarTitleDisplayMode(.inlineLarge)
+        .background(
+            LinearGradient(
+                gradient: Gradient(colors: GlobalConstants.Colors.discoverColor),
+                startPoint: .leading,
+                endPoint: .trailing
+            )
+        )
+        .toolbarBackground(
+            LinearGradient(
+                gradient: Gradient(colors: GlobalConstants.Colors.discoverColor),
+                startPoint: .leading,
+                endPoint: .trailing)
+        )
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
                 sortingMenu
@@ -31,7 +44,7 @@ struct DiscoverListView: View {
             }
         }
         .sheet(isPresented: $viewModel.isSheetPresented) {
-            CountrySelectionView(selectedCountry: viewModel.countryCode) { code in
+            CountrySelectionView(selectedCountry: viewModel.countryCode, colors: GlobalConstants.Colors.discoverColor) { code in
                 viewModel.changeCountryCode(code: code)
             }
             .presentationDetents([.medium])
@@ -64,6 +77,13 @@ extension DiscoverListView {
         }
     }
     
+    var backgroundGradient: some View {
+        LinearGradient(
+            gradient: Gradient(colors: GlobalConstants.Colors.discoverColor),
+            startPoint: .leading,
+            endPoint: .trailing)
+    }
+    
     var loadedView: some View {
         VStack(spacing: .zero) {
             List {
@@ -79,12 +99,14 @@ extension DiscoverListView {
                                     }
                                 }
                         }
+                        .listRowBackground(backgroundGradient)
                     }
                 }
             }
+            .scrollContentBackground(.hidden)
             .listStyle(.grouped)
         }
-    }    
+    }
 }
 
 #Preview {

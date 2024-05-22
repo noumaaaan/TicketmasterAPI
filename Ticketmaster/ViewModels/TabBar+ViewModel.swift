@@ -9,7 +9,7 @@ import Foundation
 
 final class TabBarViewModel: ObservableObject {
     
-    @Published var selectedTab: TabOption = .events
+    @Published var selectedTab: TabOption = .discover
     
     func setSelected(tab: TabOption) {
         self.selectedTab = tab

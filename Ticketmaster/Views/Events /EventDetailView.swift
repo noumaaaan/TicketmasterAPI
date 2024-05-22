@@ -101,7 +101,6 @@ extension EventDetailView {
                     HStack {
                         if let segment = classification.segment?.name { RoundedTextView(text: segment )}
                         if let genre = classification.genre?.name { RoundedTextView(text: genre )}
-                        if let subGenre = classification.subGenre?.name { RoundedTextView(text: subGenre )}
                     }
                     .frame(maxWidth: .infinity, alignment: .center)
                 }

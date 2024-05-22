@@ -13,8 +13,11 @@ struct MessageView: View {
     var body: some View {
         
         VStack {
+            Spacer()
             Text(message)
                 .font(.subheadline.bold())
+                .frame(maxWidth: .infinity)
+            Spacer()
         }
     }
 }

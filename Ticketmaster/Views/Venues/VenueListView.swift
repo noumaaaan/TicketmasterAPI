@@ -45,7 +45,7 @@ struct VenueListView: View {
                     }
                 }
                 .sheet(isPresented: $viewModel.isSheetPresented) {
-                    CountrySelectionView(selectedCountry: viewModel.countryCode) { code in
+                    CountrySelectionView(selectedCountry: viewModel.countryCode, colors: GlobalConstants.Colors.venuesColor) { code in
                         viewModel.changeCountryCode(code: code)
                     }
                     .presentationDetents([.medium])

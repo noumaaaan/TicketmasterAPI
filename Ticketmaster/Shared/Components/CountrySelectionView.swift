@@ -15,6 +15,7 @@ struct CountrySelectionView: View {
         GridItem(.flexible())
     ]
     var selectedCountry: TMCountryCode
+    let colors: [Color]
     let action: (TMCountryCode) -> Void
     
     var body: some View {
@@ -42,7 +43,7 @@ struct CountrySelectionView: View {
                             .overlay(
                                 code == selectedCountry
                                 ? RoundedRectangle(cornerRadius: 5)
-                                    .stroke(.blue3, lineWidth: 2.5)
+                                    .stroke(.yellow, lineWidth: 2.5)
                                 : nil
                             )
                             .padding(.horizontal)
@@ -57,11 +58,18 @@ struct CountrySelectionView: View {
                 }
             }
         }
-        .background(.thinMaterial)
+        .background(
+            LinearGradient(
+                colors: colors,
+                startPoint: .leading,
+                endPoint: .trailing
+            )
+            .opacity(0.19)
+        )
     }
 }
 
 #Preview {
-    CountrySelectionView(selectedCountry: .argentina) { _ in
+    CountrySelectionView(selectedCountry: .argentina, colors: [.blue, .red]) { _ in
     }
 }

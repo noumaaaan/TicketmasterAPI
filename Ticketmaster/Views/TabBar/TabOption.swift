@@ -35,13 +35,13 @@ enum TabOption: String, CaseIterable {
     var color: Color {
         switch self {
         case .events:
-            return Color.init(hex: "49FF00")
+            return Color.init(hex: "387ADF")
         case .attractions:
-            return Color.init(hex: "2FA4FF")
+            return Color.init(hex: "FB6D48")
         case .discover:
             return Color.init(hex: "FF204E")
         case .venues:
-            return Color.init(hex: "FFE400")
+            return Color.init(hex: "83C0C1")
         case .settings:
             return Color.init(hex: "F72798")
         }
