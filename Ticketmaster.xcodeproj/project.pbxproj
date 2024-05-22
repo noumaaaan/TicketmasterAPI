@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8CE0FFF12BF659E700391EF5 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE0FFF02BF659E700391EF5 /* Configuration.swift */; };
+		8CE0FFF12BF659E700391EF5 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE0FFF02BF659E700391EF5 /* Config.swift */; };
 		8CEB8AFE2BEDC42900547E66 /* CountrySelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CEB8AFD2BEDC42900547E66 /* CountrySelectionView.swift */; };
 		8CEB8B022BEDE32D00547E66 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CEB8B012BEDE32D00547E66 /* MessageView.swift */; };
 		8CEB8B042BEDE73F00547E66 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CEB8B032BEDE73F00547E66 /* Color+Extension.swift */; };
@@ -94,7 +94,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		8CE0FFF02BF659E700391EF5 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		8CE0FFF02BF659E700391EF5 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		8CEB8AFD2BEDC42900547E66 /* CountrySelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountrySelectionView.swift; sourceTree = "<group>"; };
 		8CEB8B012BEDE32D00547E66 /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
 		8CEB8B032BEDE73F00547E66 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
@@ -371,7 +371,7 @@
 			isa = PBXGroup;
 			children = (
 				8CF8028E2BE86F5500EC8586 /* Endpoint.swift */,
-				8CE0FFF02BF659E700391EF5 /* Configuration.swift */,
+				8CE0FFF02BF659E700391EF5 /* Config.swift */,
 				8CF802B72BE94ABC00EC8586 /* MockData.swift */,
 				8CEB8B472BF5E02400547E66 /* LoadingState.swift */,
 				8CEB8B422BF5D16700547E66 /* Save.swift */,
@@ -646,7 +646,7 @@
 				8CEB8B1B2BF1843200547E66 /* AttractionDetailView.swift in Sources */,
 				8CEB8B122BF17CD300547E66 /* TMSortingOption.swift in Sources */,
 				8CF802C72BEAF38E00EC8586 /* TabOption.swift in Sources */,
-				8CE0FFF12BF659E700391EF5 /* Configuration.swift in Sources */,
+				8CE0FFF12BF659E700391EF5 /* Config.swift in Sources */,
 				8CF802DC2BEBD8B400EC8586 /* ImageView.swift in Sources */,
 				8CF802C52BEAED9B00EC8586 /* TabBarView.swift in Sources */,
 				8CEB8B352BF1B22400547E66 /* Discover+ViewModel.swift in Sources */,

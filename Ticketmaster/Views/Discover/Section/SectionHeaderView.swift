@@ -23,7 +23,6 @@ struct SectionHeaderView: View {
         .frame(height: 50)
         .frame(maxWidth: .infinity, alignment: .leading)
         .background(Color.init(hex: "00224D"))
-//        .clipShape(RoundedRectangle(cornerRadius: 4))
     }
 }
 

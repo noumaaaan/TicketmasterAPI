@@ -56,7 +56,7 @@ extension Endpoint {
         
         switch self {
         case .fetchEvents(let page, let countryCode, let sortingOption, let genreID, let search):
-            queryItems.append(.init(name: "apikey", value: Configuration().APIKEY))
+            queryItems.append(.init(name: "apikey", value: Config().APIKEY))
             queryItems.append(.init(name: "page", value: String(page)))
             queryItems.append(.init(name: "sort", value: sortingOption))
             queryItems.append(.init(name: "size", value: String(10)))
@@ -65,17 +65,17 @@ extension Endpoint {
             if let search = search { queryItems.append(.init(name: "keyword", value: search)) }
             
         case .fetchAttractions(let page, let sortingOption, let genreID, let search):
-            queryItems.append(.init(name: "apikey", value: Configuration().APIKEY))
+            queryItems.append(.init(name: "apikey", value: Config().APIKEY))
             queryItems.append(.init(name: "page", value: String(page)))
             queryItems.append(.init(name: "sort", value: sortingOption))
             if let genreID = genreID { queryItems.append(.init(name: "genreId", value: genreID)) }
             if let search = search { queryItems.append(.init(name: "keyword", value: search)) }
             
         case .fetchClassifications:
-            queryItems.append(.init(name: "apikey", value: Configuration().APIKEY))
+            queryItems.append(.init(name: "apikey", value: Config().APIKEY))
             
         case .fetchVenues(let page, let countryCode, let sortingOption, let genreID, let search):
-            queryItems.append(.init(name: "apikey", value: Configuration().APIKEY))
+            queryItems.append(.init(name: "apikey", value: Config().APIKEY))
             queryItems.append(.init(name: "countryCode", value: countryCode))
             queryItems.append(.init(name: "sort", value: sortingOption))
             queryItems.append(.init(name: "page", value: String(page)))
@@ -83,7 +83,7 @@ extension Endpoint {
             if let search = search { queryItems.append(.init(name: "keyword", value: search)) }
             
         case .fetchPicOfTheDay:
-            queryItems.append(.init(name: "api_key", value: Configuration().NASAKEY))
+            queryItems.append(.init(name: "api_key", value: Config().NASAKEY))
             queryItems.append(.init(name: "thumbs", value: "true"))
             
         }

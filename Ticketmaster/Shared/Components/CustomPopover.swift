@@ -49,6 +49,7 @@ struct CustomPopover: View {
         .padding()
         .background(.thinMaterial)
         .clipShape(RoundedRectangle(cornerRadius: 15))
+        .padding()
     }
 }
 

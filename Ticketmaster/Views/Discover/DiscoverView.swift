@@ -41,7 +41,7 @@ extension DiscoverView {
             case .uninitialized:
                 EmptyView()
             case .loaded:
-                loadedView
+                alternate
             case .empty:
                 MessageView(message: "Nothing to discover.")
             case .error:
@@ -68,6 +68,60 @@ extension DiscoverView {
                 }
             }
             .padding(.vertical)
+        }
+    }
+    
+    var alternate: some View {
+        ScrollView {
+                ForEach(viewModel.sections, id:\.self) { section in
+                    DisclosureGroup(
+                        content: {
+                            
+                            VStack(spacing: .zero) {
+                                ForEach(section.segment?.embedded?.genres ?? [], id: \.self) { genre in
+                                        NavigationLink {
+                                            DiscoverListView(genre: genre)
+                                        } label: {
+                                            GenreView(genre: genre)
+                                        }
+                                }
+                            }
+                            .padding(.vertical)
+                        },
+                        label: {
+                            SectionHeaderView(section: section)
+                        }
+                    )
+                    .padding(.vertical, 2)
+                    .disclosureGroupStyle(PaddedDisclosureGroup())
+                }
+            }
+            .padding(.vertical)
+    }
+}
+
+struct PaddedDisclosureGroup: DisclosureGroupStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        VStack {
+            Button {
+                withAnimation {
+                    configuration.isExpanded.toggle()
+                }
+            } label: {
+                HStack {
+                    configuration.label
+                    Spacer()
+                    Image(systemName: configuration.isExpanded ? "chevron.down" : "chevron.forward")
+                        .contentTransition(.symbolEffect)
+                        .padding(.trailing)
+                }
+            }
+            .background(Color.init(hex: "00224D"))
+            
+            if configuration.isExpanded {
+                configuration.content
+                    .transition(.asymmetric(insertion: .push(from: .bottom), removal: .identity))
+            }
         }
     }
 }
