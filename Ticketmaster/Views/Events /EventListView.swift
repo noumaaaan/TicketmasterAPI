@@ -16,32 +16,19 @@ struct EventListView: View {
                 VStack(spacing: .zero) {
                     contentView
                 }
-                .background(LinearGradient(
-                    gradient: Gradient(
-                        colors: [
-                            .init(hex: "FF204E"),
-                            .init(hex: "A0153E"),
-                            .init(hex: "5D0E41"),
-                            .init(hex: "00224D")
-                        ]
-                    ),
-                    startPoint: .leading,
-                    endPoint: .trailing
-                ))
-                
-                
-                .toolbarBackground(LinearGradient(
-                    gradient: Gradient(
-                        colors: [
-                            .init(hex: "FF204E"),
-                            .init(hex: "A0153E"),
-                            .init(hex: "5D0E41"),
-                            .init(hex: "00224D")
-                        ]
-                    ),
-                    startPoint: .leading,
-                    endPoint: .trailing
-                ), for: .navigationBar)
+                .background(
+                    LinearGradient(
+                        gradient: Gradient(colors: GlobalConstants.Colors.purpleToBlue),
+                        startPoint: .leading,
+                        endPoint: .trailing
+                    )
+                )
+                .toolbarBackground(
+                    LinearGradient(
+                        gradient: Gradient(colors: GlobalConstants.Colors.purpleToBlue),
+                        startPoint: .leading,
+                        endPoint: .trailing)
+                )
                 .navigationTitle("Events")
                 .toolbarTitleDisplayMode(.inlineLarge)
                 .toolbar {
@@ -101,6 +88,13 @@ extension EventListView {
         }
     }
     
+    var backgroundGradient: some View {
+        LinearGradient(
+            gradient: Gradient(colors: GlobalConstants.Colors.purpleToBlue),
+            startPoint: .leading,
+            endPoint: .trailing)
+    }
+    
     var sortingMenu: some View {
         EventSortMenu(selected: viewModel.sortOption) { sort in
             viewModel.getSorted(option: sort)
@@ -122,22 +116,10 @@ extension EventListView {
                                     }
                                 }
                         }
-                        .listRowBackground(
-                            LinearGradient(
-                                gradient: Gradient(
-                                    colors: [
-                                        .init(hex: "FF204E"),
-                                        .init(hex: "A0153E"),
-                                        .init(hex: "5D0E41"),
-                                        .init(hex: "00224D")
-                                    ]
-                                ),
-                                startPoint: .leading,
-                                endPoint: .trailing
-                            )
-                        )
+                        .listRowBackground(backgroundGradient)
                     }
                 }
+                .foregroundStyle(.yellow)
             }
             .scrollContentBackground(.hidden)
             .listStyle(.grouped)

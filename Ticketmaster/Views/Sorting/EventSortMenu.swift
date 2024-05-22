@@ -30,6 +30,7 @@ struct EventSortMenu: View {
              Image("sort")
                  .resizable()
                  .frame(width: 35, height: 35)
+                 .foregroundStyle(.yellow)
         }
     }
 }

@@ -19,18 +19,22 @@ struct DiscoverListView: View {
         .toolbarTitleDisplayMode(.inlineLarge)
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
+                sortingMenu
+            }
+            ToolbarItem(placement: .topBarTrailing) {
                 Button {
                     viewModel.isSheetPresented = true
                 } label: {
-                    Image("filter")
-                        .resizable()
-                        .frame(width: 35, height: 35)
+                    Text(viewModel.countryCode.flag)
+                        .font(.largeTitle)
                 }
             }
         }
         .sheet(isPresented: $viewModel.isSheetPresented) {
-            DiscoverFilterView(viewModel: viewModel, selectedCountry: viewModel.countryCode)
-//            DiscoverFilterView(viewModel: viewModel)
+            CountrySelectionView(selectedCountry: viewModel.countryCode) { code in
+                viewModel.changeCountryCode(code: code)
+            }
+            .presentationDetents([.medium])
         }
         .task {
             viewModel.setSelected(genre: genre)
@@ -47,10 +51,16 @@ extension DiscoverListView {
             case .loaded:
                 loadedView
             case .empty:
-                MessageView(message: "No events found in \(viewModel.countryCode.label).")
+                MessageView(message: viewModel.errorDescription)
             case .error:
                 MessageView(message: "Error.")
             }
+        }
+    }
+    
+    var sortingMenu: some View {
+        EventSortMenu(selected: viewModel.sortOption) { sort in
+            viewModel.getSorted(option: sort)
         }
     }
     

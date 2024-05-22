@@ -37,22 +37,6 @@ extension DiscoverView {
         }
     }
     
-//    var loadedView: some View {
-//        List {
-//            Section("\(viewModel.totalResults) results") {
-//                ForEach(viewModel.sections, id: \.self) { section in
-//                    NavigationLink {
-//                        DiscoverListView(section: section)
-//                    } label: {
-//                        Text(section.segment?.name ?? "")
-//                            .foregroundStyle(.white)
-//                    }
-//                }
-//            }
-//        }
-//        .listStyle(.grouped)
-//    }
-    
     var loadedView: some View {
         ScrollView {
             LazyVStack(alignment: .leading, pinnedViews: .sectionHeaders) {

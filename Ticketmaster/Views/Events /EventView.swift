@@ -16,17 +16,18 @@ struct EventView: View {
             
             VStack(alignment: .leading) {
                 Text(event.name ?? "")
+                    .foregroundStyle(.white)
                     .font(.subheadline.bold())
                     .lineLimit(2)
                 
                 Group {
                     if let start = event.dates?.start?.dateTime {
                         Text(formattedDate(date: start))
-                            .foregroundStyle(.gray)
+                            .foregroundStyle(.yellow)
                     }
                     if let venue = event.embedded?.venues?.first?.name {
                         Text(venue)
-                            .foregroundStyle(.blue3)
+                            .foregroundStyle(.pink)
                     }
                 }
                 .font(.caption)

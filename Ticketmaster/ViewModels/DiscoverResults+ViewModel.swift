@@ -21,6 +21,14 @@ final class DiscoverResultsViewModel: ObservableObject {
     
     @Published var error: Error?
     
+    var errorDescription: String {
+        if let name = selectedGenre?.name {
+            return "No events found for \(name) in \(countryCode.label)."
+        } else {
+            return "No events found in \(countryCode.label)"
+        }
+    }
+    
     var pageNumber: Int = 0
     var maxPages: Int = 0
     
