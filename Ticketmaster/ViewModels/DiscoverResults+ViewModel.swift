@@ -23,7 +23,7 @@ final class DiscoverResultsViewModel: ObservableObject {
     
     var errorDescription: String {
         if let name = selectedGenre?.name {
-            return "No events found for \(name) in \(countryCode.label)."
+            return "No \(name) events found in \(countryCode.label)."
         } else {
             return "No events found in \(countryCode.label)"
         }
