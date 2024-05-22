@@ -13,7 +13,7 @@ enum TabOption: String, CaseIterable {
     case attractions
     case discover
     case venues
-    case settings
+    case about
     
     var image: String {
         switch self {
@@ -21,7 +21,7 @@ enum TabOption: String, CaseIterable {
         case .attractions: "person.3"
         case .discover: "globe.europe.africa"
         case .venues: "building.columns"
-        case .settings: "gearshape"
+        case .about: "person.circle"
         }
     }
     
@@ -42,7 +42,7 @@ enum TabOption: String, CaseIterable {
             return Color.init(hex: "FF204E")
         case .venues:
             return Color.init(hex: "83C0C1")
-        case .settings:
+        case .about:
             return Color.init(hex: "F72798")
         }
     }

@@ -24,7 +24,7 @@ struct TabBarView: View {
                             EventListView()
                         case .venues:
                             VenueListView()
-                        case .settings:
+                        case .about:
                             PreferencesListView()
                         }
                     }

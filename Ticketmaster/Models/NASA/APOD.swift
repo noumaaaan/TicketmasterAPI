@@ -8,4 +8,9 @@
 import Foundation
 
 struct APOD: Codable, Hashable {
+    let copyright: String
+    let date: String
+    let explanation: String
+    let title: String
+    let url: String
 }
