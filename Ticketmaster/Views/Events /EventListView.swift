@@ -18,14 +18,14 @@ struct EventListView: View {
                 }
                 .background(
                     LinearGradient(
-                        gradient: Gradient(colors: GlobalConstants.Colors.redToBlue),
+                        gradient: Gradient(colors: GlobalConstants.Colors.eventsColor),
                         startPoint: .leading,
                         endPoint: .trailing
                     )
                 )
                 .toolbarBackground(
                     LinearGradient(
-                        gradient: Gradient(colors: GlobalConstants.Colors.redToBlue),
+                        gradient: Gradient(colors: GlobalConstants.Colors.eventsColor),
                         startPoint: .leading,
                         endPoint: .trailing)
                 )
@@ -90,7 +90,7 @@ extension EventListView {
     
     var backgroundGradient: some View {
         LinearGradient(
-            gradient: Gradient(colors: GlobalConstants.Colors.redToBlue),
+            gradient: Gradient(colors: GlobalConstants.Colors.eventsColor),
             startPoint: .leading,
             endPoint: .trailing)
     }

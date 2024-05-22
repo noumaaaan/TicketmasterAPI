@@ -17,14 +17,14 @@ struct AttractionListView: View {
             }
             .background(
                 LinearGradient(
-                    gradient: Gradient(colors: GlobalConstants.Colors.purpleToBlue),
+                    gradient: Gradient(colors: GlobalConstants.Colors.attractionsColor),
                     startPoint: .leading,
                     endPoint: .trailing
                 )
             )
             .toolbarBackground(
                 LinearGradient(
-                    gradient: Gradient(colors: GlobalConstants.Colors.purpleToBlue),
+                    gradient: Gradient(colors: GlobalConstants.Colors.attractionsColor),
                     startPoint: .leading,
                     endPoint: .trailing)
             )
@@ -93,7 +93,7 @@ extension AttractionListView {
     
     var backgroundGradient: some View {
         LinearGradient(
-            gradient: Gradient(colors: GlobalConstants.Colors.purpleToBlue),
+            gradient: Gradient(colors: GlobalConstants.Colors.attractionsColor),
             startPoint: .leading,
             endPoint: .trailing)
     }

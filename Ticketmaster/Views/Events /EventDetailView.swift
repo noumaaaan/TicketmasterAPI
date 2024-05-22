@@ -32,14 +32,14 @@ struct EventDetailView: View {
         .navigationTitle(event.name ?? "")
         .background(
             LinearGradient(
-                gradient: Gradient(colors: GlobalConstants.Colors.redToBlue),
+                gradient: Gradient(colors: GlobalConstants.Colors.eventsColor),
                 startPoint: .leading,
                 endPoint: .trailing
             )
         )
         .toolbarBackground(
             LinearGradient(
-                gradient: Gradient(colors: GlobalConstants.Colors.redToBlue),
+                gradient: Gradient(colors: GlobalConstants.Colors.eventsColor),
                 startPoint: .leading,
                 endPoint: .trailing)
         )

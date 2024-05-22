@@ -19,14 +19,14 @@ struct DiscoverView: View {
             .toolbarTitleDisplayMode(.inlineLarge)
             .background(
                 LinearGradient(
-                    gradient: Gradient(colors: GlobalConstants.Colors.redToBlue),
+                    gradient: Gradient(colors: GlobalConstants.Colors.discoverColor),
                     startPoint: .leading,
                     endPoint: .trailing
                 )
             )
             .toolbarBackground(
                 LinearGradient(
-                    gradient: Gradient(colors: GlobalConstants.Colors.redToBlue),
+                    gradient: Gradient(colors: GlobalConstants.Colors.discoverColor),
                     startPoint: .leading,
                     endPoint: .trailing)
             )

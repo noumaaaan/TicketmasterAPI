@@ -25,14 +25,14 @@ struct AttractionDetailView: View {
         .navigationTitle(attraction.name ?? "")
         .background(
             LinearGradient(
-                gradient: Gradient(colors: GlobalConstants.Colors.purpleToBlue),
+                gradient: Gradient(colors: GlobalConstants.Colors.attractionsColor),
                 startPoint: .leading,
                 endPoint: .trailing
             )
         )
         .toolbarBackground(
             LinearGradient(
-                gradient: Gradient(colors: GlobalConstants.Colors.purpleToBlue),
+                gradient: Gradient(colors: GlobalConstants.Colors.attractionsColor),
                 startPoint: .leading,
                 endPoint: .trailing)
         )
