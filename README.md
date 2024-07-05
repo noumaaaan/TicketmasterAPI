@@ -33,7 +33,7 @@ class Config {
         <th>Description</th>
     </tr>
     <tr>
-        <td><img src="discover.gif"></td>
+        <td><img src="https://github.com/noumaaaan/TicketmasterAPI/assets/43879032/8eb00d2f-34fa-4303-8c4c-4a6ffb2d9784"></td>
         <td><ul>
             <strong>Events</strong>
             <li>View all events </li>
@@ -44,8 +44,8 @@ class Config {
             <li>See event information and details</li>
         </ul></td>
     </tr>
-        <tr>
-        <td><img src="discover.gif"></td>
+        <tr>          
+        <td><img src="https://github.com/noumaaaan/TicketmasterAPI/assets/43879032/c9ae6f2a-1403-4649-bc77-5a8bd4c2e185"></td>
         <td><ul>
             <strong>Attractions</strong>
             <li>Discover all attractions</li>
@@ -55,7 +55,7 @@ class Config {
         </ul></td>
     </tr>
         <tr>
-        <td><img src="discover.gif"></td>
+        <td><img src="https://github.com/noumaaaan/TicketmasterAPI/assets/43879032/bac6f1c0-75b7-4d0c-a8cc-e20776a64bd6"></td>
         <td><ul>
             <strong>Discover</strong>
             <li>Discover all possible event types </li>
@@ -67,7 +67,7 @@ class Config {
         </ul></td>
     </tr>
         <tr>
-        <td><img src="discover.gif"></td>
+        <td><img src="https://github.com/noumaaaan/TicketmasterAPI/assets/43879032/83ab5c21-d1e9-489d-b1ff-94c518cce2f1"></td>
         <td><ul>
             <strong>Venues</strong>
             <li>Discover all venues </li>
@@ -80,7 +80,8 @@ class Config {
 </table>
 
 ## TODO
-- Unit and UI Testing 
+- Unit and UI Testing
+- Greater error handling
 - Ability to save events/venues/attractions into a 'favourite' section using SwiftData
 - Localise strings
 - Walkthrough screen
