@@ -16,10 +16,11 @@ class Config {
 ```
 
 ## Features
-- Built purely in SwiftUI conforming to MMVVM 
+- Built purely in SwiftUI conforming to MMVVM
+- Navigation stack with paginated response where data is only loaded as needed
 - Seperated logic for the Networking layer, utilising async/await
 - Launchscreen
-- Persisting selected country in UserDefaults
+- Persisting selected country in `UserDefaults`
 - Creation of custom, shared and reusable components
 - Custom tab bar view
 - Minimalist animation where appropriate 
@@ -79,9 +80,24 @@ class Config {
     </tr>
 </table>
 
+<table>
+  <caption>
+    Some more features
+  </caption>
+  <tbody>
+    <tr>
+      <td><img src="https://github.com/noumaaaan/TicketmasterAPI/assets/43879032/efa556b3-1979-4a21-8e30-6d3a8a9fa468"></td>
+      <td><img src="https://github.com/noumaaaan/TicketmasterAPI/assets/43879032/413135d1-bb77-40ec-8f61-2f5cc93a070b"></td>
+      <td><img src="https://github.com/noumaaaan/TicketmasterAPI/assets/43879032/b83f9506-9c49-4a14-93d7-a45558e42c6e"></td>
+    </tr>
+  </tbody>
+</table>
+
+
 ## TODO
 - Unit and UI Testing
 - Greater error handling
 - Ability to save events/venues/attractions into a 'favourite' section using SwiftData
 - Localise strings
 - Walkthrough screen
+- Magic numbers and cleanup
