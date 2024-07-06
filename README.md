@@ -101,3 +101,4 @@ class Config {
 - Localise strings
 - Walkthrough screen
 - Magic numbers and cleanup
+- Setup pipeline and automated testflight deployment
