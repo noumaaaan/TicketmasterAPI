@@ -52,7 +52,7 @@ extension PreferencesListView {
                 .padding()
             
             VStack(alignment: .leading, spacing: 20) {
-                Text("This applicaiton utilises the Ticketmaster API working against many platforms including Ticketmaster, TicketWeb, Universe, FrontGate, Ticketmaster Resale (TMR) and more.")
+                Text("This application utilises the Ticketmaster API working against many platforms including Ticketmaster, TicketWeb, Universe, FrontGate, Ticketmaster Resale (TMR) and more.")
                 
                 if let url = URL(string: "https://developer.ticketmaster.com/products-and-docs/apis/getting-started/") {
                     Button {

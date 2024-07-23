@@ -129,7 +129,7 @@ extension EventListView {
     var popoverView: some View {
         CustomPopover(
             title: "No events found",
-            message: "No events found matching \"\(viewModel.searchTerm)\" in \(viewModel.countryCode.label). Would you like to search worlwide?",
+            message: "No events found matching \"\(viewModel.searchTerm)\" in \(viewModel.countryCode.label). Would you like to search worldwide?",
             buttonTitle: "Search worldwide"
         ) {
             viewModel.searchWorldwide()
